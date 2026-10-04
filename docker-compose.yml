@@ -3,7 +3,7 @@ version: "3.8"
 services:
 
   jupyter:
-    image: jupyter/scipy-notebook
+    image: jupyter/datascience-notebook
     container_name: smarttour-jupyter
     ports:
       - "8888:8888"
