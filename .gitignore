@@ -18,3 +18,11 @@ Thumbs.db
 
 # Herramientas locales
 .playwright-mcp/
+
+# Vídeos y comprimidos de entrega (se entregan por la plataforma del curso)
+*.mp4
+*.mov
+*.mkv
+*.rar
+*.zip
+*.7z
