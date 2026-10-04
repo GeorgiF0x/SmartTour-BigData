@@ -1,0 +1,837 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lab 02 · Conjuntos y relaciones</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Doto:wght@500;800&family=Geist+Mono:wght@400;500&family=Geist:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #040404;
+    --ink-2: #1a1a1a;
+    --paper: #f4f4f4;
+    --line-light: #d8d9d9;
+    --line-dark: #2a2a2a;
+    --grey: #595a5a;
+    --grey-on-dark: #b1b3b3;
+    --red: #d71921;
+
+    --dot: "Doto", monospace;
+    --serif: "Instrument Serif", serif;
+    --sans: "Geist", system-ui, sans-serif;
+    --mono: "Geist Mono", ui-monospace, monospace;
+
+    --gutter: clamp(16px, 4.5vw, 72px);
+    --ease: cubic-bezier(.16, 1, .3, 1);
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body { background: var(--black); color: #fff; font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+  ::selection { background: var(--red); color: #fff; }
+  :focus-visible { outline: 1px solid var(--red); outline-offset: 3px; }
+
+  /* ---------- slide surfaces ---------- */
+  .deck { position: relative; height: 100vh; height: 100dvh; overflow: hidden; }
+  .slide {
+    --fg: #fff; --fg-2: var(--grey-on-dark); --rule: var(--line-dark); --bg: var(--black); --dots: rgba(255,255,255,.16);
+    position: absolute; inset: 0;
+    display: none;
+    padding: 96px var(--gutter) 88px;
+    background-color: var(--bg);
+    background-image: radial-gradient(circle, var(--dots) 1px, transparent 1.4px);
+    background-size: 28px 28px;
+    background-position: center;
+    color: var(--fg);
+  }
+  .slide.light { --fg: var(--black); --fg-2: var(--grey); --rule: var(--line-light); --bg: var(--paper); --dots: rgba(4,4,4,.13); }
+  .slide.active { display: grid; }
+  .slide.active .enter { animation: enter .7s var(--ease) both; }
+  .slide.active .enter:nth-child(2) { animation-delay: .06s; }
+  .slide.active .enter:nth-child(3) { animation-delay: .12s; }
+  @keyframes enter { from { opacity: 0; filter: blur(6px); transform: translateY(10px); } }
+
+  /* ---------- chrome (Nothing-style pill bar) ---------- */
+  .chrome {
+    position: fixed; z-index: 10; top: 16px; left: 50%; transform: translateX(-50%);
+    width: min(600px, calc(100% - 32px)); height: 44px;
+    display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+    padding: 0 16px; border-radius: 6px;
+    background: rgba(216,217,217,.86); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    color: var(--black); font: 500 11px/1 var(--mono); text-transform: uppercase; letter-spacing: .04em;
+  }
+  .chrome .brand { font: 800 17px/1 var(--dot); letter-spacing: .02em; }
+  .chrome .right { justify-self: end; font-variant-numeric: tabular-nums; }
+
+  /* ---------- dot progress (signature) ---------- */
+  .progress {
+    position: fixed; z-index: 10; bottom: 24px; left: var(--gutter); right: var(--gutter);
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    font: 500 11px/1 var(--mono); text-transform: uppercase; letter-spacing: .04em;
+    color: var(--chrome-fg, var(--grey-on-dark)); transition: color .4s;
+  }
+  .dots { display: flex; gap: 10px; }
+  .dots button {
+    width: 18px; height: 18px; padding: 0; border: 0; background: none; cursor: pointer; color: inherit;
+    display: grid; place-items: center;
+  }
+  .dots button::after {
+    content: ""; width: 6px; height: 6px; border-radius: 50%;
+    background: currentColor; opacity: .35; transition: opacity .3s, transform .4s var(--ease), background .3s;
+  }
+  .dots button:hover::after { opacity: .8; }
+  .dots button[aria-current="true"]::after { background: var(--red); opacity: 1; transform: scale(1.5); }
+  .nav-btns { display: flex; gap: 8px; }
+  .nav-btns button {
+    width: 36px; height: 36px; border-radius: 4px; cursor: pointer;
+    border: 1px solid currentColor; background: none; color: inherit;
+    display: grid; place-items: center; transition: background .2s, color .2s;
+  }
+  .nav-btns button:hover { background: var(--red); border-color: var(--red); color: #fff; }
+  .nav-btns svg { width: 14px; height: 14px; }
+
+  /* ---------- type ---------- */
+  .label { font: 500 11px/1.4 var(--mono); text-transform: uppercase; letter-spacing: .06em; color: var(--fg-2); }
+  .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em; line-height: 1.02; margin: 0; text-wrap: balance; }
+  .d1 { font-size: clamp(48px, 7.4vw, 96px); }
+  .d2 { font-size: clamp(36px, 4.6vw, 64px); }
+  .d3 { font-size: clamp(28px, 3.2vw, 44px); line-height: 1.1; }
+  .serif em { font-style: italic; }
+  .matrix { font-family: var(--dot); font-weight: 800; line-height: .9; margin: 0; font-variant-numeric: tabular-nums; }
+  p { font-size: clamp(15px, 1.25vw, 18px); line-height: 1.6; margin: 0; color: var(--fg-2); max-width: 62ch; }
+  p strong, li strong { color: var(--fg); font-weight: 500; }
+  code { white-space: nowrap; font: 400 .88em var(--mono); color: var(--fg); background: color-mix(in srgb, var(--fg) 7%, transparent); padding: .1em .4em; border-radius: 3px; }
+  pre {
+    margin: 0; font: 400 clamp(12px, 1vw, 14px)/1.7 var(--mono); color: var(--fg);
+    padding: 20px 22px; border-radius: 6px; overflow: auto;
+    background: color-mix(in srgb, var(--fg) 5%, var(--bg));
+    border: 1px solid var(--rule);
+  }
+  pre .c { color: var(--fg-2); }
+  pre .k { color: var(--red); }
+
+  /* ---------- layouts ---------- */
+  .cover { align-content: center; gap: 40px; }
+  .cover .matrix { font-size: clamp(88px, 17vw, 240px); letter-spacing: -.02em; }
+  .cover .matrix .pix { display: inline-block; width: .1em; height: .1em; margin: 0 .12em; background: var(--red); vertical-align: baseline; }
+  .meta { display: flex; flex-wrap: wrap; gap: 12px 48px; border-top: 1px solid var(--rule); padding-top: 20px; }
+  .meta div { display: grid; gap: 6px; }
+  .meta b { font: 500 14px var(--mono); color: var(--fg); }
+
+  .step { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(24px, 4vw, 72px); align-items: center; }
+  .step .text { display: grid; gap: 22px; align-content: center; }
+  .step .num { font-size: clamp(72px, 9vw, 132px); color: var(--fg); }
+  .step .num small { font-size: max(.32em, 20px); color: var(--fg-2); margin-left: .2em; }
+  .points { list-style: none; padding: 0; margin: 0; display: grid; border-top: 1px solid var(--rule); }
+  .points li { padding: 12px 0; border-bottom: 1px solid var(--rule); font-size: clamp(14px, 1.15vw, 16px); line-height: 1.55; color: var(--fg-2); }
+
+  figure { margin: 0; display: grid; gap: 10px; min-width: 0; }
+  .frame { border-radius: 6px; overflow: hidden; background: var(--ink-2); box-shadow: 0 30px 60px -20px rgba(0,0,0,.6); }
+  .frame img { display: block; width: 100%; height: auto; max-height: calc(100dvh - 260px); object-fit: contain; object-position: top left; }
+  figcaption { display: flex; justify-content: space-between; gap: 12px; }
+  .stack { display: grid; gap: 14px; }
+  .stack .frame img { max-height: calc((100dvh - 300px) / 2); }
+
+  .brief { align-content: center; gap: 56px; }
+  .spec { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--rule); }
+  .spec div { padding: 18px 20px 0 0; display: grid; gap: 8px; align-content: start; }
+  .spec div + div { padding-left: 20px; border-left: 1px solid var(--rule); }
+  .spec p { font-size: 15px; }
+
+  .table-wrap { align-content: center; gap: 36px; }
+  table { border-collapse: collapse; width: 100%; max-width: 1100px; font-size: clamp(14px, 1.2vw, 17px); }
+  th, td { text-align: left; padding: 14px 16px 14px 0; border-bottom: 1px solid var(--rule); vertical-align: baseline; }
+  th { font: 500 11px var(--mono); text-transform: uppercase; letter-spacing: .06em; color: var(--fg-2); }
+  td:first-child { font: 500 13px var(--mono); color: var(--fg-2); width: 90px; font-variant-numeric: tabular-nums; }
+  td.ok { width: 40px; text-align: right; }
+  td.ok i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--red); }
+
+  .reflect { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(28px, 5vw, 96px); align-content: center; }
+  .reflect .q { display: grid; gap: 28px; align-content: start; }
+  .reflect .q .matrix { font-size: clamp(56px, 6vw, 88px); color: var(--red); }
+  .reflect .a { display: grid; gap: 18px; align-content: start; padding-top: 8px; }
+  .reflect .a p { color: var(--fg); opacity: .82; }
+  .pairs { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--rule); }
+  .pairs div { padding: 16px 20px 16px 0; border-bottom: 1px solid var(--rule); display: grid; gap: 6px; }
+  .pairs div:nth-child(even) { padding-left: 20px; border-left: 1px solid var(--rule); }
+  .pairs p { font-size: 15px; }
+
+  .diagram { width: 100%; height: auto; max-width: 560px; color: var(--fg); }
+
+  .closing { align-content: center; gap: 32px; }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 900px) {
+    .slide { padding: 80px 16px 96px; overflow-y: auto; align-content: start !important; }
+    .step, .reflect { grid-template-columns: 1fr; }
+    .spec { grid-template-columns: 1fr 1fr; }
+    .spec div:nth-child(3) { padding-left: 0; border-left: 0; }
+    .pairs { grid-template-columns: 1fr; }
+    .pairs div:nth-child(even) { padding-left: 0; border-left: 0; }
+    .dots { display: none; }
+    .progress { justify-content: flex-end; }
+    .chrome .left { display: none; }
+    .chrome { grid-template-columns: auto 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .slide.active .enter { animation: none; }
+  }
+  @media print {
+    .deck { height: auto; overflow: visible; }
+    .slide { display: grid !important; position: relative; min-height: 100vh; break-after: page; }
+    .chrome, .progress { display: none; }
+  }
+
+  /* ---------- lab02: section divider ---------- */
+  .part { align-content: center; gap: 28px; }
+  .part .matrix { font-size: clamp(96px, 16vw, 220px); }
+  .part .matrix .pix { display: inline-block; width: .1em; height: .1em; margin: 0 .1em; background: var(--red); }
+
+  .big-formula { font: 800 clamp(56px, 7vw, 104px)/1 var(--dot); color: var(--fg); margin: 0; letter-spacing: -.01em; }
+  .big-formula .r { color: var(--red); }
+
+  /* ---------- interactive Venn ---------- */
+  .venn-slide { grid-template-columns: minmax(0, 4fr) minmax(0, 6fr); gap: clamp(24px, 4vw, 64px); align-items: center; }
+  .venn-slide .left { display: grid; gap: 20px; align-content: center; }
+  .ops { list-style: none; margin: 0; padding: 0; display: grid; border-top: 1px solid var(--rule); }
+  .ops button {
+    width: 100%; display: grid; grid-template-columns: 104px 1fr auto; align-items: baseline; gap: 12px;
+    padding: 11px 4px; border: 0; border-bottom: 1px solid var(--rule); background: none; color: var(--fg-2);
+    text-align: left; cursor: pointer; font: inherit; transition: color .2s, background .2s;
+  }
+  .ops button:hover { color: var(--fg); background: color-mix(in srgb, var(--fg) 4%, transparent); }
+  .ops button[aria-pressed="true"] { color: var(--fg); }
+  .ops .sym { font: 400 22px/1 var(--serif); color: var(--fg); white-space: nowrap; }
+  .ops .name { font: 500 11px/1.3 var(--mono); text-transform: uppercase; letter-spacing: .06em; }
+  .ops .n { font: 800 18px/1 var(--dot); font-variant-numeric: tabular-nums; }
+  .ops button[aria-pressed="true"] .n { color: var(--red); }
+  .ops button[aria-pressed="true"] .sym::before { content: ""; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--red); margin-right: 8px; vertical-align: middle; }
+
+  .venn-right { display: grid; gap: 18px; min-width: 0; }
+  .venn-svg { width: 100%; height: auto; max-height: 46dvh; display: block; }
+  .venn-svg .region { fill: #1c1c1c; transition: fill .45s var(--ease); }
+  .venn-svg .region.on { fill: var(--red); }
+  .venn-svg .outline { fill: none; stroke: #d8d9d9; stroke-width: 1; }
+  .venn-svg .universe { fill: none; stroke: var(--line-dark); stroke-width: 1; transition: stroke .3s; }
+  .venn-svg .universe.on { stroke: var(--red); stroke-dasharray: 4 5; }
+  .venn-svg .count { font: 800 34px var(--dot); fill: #fff; text-anchor: middle; }
+  .venn-svg .tag { font: 500 11px var(--mono); fill: var(--grey-on-dark); letter-spacing: .06em; text-transform: uppercase; }
+
+  .result { border-top: 1px solid var(--rule); padding-top: 14px; display: grid; gap: 10px; min-height: 0; }
+  .result-head { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+  .result-head .total { font: 800 44px/1 var(--dot); color: var(--red); font-variant-numeric: tabular-nums; }
+  .result-head .desc { font: 400 clamp(18px, 1.6vw, 24px)/1.2 var(--serif); color: var(--fg); }
+  .names {
+    margin: 0; font: 400 12px/1.75 var(--mono); color: var(--fg-2);
+    max-width: none; max-height: 17dvh; overflow-y: auto; padding-right: 6px;
+    scrollbar-width: thin; scrollbar-color: var(--line-dark) transparent;
+  }
+  .names b { color: var(--fg); font-weight: 500; }
+
+  @media (max-width: 900px) {
+    .venn-slide { grid-template-columns: 1fr; }
+    .names { max-height: none; }
+  }
+
+  /* ---------- 3D graph ---------- */
+  .graph-slide { grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: clamp(24px, 4vw, 64px); align-items: center; }
+  .graph-slide .text { display: grid; gap: 20px; align-content: center; }
+  .graph-figure { position: relative; }
+  .graph3d { height: calc(100dvh - 230px); min-height: 360px; overflow: hidden; background: transparent; cursor: grab; }
+  .legend { display: flex; gap: 18px; flex-wrap: wrap; }
+  .legend i { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 7px; vertical-align: 1px; }
+  .graph3d:active { cursor: grabbing; }
+  .graph-labels { position: absolute; inset: 0 0 auto 0; height: calc(100dvh - 230px); min-height: 360px; pointer-events: none; overflow: hidden; }
+  .graph-labels span {
+    position: absolute; transform: translate(-50%, -150%); white-space: nowrap;
+    font: 500 10px/1 var(--mono); letter-spacing: .05em; text-transform: uppercase; color: #d8d9d9;
+    text-shadow: 0 0 6px #000, 0 0 2px #000;
+  }
+  .graph-labels span.club { font: 800 16px/1 var(--dot); text-transform: none; color: #fff; transform: translate(-50%, -330%); }
+  .graph-labels span.sel { color: #fff; }
+  .node-info { border-top: 1px solid var(--rule); padding-top: 14px; min-height: 92px; display: grid; gap: 8px; align-content: start; }
+  .node-info .who { font: 400 clamp(22px, 2vw, 30px)/1.1 var(--serif); color: var(--fg); }
+  .node-info .row { display: flex; gap: 10px; align-items: baseline; font: 400 13px/1.5 var(--mono); color: var(--fg-2); }
+  .node-info .row b { font: 800 18px/1 var(--dot); color: var(--fg); min-width: 2ch; }
+  .node-info .sw { width: 8px; height: 8px; border-radius: 50%; flex: none; align-self: center; }
+  @media (max-width: 900px) {
+    .graph-slide { grid-template-columns: 1fr; }
+    .graph3d, .graph-labels { height: 60dvh; }
+  }
+</style>
+</head>
+<body>
+
+<header class="chrome" aria-label="Presentación">
+  <span class="left" id="section">Inicio</span>
+  <span class="brand">SMARTTOUR</span>
+  <span class="right" id="counter">01 / 17</span>
+</header>
+
+<main class="deck">
+
+  <!-- 01 · Portada -->
+  <section class="slide cover active" data-section="Inicio">
+    <h1 class="matrix enter" data-scramble aria-label="Lab 02">LAB<span class="pix" aria-hidden="true"></span>02</h1>
+    <p class="serif d2 enter" style="max-width:20ch;color:var(--fg)">Conjuntos, relaciones y combinatoria, <em>en R y en Python</em>.</p>
+    <div class="meta enter">
+      <div><span class="label">Parte 1</span><b>Conjuntos de jugadores</b></div>
+      <div><span class="label">Parte 2</span><b>Jugador → Club → Temporada</b></div>
+      <div><span class="label">Parte 3</span><b>Principio multiplicativo</b></div>
+    </div>
+  </section>
+
+  <!-- 02 · Entorno -->
+  <section class="slide step" data-section="Entorno">
+    <div class="text enter">
+      <h2 class="serif d3">Un JupyterLab con <em>Python y R</em></h2>
+      <ul class="points">
+        <li>El laboratorio pide resolverlo en <strong>R y en Python</strong>, y la imagen del Lab01 solo traía Python.</li>
+        <li>Cambio de una línea en <code>docker-compose.yml</code>: <code>jupyter/datascience-notebook</code> trae Python, <strong>R 4.3</strong> y Julia.</li>
+        <li>El entorno sigue siendo reproducible: nadie tiene que instalar R en su equipo.</li>
+      </ul>
+<pre>datasets/lab02/futbol_data/   <span class="c"># 40 CSV</span>
+notebooks/lab02/              <span class="c"># 3 partes × (Python + R)</span>
+laboratorios/lab02/           <span class="c"># enunciado y presentación</span></pre>
+    </div>
+    <figure class="enter">
+      <div class="frame"><img src="img/00-launcher-kernels.png" alt="Lanzador de JupyterLab con los kernels de Python, R y Julia"></div>
+      <figcaption class="label"><span>JupyterLab</span><span>Kernels: Python 3 · R · Julia</span></figcaption>
+    </figure>
+  </section>
+
+  <!-- 03 · Datos -->
+  <section class="slide step" data-section="Datos">
+    <div class="text enter">
+      <h2 class="serif d3">40 plantillas, 20 temporadas, 2 clubes</h2>
+      <ul class="points">
+        <li>Un CSV por club y temporada: <code>atletico_2014-15.csv</code>, <code>barcelona_2009-10.csv</code>…</li>
+        <li>Una sola columna, <code>jugador</code>. El <strong>club y la temporada</strong> solo están en el nombre del archivo.</li>
+        <li>Los archivos llevan <strong>BOM</strong>: sin la codificación correcta, la columna se lee como <code>﻿jugador</code>.</li>
+        <li>Datos limpios: sin espacios sobrantes, sin filas vacías y sin nombres escritos de dos formas.</li>
+      </ul>
+    </div>
+<pre class="enter"><span class="c">atletico_2004-05.csv</span>
+jugador
+Antonio López
+Colsa
+Fernando Torres
+García Calvo
+…
+
+<span class="c">Club A = Atlético · 20 archivos · 264 filas</span>
+<span class="c">Club B = Barcelona · 20 archivos · 287 filas</span></pre>
+  </section>
+
+  <!-- 04 · Parte 1 -->
+  <section class="slide part" data-section="Parte 1">
+    <p class="matrix enter" data-scramble>P1</p>
+    <h2 class="serif d2 enter" style="max-width:20ch">Cada club como un <em>conjunto</em> de jugadores.</h2>
+  </section>
+
+  <!-- 05 · Construcción -->
+  <section class="slide step" data-section="Parte 1 · Conjuntos">
+    <div class="text enter">
+      <h2 class="serif d3">De 551 filas a dos conjuntos</h2>
+      <ul class="points">
+        <li>Se leen automáticamente los 20 archivos de cada club: <code>glob</code> en Python y <code>list.files</code> en R.</li>
+        <li>Un jugador aparece en tantas filas como temporadas jugó. Al pasar a <code>set</code> (o con <code>unique()</code> en R) <strong>desaparecen los duplicados</strong>.</li>
+        <li>Resultado: <strong>58 jugadores</strong> distintos en el Atlético y <strong>53</strong> en el Barcelona.</li>
+      </ul>
+    </div>
+    <figure class="stack enter">
+      <div class="frame"><img src="img/p1-py-leer-club.png" alt="Celda de Python que lee los CSV y crea los conjuntos"></div>
+      <div class="frame"><img src="img/p1-r-leer-club.png" alt="Celda de R que lee los CSV y crea los conjuntos"></div>
+      <figcaption class="label"><span>Python · R</span><span>58 y 53 jugadores únicos</span></figcaption>
+    </figure>
+  </section>
+
+  <!-- 06 · Ordenación -->
+  <section class="slide step" data-section="Parte 1 · Orden">
+    <div class="text enter">
+      <h2 class="serif d3">Ordenar alfabéticamente <em>no es trivial</em></h2>
+      <ul class="points">
+        <li><code>sorted()</code> de Python compara códigos Unicode: «Álvaro» acaba <strong>detrás de «Zé»</strong>.</li>
+        <li>Hay 19 filas que empiezan por vocal con tilde, así que el problema es real.</li>
+        <li>Solución: ordenar con una clave <strong>sin tildes y en minúsculas</strong> (<code>unicodedata</code> + <code>casefold</code>).</li>
+        <li>En R, <code>sort()</code> usa la configuración regional (<code>en_US.UTF-8</code>) y ya ordena bien.</li>
+      </ul>
+    </div>
+    <figure class="enter">
+      <div class="frame"><img src="img/p1-py-orden-tildes.png" alt="Celda de Python con la clave de ordenación sin tildes"></div>
+      <figcaption class="label"><span>Python</span><span>clave_alfabetica()</span></figcaption>
+    </figure>
+  </section>
+
+  <!-- 07 · Venn interactivo -->
+  <section class="slide venn-slide" data-section="Parte 1 · Operaciones">
+    <div class="left enter">
+      <h2 class="serif d3">Operaciones con conjuntos</h2>
+      <ul class="ops" id="ops" aria-label="Operaciones"></ul>
+      <span class="label">Pulsa una operación para verla en el diagrama</span>
+    </div>
+    <div class="venn-right enter">
+      <svg class="venn-svg" viewBox="0 0 520 360" role="img" aria-label="Diagrama de Venn de Atlético y Barcelona">
+        <defs>
+          <mask id="notB"><rect width="520" height="360" fill="#fff"/><circle cx="320" cy="190" r="125" fill="#000"/></mask>
+          <mask id="notA"><rect width="520" height="360" fill="#fff"/><circle cx="200" cy="190" r="125" fill="#000"/></mask>
+          <clipPath id="clipA"><circle cx="200" cy="190" r="125"/></clipPath>
+        </defs>
+        <rect class="universe" id="uFrame" x="14" y="14" width="492" height="332" rx="6"/>
+        <text class="tag" x="28" y="334" id="uTag">U = A ∪ B · 108</text>
+        <circle class="region" id="rA" cx="200" cy="190" r="125" mask="url(#notB)"/>
+        <circle class="region" id="rB" cx="320" cy="190" r="125" mask="url(#notA)"/>
+        <circle class="region" id="rI" cx="320" cy="190" r="125" clip-path="url(#clipA)"/>
+        <circle class="outline" cx="200" cy="190" r="125"/>
+        <circle class="outline" cx="320" cy="190" r="125"/>
+        <text class="tag" x="28" y="40">A · Atlético</text>
+        <text class="tag" x="492" y="40" text-anchor="end">B · Barcelona</text>
+        <text class="count" x="140" y="202" id="cA"></text>
+        <text class="count" x="260" y="202" id="cI"></text>
+        <text class="count" x="380" y="202" id="cB"></text>
+      </svg>
+      <div class="result" aria-live="polite">
+        <div class="result-head"><span class="total" id="rTotal"></span><span class="desc" id="rDesc"></span></div>
+        <p class="names" id="rNames"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 · Operaciones en código -->
+  <section class="slide step" data-section="Parte 1 · Código">
+    <div class="text enter">
+      <h2 class="serif d3">Las mismas operaciones, en dos lenguajes</h2>
+      <ul class="points">
+        <li>Python tiene operadores de conjunto: <code>|</code> unión, <code>&amp;</code> intersección, <code>-</code> diferencia, <code>^</code> diferencia simétrica.</li>
+        <li>R usa funciones: <code>union()</code>, <code>intersect()</code>, <code>setdiff()</code>.</li>
+        <li>R base <strong>no tiene diferencia simétrica</strong>: se construye como <code>union(setdiff(A,B), setdiff(B,A))</code>.</li>
+        <li>Con <code>U = A ∪ B</code>, el complemento de la intersección <strong>coincide con la diferencia simétrica</strong>, y el notebook lo comprueba.</li>
+      </ul>
+    </div>
+    <figure class="stack enter">
+      <div class="frame"><img src="img/p1-py-interseccion.png" alt="Intersección en Python"></div>
+      <div class="frame"><img src="img/p1-r-dif-simetrica.png" alt="Diferencia simétrica en R"></div>
+      <figcaption class="label"><span>Python · R</span><span>intersección · diferencia simétrica</span></figcaption>
+    </figure>
+  </section>
+
+  <!-- 09 · Análisis -->
+  <section class="slide step" data-section="Parte 1 · Análisis">
+    <div class="text enter">
+      <p class="big-formula">2,78<span class="r">%</span></p>
+      <h2 class="serif d3">Solo 3 de 108 jugadores han pasado por los dos clubes</h2>
+      <ul class="points">
+        <li>Griezmann, Villa y João Félix: el <strong>2,78 %</strong> del universo.</li>
+        <li>El <strong>Atlético</strong> tiene más jugadores exclusivos: <strong>55</strong> frente a 50.</li>
+        <li>Comprobación: |A ∪ B| = 58 + 53 − 3 = <strong>108</strong> (inclusión-exclusión).</li>
+      </ul>
+    </div>
+    <figure class="enter">
+      <div class="frame" style="background:#fff"><img src="img/p1-r-venn.png" alt="Diagrama de Venn dibujado con ggplot2"></div>
+      <figcaption class="label"><span>R · ggplot2</span><span>Diagrama de Venn (ampliación)</span></figcaption>
+    </figure>
+  </section>
+
+  <!-- 10 · Parte 2 -->
+  <section class="slide part" data-section="Parte 2">
+    <p class="matrix enter" data-scramble>P2</p>
+    <h2 class="serif d2 enter" style="max-width:22ch">Recuperar el <em>cuándo</em>: Jugador → Club → Temporada.</h2>
+  </section>
+
+  <!-- 11 · Relación + tabla -->
+  <section class="slide step" data-section="Parte 2 · Tabla">
+    <div class="text enter">
+      <h2 class="serif d3">La relación completa: 551 tripletas</h2>
+      <ul class="points">
+        <li>Al eliminar duplicados en la parte 1 se perdió <strong>en qué temporadas</strong> estuvo cada jugador.</li>
+        <li>Cada fila es un elemento de <code>R ⊆ J × C × T</code>; el club y la temporada se extraen del <strong>nombre del archivo</strong> con una expresión regular.</li>
+        <li><strong>Tabla:</strong> una fila por tripleta, sin repetidas.</li>
+      </ul>
+    </div>
+    <figure class="stack enter">
+      <div class="frame"><img src="img/p2-py-relacion.png" alt="Construcción de la relación en Python"></div>
+      <div class="frame"><img src="img/p2-py-compartidos.png" alt="Tabla con las temporadas de los jugadores compartidos"></div>
+      <figcaption class="label"><span>Python · pandas</span><span>tabla de la relación</span></figcaption>
+    </figure>
+  </section>
+
+  <!-- 12 · Diccionario -->
+  <section class="slide step" data-section="Parte 2 · Diccionario">
+    <div class="text enter">
+      <h2 class="serif d3">Diccionario en Python, <em>lista</em> en R</h2>
+      <ul class="points">
+        <li>Estructura anidada <code>jugador → club → [temporadas]</code>: se consulta directamente por nombre.</li>
+        <li>Griezmann: <strong>8</strong> temporadas en el Atlético y <strong>2</strong> en el Barcelona, con un regreso en 2021-22.</li>
+        <li>En R, <code>split()</code> agrupa por jugador y luego por club.</li>
+      </ul>
+    </div>
+    <figure class="stack enter">
+      <div class="frame"><img src="img/p2-py-diccionario.png" alt="Diccionario anidado en Python"></div>
+      <div class="frame"><img src="img/p2-r-lista.png" alt="Lista anidada en R"></div>
+      <figcaption class="label"><span>Python · R</span><span>dict · list</span></figcaption>
+    </figure>
+  </section>
+
+  <!-- 13 · Grafo 3D -->
+  <section class="slide graph-slide" data-section="Parte 2 · Grafo" id="graphSlide">
+    <div class="text enter">
+      <h2 class="serif d3">Un grafo simple jugador–club, <em>en 3D</em></h2>
+      <ul class="points">
+        <li><strong>110 nodos</strong> (108 jugadores y 2 clubes) y <strong>111 aristas</strong>, sin repetidas ni bucles.</li>
+        <li>La temporada no se pierde: cuantas más temporadas, <strong>más brillante</strong> es la arista y <strong>más grande</strong> el punto.</li>
+        <li>Los 3 compartidos quedan entre los dos clubes. El Barcelona forma un grupo más compacto porque sus jugadores acumulan más temporadas.</li>
+      </ul>
+      <div class="node-info" id="nodeInfo" aria-live="polite"></div>
+      <span class="label">Arrastra para girar · rueda para zoom · pulsa un nodo</span>
+    </div>
+    <figure class="enter graph-figure">
+      <div class="graph3d" id="graph3d" role="img" aria-label="Grafo 3D interactivo de jugadores y clubes"></div>
+      <div class="graph-labels" id="graphLabels" aria-hidden="true"></div>
+      <figcaption class="label"><span class="legend"><span><i style="background:#ededed"></i>Atlético</span><span><i style="background:#7c7e7e"></i>Barcelona</span><span><i style="background:#d71921"></i>En ambos clubes</span></span><span>En los notebooks: networkx · ggplot2</span></figcaption>
+    </figure>
+  </section>
+
+  <!-- 14 · Preguntas parte 2 -->
+  <section class="slide step" data-section="Parte 2 · Respuestas">
+    <div class="text enter">
+      <p class="big-formula">17</p>
+      <h2 class="serif d3">Messi, el jugador con más temporadas</h2>
+      <ul class="points">
+        <li>Le siguen Iniesta y Busquets (15), Piqué (14) y Koke (13).</li>
+        <li><strong>Densidad</strong> = pares / (jugadores × 20 temporadas): la parte ocupada de la matriz jugador × temporada.</li>
+        <li>El <strong>Barcelona</strong> es más denso: <strong>0,271</strong> frente a 0,228. Sus jugadores se quedan de media 5,4 temporadas, frente a 4,6 en el Atlético.</li>
+      </ul>
+    </div>
+    <figure class="stack enter">
+      <div class="frame"><img src="img/p2-py-mas-temporadas.png" alt="Jugadores con más temporadas"></div>
+      <div class="frame"><img src="img/p2-r-densidad.png" alt="Densidad de la relación por club en R"></div>
+      <figcaption class="label"><span>Python · R</span><span>temporadas · densidad</span></figcaption>
+    </figure>
+  </section>
+
+  <!-- 15 · Parte 3 -->
+  <section class="slide part" data-section="Parte 3">
+    <p class="matrix enter" data-scramble>P3</p>
+    <h2 class="serif d2 enter" style="max-width:22ch">¿Cuántos outfits puede recomendar una tienda online?</h2>
+  </section>
+
+  <!-- 16 · Principio multiplicativo -->
+  <section class="slide step" data-section="Parte 3 · Principio">
+    <div class="text enter">
+      <p class="big-formula">3×2×2<span class="r">=</span>12</p>
+      <h2 class="serif d3">El principio multiplicativo</h2>
+      <ul class="points">
+        <li>3 camisetas → por cada una, 2 pantalones (<strong>6</strong>) → por cada combinación, 2 pares de zapatos (<strong>12</strong>).</li>
+        <li>El árbol lo muestra: cada nivel multiplica las ramas del anterior.</li>
+        <li>Con un catálogo real (200 × 80 × 50) serían <strong>800 000</strong> combinaciones, así que un recomendador tiene que filtrar y ordenar, no enseñarlas todas.</li>
+      </ul>
+    </div>
+    <figure class="enter">
+      <div class="frame"><img src="img/p3-py-arbol.png" alt="Diagrama de árbol de los 12 outfits"></div>
+      <figcaption class="label"><span>Python</span><span>diagrama de árbol</span></figcaption>
+    </figure>
+  </section>
+
+  <!-- 17 · Generación y verificación -->
+  <section class="slide step" data-section="Parte 3 · Generación">
+    <div class="text enter">
+      <h2 class="serif d3">Generar los 12 y comprobar que son 12</h2>
+      <ul class="points">
+        <li>Python: <code>itertools.product</code>, el producto cartesiano <code>C × P × Z</code>.</li>
+        <li>R: <code>expand.grid()</code>, con las categorías en orden inverso para obtener el mismo orden que en Python.</li>
+        <li>Verificación: <strong>12</strong> generadas, <strong>12</strong> distintas y <strong>12</strong> según el principio multiplicativo.</li>
+      </ul>
+    </div>
+    <figure class="stack enter">
+      <div class="frame"><img src="img/p3-py-product.png" alt="Generación de outfits con itertools.product"></div>
+      <div class="frame"><img src="img/p3-r-verificacion.png" alt="Verificación del número de outfits en R"></div>
+      <figcaption class="label"><span>Python · R</span><span>product · expand.grid</span></figcaption>
+    </figure>
+  </section>
+
+  <!-- 18 · Cierre -->
+  <section class="slide closing" data-section="Cierre">
+    <p class="serif d1 enter" style="max-width:16ch;color:var(--fg)">Mismo problema, dos lenguajes, <em>mismos resultados</em>.</p>
+    <p class="enter">Conjuntos, relaciones y combinatoria resueltos en Python y en R, dentro del mismo JupyterLab, con resultados idénticos y comprobados en cada parte.</p>
+  </section>
+
+</main>
+
+<nav class="progress" aria-label="Navegación de diapositivas">
+  <div class="dots" id="dots"></div>
+  <div class="nav-btns">
+    <button id="prev" aria-label="Diapositiva anterior"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 3 5 8l5 5"/></svg></button>
+    <button id="next" aria-label="Diapositiva siguiente"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m6 3 5 5-5 5"/></svg></button>
+  </div>
+</nav>
+
+<script src="https://cdn.jsdelivr.net/npm/3d-force-graph@1.80.1/dist/3d-force-graph.min.js"></script>
+<script>
+  // ---------- Interactive Venn (real data from datasets/lab02) ----------
+  const DATA = {"A": ["Adrián López", "Álvaro Domínguez", "Álvaro Morata", "Ángel Correa", "Antoine Griezmann", "Antonio López", "Arda Turan", "Axel Witsel", "César Azpilicueta", "Colsa", "David de Gea", "David Villa", "Diego Forlán", "Diego Godín", "Fernando Torres", "Filipe Luís", "García Calvo", "Giménez", "Grzegorz Rasiak", "Ibagaza", "Jan Oblak", "João Félix", "John Heitinga", "Jorge Larena", "José Manuel Jurado", "Juan Valera", "Juan Velasco", "Juanfran Torres", "Koke Resurrección", "Leo Franco", "Luis Perea", "Marco Babić", "Marcos Llorente", "Mario Suárez", "Matheus Cunha", "Maxi Rodríguez", "Memphis Depay", "Miranda", "Nahuel Molina", "Oliver Torres", "Pablo Ibáñez", "Paulo Assunção", "Peter Luccin", "Raúl García", "Renan Lodi", "Richard Núñez", "Rodrigo de Paul", "Salva Ballesta", "Saúl Ñíguez", "Sergi Barjuán", "Sergio Agüero", "Simão Sabrosa", "Stefan Savić", "Thiago Motta", "Thibaut Courtois", "Thomas Partey", "Tiago Mendes", "Yannick Carrasco"], "B": ["Albert Jorquera", "Alexis Sánchez", "Andrés Iniesta", "Ansu Fati", "Antoine Griezmann", "Carles Puyol", "Cesc Fàbregas", "Dani Alves", "David Villa", "Deco", "Edmilson", "Éric Abidal", "Fernando Navarro", "Ferran Torres", "Frenkie de Jong", "Gabriel Milito", "Gavi", "Gerard Piqué", "Giovanni van Bronckhorst", "Henrik Larsson", "İlkay Gündoğan", "Ivan Rakitic", "Javier Mascherano", "João Cancelo", "João Félix", "Jordi Alba", "Jules Koundé", "Juliano Belletti", "Lamine Yamal", "Lionel Messi", "Ludovic Giuly", "Luis Suárez", "Marc-André ter Stegen", "Neymar Jr", "Oleguer Presas", "Ousmane Dembélé", "Pedri", "Pedro Rodríguez", "Rafa Márquez", "Raphinha", "Robert Lewandowski", "Ronald Araújo", "Ronaldinho", "Samuel Eto'o", "Samuel Umtiti", "Sergio Busquets", "Seydou Keita", "Sylvinho", "Thierry Henry", "Víctor Valdés", "Xavi Hernández", "Yaya Touré", "Zlatan Ibrahimović"]};
+  const A = new Set(DATA.A), B = new Set(DATA.B);
+  const onlyA = DATA.A.filter((j) => !B.has(j));
+  const onlyB = DATA.B.filter((j) => !A.has(j));
+  const both = DATA.A.filter((j) => B.has(j));
+  const key = (s) => s.normalize('NFKD').replace(/[̀-ͯ]/g, '').toLowerCase();
+  const sortEs = (arr) => [...arr].sort((x, y) => key(x).localeCompare(key(y)));
+
+  const OPS = [
+    { id: 'A',    sym: 'A',          name: 'Atlético',              regions: ['A', 'I'], desc: 'jugadores del Atlético' },
+    { id: 'B',    sym: 'B',          name: 'Barcelona',             regions: ['I', 'B'], desc: 'jugadores del Barcelona' },
+    { id: 'U',    sym: 'A ∪ B',      name: 'Unión',                 regions: ['A', 'I', 'B'], desc: 'han pasado por alguno de los dos clubes' },
+    { id: 'I',    sym: 'A ∩ B',      name: 'Intersección',          regions: ['I'], desc: 'han jugado en ambos clubes' },
+    { id: 'AmB',  sym: 'A − B',      name: 'Diferencia',            regions: ['A'], desc: 'solo han jugado en el Atlético' },
+    { id: 'BmA',  sym: 'B − A',      name: 'Diferencia',            regions: ['B'], desc: 'solo han jugado en el Barcelona' },
+    { id: 'D',    sym: 'A △ B',      name: 'Diferencia simétrica',  regions: ['A', 'B'], desc: 'han jugado en uno solo de los dos clubes' },
+    { id: 'C',    sym: '(A ∩ B)ᶜ',   name: 'Complemento en U',      regions: ['A', 'B'], desc: 'no han pasado por ambos clubes', universe: true },
+  ];
+  const membersOf = { A: onlyA, I: both, B: onlyB };
+
+  const opsList = document.getElementById('ops');
+  OPS.forEach((op) => {
+    const n = op.regions.reduce((acc, r) => acc + membersOf[r].length, 0);
+    const li = document.createElement('li');
+    li.innerHTML = `<button type="button" aria-pressed="false" data-op="${op.id}">
+      <span class="sym">${op.sym}</span><span class="name">${op.name}</span><span class="n">${n}</span></button>`;
+    opsList.appendChild(li);
+  });
+
+  document.getElementById('cA').textContent = onlyA.length;
+  document.getElementById('cI').textContent = both.length;
+  document.getElementById('cB').textContent = onlyB.length;
+  document.getElementById('uTag').textContent = `U = A ∪ B · ${onlyA.length + both.length + onlyB.length}`;
+
+  function selectOp(id) {
+    const op = OPS.find((o) => o.id === id);
+    ['A', 'I', 'B'].forEach((r) => document.getElementById('r' + r).classList.toggle('on', op.regions.includes(r)));
+    document.getElementById('uFrame').classList.toggle('on', !!op.universe);
+    opsList.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', b.dataset.op === id));
+    const members = sortEs(op.regions.flatMap((r) => membersOf[r]));
+    document.getElementById('rTotal').textContent = members.length;
+    document.getElementById('rDesc').textContent = `${op.sym} · ${op.desc}`;
+    const shared = new Set(both);
+    document.getElementById('rNames').innerHTML = members
+      .map((j) => (shared.has(j) ? `<b>${j}</b>` : j)).join(' · ');
+  }
+  opsList.addEventListener('click', (e) => {
+    const btn = e.target.closest('button[data-op]');
+    if (btn) selectOp(btn.dataset.op);
+  });
+  selectOp('I');
+
+
+  // ---------- 3D graph (real data from datasets/lab02) ----------
+  const PLAYERS = {"Antonio López":{"Atlético":["2004-05","2005-06","2006-07","2007-08","2008-09","2009-10","2010-11"]},"Colsa":{"Atlético":["2004-05","2005-06","2006-07","2007-08"]},"Fernando Torres":{"Atlético":["2004-05","2005-06","2006-07","2015-16","2016-17","2017-18"]},"García Calvo":{"Atlético":["2004-05","2005-06"]},"Ibagaza":{"Atlético":["2004-05","2005-06","2006-07","2007-08"]},"Jorge Larena":{"Atlético":["2004-05","2005-06","2006-07"]},"Juan Valera":{"Atlético":["2004-05","2005-06","2006-07","2007-08","2008-09","2009-10","2010-11"]},"Juan Velasco":{"Atlético":["2004-05","2005-06"]},"Leo Franco":{"Atlético":["2004-05","2005-06","2006-07","2007-08","2008-09"]},"Luis Perea":{"Atlético":["2004-05","2005-06","2006-07","2007-08","2008-09","2009-10","2010-11"]},"Pablo Ibáñez":{"Atlético":["2004-05","2005-06","2006-07","2007-08","2008-09","2009-10"]},"Peter Luccin":{"Atlético":["2004-05","2005-06","2006-07"]},"Richard Núñez":{"Atlético":["2004-05","2005-06"]},"Salva Ballesta":{"Atlético":["2004-05"]},"Sergi Barjuán":{"Atlético":["2004-05","2005-06"]},"Grzegorz Rasiak":{"Atlético":["2005-06","2006-07"]},"Maxi Rodríguez":{"Atlético":["2005-06","2006-07","2007-08","2008-09","2009-10"]},"José Manuel Jurado":{"Atlético":["2006-07","2007-08","2008-09","2009-10"]},"Sergio Agüero":{"Atlético":["2006-07","2007-08","2008-09","2009-10","2010-11"]},"Diego Forlán":{"Atlético":["2007-08","2008-09","2009-10","2010-11"]},"Marco Babić":{"Atlético":["2007-08","2008-09"]},"Simão Sabrosa":{"Atlético":["2007-08","2008-09","2009-10"]},"John Heitinga":{"Atlético":["2008-09"]},"Paulo Assunção":{"Atlético":["2008-09","2009-10","2010-11"]},"Thiago Motta":{"Atlético":["2008-09"]},"David de Gea":{"Atlético":["2009-10","2010-11"]},"Álvaro Domínguez":{"Atlético":["2009-10","2010-11","2011-12"]},"Diego Godín":{"Atlético":["2010-11","2011-12","2012-13","2013-14","2014-15","2015-16","2016-17","2017-18","2018-19"]},"Filipe Luís":{"Atlético":["2010-11","2011-12","2012-13","2013-14","2015-16","2016-17","2017-18","2018-19"]},"Juanfran Torres":{"Atlético":["2010-11","2011-12","2012-13","2013-14","2014-15","2015-16","2016-17","2017-18","2018-19"]},"Raúl García":{"Atlético":["2010-11","2011-12","2012-13","2013-14","2014-15","2015-16"]},"Tiago Mendes":{"Atlético":["2010-11","2011-12","2012-13","2013-14","2014-15","2015-16","2016-17"]},"Adrián López":{"Atlético":["2011-12","2012-13","2013-14"]},"Arda Turan":{"Atlético":["2011-12","2012-13","2013-14","2014-15"]},"Koke Resurrección":{"Atlético":["2011-12","2012-13","2013-14","2014-15","2015-16","2016-17","2017-18","2018-19","2019-20","2020-21","2021-22","2022-23","2023-24"]},"Mario Suárez":{"Atlético":["2011-12","2012-13","2013-14","2014-15"]},"Miranda":{"Atlético":["2011-12","2012-13","2013-14","2014-15"]},"Thibaut Courtois":{"Atlético":["2011-12","2012-13","2013-14"]},"Oliver Torres":{"Atlético":["2012-13","2013-14","2014-15","2015-16","2016-17"]},"David Villa":{"Atlético":["2013-14","2014-15"],"Barcelona":["2010-11","2011-12","2012-13"]},"Saúl Ñíguez":{"Atlético":["2013-14","2014-15","2015-16","2016-17","2017-18","2018-19","2019-20","2020-21","2021-22","2022-23","2023-24"]},"Antoine Griezmann":{"Atlético":["2014-15","2015-16","2016-17","2017-18","2018-19","2021-22","2022-23","2023-24"],"Barcelona":["2019-20","2020-21"]},"Jan Oblak":{"Atlético":["2014-15","2015-16","2016-17","2017-18","2018-19","2019-20","2020-21","2021-22","2022-23","2023-24"]},"Giménez":{"Atlético":["2015-16","2016-17","2017-18","2018-19","2019-20","2020-21","2021-22","2022-23","2023-24"]},"Stefan Savić":{"Atlético":["2015-16","2016-17","2017-18","2018-19","2019-20","2020-21","2021-22","2022-23","2023-24"]},"Thomas Partey":{"Atlético":["2015-16","2016-17","2017-18","2018-19","2019-20"]},"Yannick Carrasco":{"Atlético":["2015-16","2016-17","2017-18","2018-19","2019-20"]},"Ángel Correa":{"Atlético":["2015-16","2016-17","2017-18","2018-19","2019-20","2020-21","2021-22","2022-23","2023-24"]},"João Félix":{"Atlético":["2019-20","2020-21","2021-22","2022-23"],"Barcelona":["2023-24"]},"Marcos Llorente":{"Atlético":["2019-20","2020-21","2021-22","2022-23","2023-24"]},"Renan Lodi":{"Atlético":["2019-20","2020-21","2021-22"]},"Álvaro Morata":{"Atlético":["2020-21","2023-24"]},"Matheus Cunha":{"Atlético":["2021-22","2022-23"]},"Rodrigo de Paul":{"Atlético":["2021-22","2022-23","2023-24"]},"Axel Witsel":{"Atlético":["2022-23","2023-24"]},"Nahuel Molina":{"Atlético":["2022-23","2023-24"]},"César Azpilicueta":{"Atlético":["2023-24"]},"Memphis Depay":{"Atlético":["2023-24"]},"Albert Jorquera":{"Barcelona":["2004-05","2005-06","2006-07","2007-08","2008-09"]},"Andrés Iniesta":{"Barcelona":["2004-05","2005-06","2006-07","2007-08","2008-09","2009-10","2010-11","2011-12","2012-13","2013-14","2014-15","2015-16","2016-17","2017-18","2018-19"]},"Carles Puyol":{"Barcelona":["2004-05","2005-06","2006-07","2007-08","2008-09","2009-10","2010-11","2011-12","2012-13","2013-14","2014-15"]},"Deco":{"Barcelona":["2004-05","2005-06","2006-07","2007-08","2008-09"]},"Edmilson":{"Barcelona":["2004-05","2005-06","2006-07","2007-08"]},"Fernando Navarro":{"Barcelona":["2004-05","2005-06","2006-07"]},"Giovanni van Bronckhorst":{"Barcelona":["2004-05","2005-06","2006-07"]},"Henrik Larsson":{"Barcelona":["2004-05","2005-06","2006-07"]},"Juliano Belletti":{"Barcelona":["2004-05","2005-06","2006-07"]},"Lionel Messi":{"Barcelona":["2004-05","2005-06","2006-07","2007-08","2008-09","2009-10","2010-11","2011-12","2012-13","2013-14","2014-15","2015-16","2016-17","2017-18","2018-19","2019-20","2020-21"]},"Ludovic Giuly":{"Barcelona":["2004-05","2005-06","2006-07"]},"Oleguer Presas":{"Barcelona":["2004-05","2005-06","2006-07","2007-08"]},"Rafa Márquez":{"Barcelona":["2004-05","2005-06","2006-07","2007-08","2008-09","2009-10"]},"Ronaldinho":{"Barcelona":["2004-05","2005-06","2006-07","2007-08","2008-09"]},"Samuel Eto'o":{"Barcelona":["2004-05","2005-06","2006-07","2007-08","2008-09"]},"Sylvinho":{"Barcelona":["2004-05","2005-06","2006-07","2007-08","2008-09"]},"Víctor Valdés":{"Barcelona":["2004-05","2005-06","2006-07","2007-08","2008-09","2009-10","2010-11","2011-12","2012-13","2013-14","2014-15"]},"Xavi Hernández":{"Barcelona":["2004-05","2005-06","2006-07","2007-08","2008-09","2009-10","2010-11","2011-12","2012-13","2013-14","2014-15"]},"Gabriel Milito":{"Barcelona":["2007-08","2008-09","2009-10","2010-11"]},"Thierry Henry":{"Barcelona":["2007-08","2008-09","2009-10"]},"Yaya Touré":{"Barcelona":["2007-08","2008-09","2009-10"]},"Éric Abidal":{"Barcelona":["2007-08","2008-09","2009-10","2010-11","2011-12"]},"Dani Alves":{"Barcelona":["2008-09","2009-10","2010-11","2011-12","2012-13","2013-14","2014-15","2015-16","2016-17"]},"Gerard Piqué":{"Barcelona":["2008-09","2009-10","2010-11","2011-12","2012-13","2013-14","2014-15","2015-16","2016-17","2017-18","2018-19","2019-20","2020-21","2021-22"]},"Pedro Rodríguez":{"Barcelona":["2008-09","2009-10","2010-11","2011-12","2012-13","2013-14","2014-15"]},"Sergio Busquets":{"Barcelona":["2008-09","2009-10","2010-11","2011-12","2012-13","2013-14","2014-15","2015-16","2016-17","2017-18","2018-19","2019-20","2020-21","2021-22","2022-23"]},"Seydou Keita":{"Barcelona":["2008-09","2009-10","2010-11","2011-12"]},"Zlatan Ibrahimović":{"Barcelona":["2009-10","2010-11"]},"Javier Mascherano":{"Barcelona":["2010-11","2011-12","2012-13","2013-14","2014-15","2015-16","2016-17","2017-18"]},"Alexis Sánchez":{"Barcelona":["2011-12","2012-13","2013-14"]},"Cesc Fàbregas":{"Barcelona":["2011-12","2012-13","2013-14"]},"Jordi Alba":{"Barcelona":["2012-13","2013-14","2014-15","2015-16","2016-17","2017-18","2018-19","2019-20","2020-21","2021-22","2022-23"]},"Neymar Jr":{"Barcelona":["2013-14","2014-15","2015-16","2016-17"]},"Ivan Rakitic":{"Barcelona":["2014-15","2015-16","2016-17","2017-18","2018-19","2019-20"]},"Luis Suárez":{"Barcelona":["2014-15","2015-16","2016-17","2017-18","2018-19","2019-20"]},"Marc-André ter Stegen":{"Barcelona":["2014-15","2015-16","2016-17","2017-18","2018-19","2019-20","2020-21","2021-22","2022-23","2023-24"]},"Samuel Umtiti":{"Barcelona":["2016-17","2017-18","2018-19","2019-20","2020-21","2021-22"]},"Ousmane Dembélé":{"Barcelona":["2017-18","2018-19","2019-20","2020-21","2021-22","2022-23"]},"Ansu Fati":{"Barcelona":["2019-20","2020-21","2021-22","2022-23","2023-24"]},"Frenkie de Jong":{"Barcelona":["2019-20","2020-21","2021-22","2022-23","2023-24"]},"Pedri":{"Barcelona":["2020-21","2021-22","2022-23","2023-24"]},"Ronald Araújo":{"Barcelona":["2020-21","2021-22","2022-23","2023-24"]},"Ferran Torres":{"Barcelona":["2021-22","2022-23","2023-24"]},"Gavi":{"Barcelona":["2021-22","2022-23","2023-24"]},"Jules Koundé":{"Barcelona":["2022-23","2023-24"]},"Raphinha":{"Barcelona":["2022-23","2023-24"]},"Robert Lewandowski":{"Barcelona":["2022-23","2023-24"]},"João Cancelo":{"Barcelona":["2023-24"]},"Lamine Yamal":{"Barcelona":["2023-24"]},"İlkay Gündoğan":{"Barcelona":["2023-24"]}};
+  // Monochrome like the rest of the deck; red only marks the intersection (as in the Venn slide)
+  const CLUB_COLOR = { 'Atlético': '#ededed', 'Barcelona': '#7c7e7e' };
+  const RED = '#d71921';
+  const graphState = { graph: null, selected: null, labelled: [] };
+
+  function buildGraphData() {
+    const nodes = [
+      { id: 'Atlético', club: true, fx: -90, fy: 0, fz: 0, total: 0 },
+      { id: 'Barcelona', club: true, fx: 90, fy: 0, fz: 0, total: 0 },
+    ];
+    const links = [];
+    let sharedCount = 0;
+    Object.entries(PLAYERS).sort(([a], [b]) => a.localeCompare(b)).forEach(([name, clubs]) => {
+      const total = Object.values(clubs).reduce((n, ts) => n + ts.length, 0);
+      const shared = Object.keys(clubs).length === 2;
+      const node = { id: name, club: false, clubs, total, shared };
+      if (shared) Object.assign(node, { fx: 0, fy: 45 - 45 * sharedCount++, fz: 0 });
+      nodes.push(node);
+      Object.entries(clubs).forEach(([club, ts]) => links.push({ source: name, target: club, seasons: ts.length }));
+    });
+    return { nodes, links };
+  }
+
+  const endId = (end) => (typeof end === 'object' ? end.id : end);
+
+  function nodeColor(n) {
+    const sel = graphState.selected;
+    if (n.club) return sel && sel.id === n.id ? RED : '#ffffff';
+    if (sel && sel.id === n.id) return RED;
+    if (sel && !sel.club) return '#262626';
+    if (sel && sel.club && !n.clubs[sel.id]) return '#262626';
+    if (n.shared) return RED;
+    return CLUB_COLOR[Object.keys(n.clubs)[0]];
+  }
+
+  function linkColor(l) {
+    const sel = graphState.selected;
+    const src = endId(l.source), tgt = endId(l.target);
+    if (sel && (src === sel.id || tgt === sel.id)) return RED;
+    if (sel) return '#1a1a1a';
+    // Brighter hairline = more seasons together
+    const level = Math.round(46 + Math.min(l.seasons, 17) * 7);
+    return `rgb(${level}, ${level}, ${level})`;
+  }
+
+  function renderInfo(n) {
+    const box = document.getElementById('nodeInfo');
+    if (!n) {
+      box.innerHTML = '<span class="label">Ningún nodo seleccionado</span>';
+      return;
+    }
+    if (n.club) {
+      const players = Object.values(PLAYERS).filter((c) => c[n.id]).length;
+      const seasons = Object.values(PLAYERS).reduce((acc, c) => acc + (c[n.id] ? c[n.id].length : 0), 0);
+      box.innerHTML = `<span class="who">${n.id}</span>
+        <span class="row"><span class="sw" style="background:${CLUB_COLOR[n.id]}"></span><b>${players}</b> jugadores · <b>${seasons}</b> pares jugador–temporada</span>`;
+      return;
+    }
+    const rows = Object.entries(n.clubs).map(([club, ts]) =>
+      `<span class="row"><span class="sw" style="background:${CLUB_COLOR[club]}"></span><b>${ts.length}</b> ${club} · ${ts[0]} → ${ts[ts.length - 1]}</span>`
+    ).join('');
+    box.innerHTML = `<span class="who">${n.id}</span>${rows}`;
+  }
+
+  function refreshStyles() {
+    const g = graphState.graph;
+    g.nodeColor(g.nodeColor()).linkColor(g.linkColor());
+  }
+
+  function selectNode(n) {
+    graphState.selected = n;
+    renderInfo(n);
+    refreshStyles();
+  }
+
+  function initGraph() {
+    if (graphState.graph || typeof ForceGraph3D === 'undefined') return;
+    const el = document.getElementById('graph3d');
+    const data = buildGraphData();
+    const g = new ForceGraph3D(el, { controlType: 'orbit', rendererConfig: { antialias: true, alpha: true } })
+      .width(el.clientWidth).height(el.clientHeight)
+      .backgroundColor('rgba(0,0,0,0)')
+      .showNavInfo(false)
+      .graphData(data)
+      .cooldownTime(4000)
+      .nodeRelSize(1.7)
+      .nodeVal((n) => (n.club ? 180 : 1 + n.total * 1.1))
+      .nodeOpacity(1)
+      .nodeResolution(12)
+      .nodeLabel((n) => (n.club ? n.id : `${n.id} · ${n.total} temp.`))
+      .nodeColor(nodeColor)
+      .linkColor(linkColor)
+      .linkOpacity(1)
+      .linkWidth(0)
+      .onNodeClick((n) => selectNode(graphState.selected && graphState.selected.id === n.id ? null : n))
+      .onBackgroundClick(() => selectNode(null));
+    if (typeof g.lights === 'function') g.lights([]);
+    g.d3Force('charge').strength(-26);
+    g.d3Force('link').distance((l) => 70 - l.seasons * 2.5);
+    g.cameraPosition({ x: 0, y: 40, z: 300 });
+    let framed = false;
+    g.onEngineStop(() => { if (!framed) { framed = true; g.zoomToFit(600, 24); } });
+    const controls = g.controls();
+    controls.autoRotate = !reduceMotion;
+    controls.autoRotateSpeed = 0.9;
+    graphState.graph = g;
+
+    // Persistent HTML labels for clubs, shared players and 10+ season veterans
+    const layer = document.getElementById('graphLabels');
+    graphState.labelled = data.nodes
+      .filter((n) => n.club || n.shared || n.total >= 13)
+      .map((n) => {
+        const span = document.createElement('span');
+        span.textContent = n.id;
+        if (n.club) span.className = 'club';
+        layer.appendChild(span);
+        return { node: n, span };
+      });
+    const flatten = () => {
+      g.graphData().nodes.forEach((n) => {
+        const m = n.__threeObj && n.__threeObj.material;
+        if (m && m.emissive && !m.emissive.equals(m.color)) m.emissive.copy(m.color);
+      });
+    };
+    const tick = () => {
+      flatten();
+      graphState.labelled.forEach(({ node, span }) => {
+        if (node.x === undefined) return;
+        const p = g.graph2ScreenCoords(node.x, node.y, node.z);
+        span.style.left = `${p.x}px`;
+        span.style.top = `${p.y}px`;
+        span.classList.toggle('sel', !!graphState.selected && graphState.selected.id === node.id);
+      });
+      requestAnimationFrame(tick);
+    };
+    tick();
+    renderInfo(null);
+    window.addEventListener('resize', () => g.width(el.clientWidth).height(el.clientHeight));
+  }
+
+  function onSlideChange(slide) {
+    const isGraph = slide.id === 'graphSlide';
+    if (isGraph) requestAnimationFrame(initGraph);
+    if (graphState.graph) (isGraph ? graphState.graph.resumeAnimation() : graphState.graph.pauseAnimation());
+  }
+
+  // ---------- Deck navigation ----------
+  const slides = [...document.querySelectorAll('.slide')];
+  const dots = document.getElementById('dots');
+  const progress = document.querySelector('.progress');
+  const counter = document.getElementById('counter');
+  const section = document.getElementById('section');
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const pad = (n) => String(n).padStart(2, '0');
+  let current = 0;
+
+  slides.forEach((s, i) => {
+    const b = document.createElement('button');
+    b.setAttribute('aria-label', `Ir a la diapositiva ${i + 1}: ${s.dataset.section}`);
+    b.onclick = () => show(i);
+    dots.appendChild(b);
+  });
+
+  // Dot-matrix numbers resolve from random glyphs, like an LED display booting.
+  const scramble = (el) => {
+    if (reduceMotion) return;
+    const nodes = [...el.childNodes].filter((n) => n.nodeType === 3 && n.textContent.trim());
+    nodes.forEach((node) => {
+      const target = node.textContent;
+      const glyphs = '0123456789#%*+';
+      let frame = 0;
+      const tick = () => {
+        frame++;
+        node.textContent = [...target].map((ch, i) =>
+          frame > 4 + i * 3 || ch === '.' ? ch : glyphs[Math.floor(Math.random() * glyphs.length)]
+        ).join('');
+        if (frame <= 4 + target.length * 3) requestAnimationFrame(tick);
+      };
+      tick();
+    });
+  };
+
+  function show(i) {
+    current = Math.max(0, Math.min(slides.length - 1, i));
+    slides.forEach((s, k) => s.classList.toggle('active', k === current));
+    [...dots.children].forEach((d, k) => d.setAttribute('aria-current', k === current));
+    const slide = slides[current];
+    counter.textContent = `${pad(current + 1)} / ${pad(slides.length)}`;
+    section.textContent = slide.dataset.section;
+    progress.style.setProperty('--chrome-fg', slide.classList.contains('light') ? '#595a5a' : '#b1b3b3');
+    slide.querySelectorAll('[data-scramble]').forEach(scramble);
+    onSlideChange(slide);
+    if (location.hash !== `#${current + 1}`) history.replaceState(null, '', `#${current + 1}`);
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.target.closest && e.target.closest('.ops') && (e.key === ' ' || e.key === 'Enter')) return;
+    if (['ArrowRight', 'PageDown', ' '].includes(e.key)) { e.preventDefault(); show(current + 1); }
+    if (['ArrowLeft', 'PageUp'].includes(e.key)) { e.preventDefault(); show(current - 1); }
+    if (e.key === 'Home') show(0);
+    if (e.key === 'End') show(slides.length - 1);
+  });
+  document.getElementById('prev').onclick = () => show(current - 1);
+  document.getElementById('next').onclick = () => show(current + 1);
+  const fromHash = () => show((parseInt(location.hash.slice(1), 10) || 1) - 1);
+  window.addEventListener('hashchange', fromHash);
+  fromHash();
+</script>
+</body>
+</html>
