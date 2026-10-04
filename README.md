@@ -4,7 +4,7 @@ Proyecto académico de análisis Big Data aplicado al turismo.
 
 ## Objetivo
 
-Crear una plataforma para analizar datos turísticos.
+Crear una plataforma para analizar datos turísticos y mejorar la toma de decisiones.
 
 ## Tecnologías
 
@@ -12,6 +12,23 @@ Crear una plataforma para analizar datos turísticos.
 - Docker
 - JupyterLab
 - GitHub
+
+## Instalación
+
+Requisitos: Git y Docker Desktop.
+
+```bash
+git clone https://github.com/GeorgiF0x/SmartTour-BigData.git
+cd SmartTour-BigData
+```
+
+## Ejecución
+
+```bash
+docker compose up
+```
+
+Abrir JupyterLab en http://localhost:8888
 
 ## Estructura
 
@@ -26,3 +43,6 @@ Análisis realizados.
 
 docs:
 Documentación.
+
+laboratorios:
+Enunciados y presentaciones de cada laboratorio (lab01, lab02, ...).

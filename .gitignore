@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Secretos y configuración local
+.env
+
+# Sistema operativo / editores
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Herramientas locales
+.playwright-mcp/
