@@ -128,7 +128,7 @@
   .points li { padding: 12px 0; border-bottom: 1px solid var(--rule); font-size: clamp(14px, 1.15vw, 16px); line-height: 1.55; color: var(--fg-2); }
 
   figure { margin: 0; display: grid; gap: 10px; min-width: 0; }
-  .frame { border-radius: 6px; overflow: hidden; border: 1px solid var(--rule); background: var(--ink-2); box-shadow: 0 30px 60px -20px rgba(0,0,0,.6); }
+  .frame { border-radius: 6px; overflow: hidden; background: var(--ink-2); box-shadow: 0 30px 60px -20px rgba(0,0,0,.6); }
   .frame img { display: block; width: 100%; height: auto; max-height: calc(100dvh - 260px); object-fit: contain; object-position: top left; }
   figcaption { display: flex; justify-content: space-between; gap: 12px; }
   .stack { display: grid; gap: 14px; }
@@ -217,7 +217,48 @@
     </div>
   </section>
 
-  <!-- 03 · Pasos 1-4 -->
+  <!-- 03 · Preparación: instalar herramientas -->
+  <section class="slide step" data-section="Preparación">
+    <div class="text enter">
+      <p class="matrix num" data-scramble>00<small>/prep</small></p>
+      <h2 class="serif d3">Instalar las herramientas desde PowerShell</h2>
+<pre><span class="c"># winget: gestor de paquetes de Windows</span>
+winget install Python.Python.3.10
+winget install OpenJS.NodeJS
+winget install Git.Git
+winget install Docker.DockerDesktop</pre>
+      <ul class="points">
+        <li>Con <strong>winget</strong> se instala todo con un comando, sin buscar instaladores en la web.</li>
+        <li>Al terminar, cada herramienta se comprueba con <code>--version</code>.</li>
+      </ul>
+    </div>
+    <figure class="enter">
+      <div class="frame"><img src="img/00a-versiones.png" alt="Terminal con las versiones de Python, Node, npm, Git y Docker"></div>
+      <figcaption class="label"><span>PowerShell</span><span>Python 3.10 · Node 24 · Git 2.51 · Docker 28</span></figcaption>
+    </figure>
+  </section>
+
+  <!-- 04 · Preparación: configurar Git -->
+  <section class="slide step" data-section="Preparación">
+    <div class="text enter">
+      <p class="matrix num" data-scramble>00<small>/prep</small></p>
+      <h2 class="serif d3">Configurar Git para firmar los commits</h2>
+<pre>git config --global user.name  "GeorgiF0x"
+git config --global user.email "ge0rgid3v@gmail.com"
+git config --global --list</pre>
+      <ul class="points">
+        <li>El nombre y el correo quedan grabados en <strong>cada commit</strong>: así se sabe quién hizo cada cambio.</li>
+        <li>El correo debe coincidir con el de la cuenta de GitHub para que los commits aparezcan <strong>vinculados al perfil</strong>.</li>
+        <li><code>--global</code> lo aplica a todos los repositorios del equipo, no solo a este.</li>
+      </ul>
+    </div>
+    <figure class="enter">
+      <div class="frame"><img src="img/00b-git-config.png" alt="Terminal con la configuración global de Git y el remoto de GitHub"></div>
+      <figcaption class="label"><span>PowerShell</span><span>git config · git remote -v</span></figcaption>
+    </figure>
+  </section>
+
+  <!-- 05 · Pasos 1-4 -->
   <section class="slide step" data-section="Pasos 1–4">
     <div class="text enter">
       <p class="matrix num" data-scramble>04<small>/09</small></p>
@@ -363,6 +404,7 @@ git push</pre>
     <table class="enter">
       <thead><tr><th>Paso</th><th>Tarea</th><th></th></tr></thead>
       <tbody>
+        <tr><td>Prep.</td><td>Python, Node, Git y Docker instalados con <code>winget</code>; Git configurado con nombre y correo</td><td class="ok"><i aria-label="Hecho"></i></td></tr>
         <tr><td>01–02</td><td>Repositorio público con README, licencia MIT y <code>.gitignore</code>, clonado en local</td><td class="ok"><i aria-label="Hecho"></i></td></tr>
         <tr><td>03–04</td><td>Estructura de carpetas y README documentado</td><td class="ok"><i aria-label="Hecho"></i></td></tr>
         <tr><td>05</td><td>Docker Desktop instalado y <code>hello-world</code> ejecutado</td><td class="ok"><i aria-label="Hecho"></i></td></tr>
@@ -455,8 +497,8 @@ git push</pre>
 
   <!-- 15 · Cierre -->
   <section class="slide closing" data-section="Cierre">
-    <p class="serif d1 enter" style="max-width:14ch;color:var(--fg)"><code style="font-size:.42em;vertical-align:middle;background:none;padding:0">git clone</code> + <code style="font-size:.42em;vertical-align:middle;background:none;padding:0">docker compose up</code><br>y SmartTour está en marcha.</p>
-    <p class="enter">Siguiente fase del proyecto: captura y almacenamiento de datos turísticos.</p>
+    <p class="serif d1 enter" style="max-width:15ch;color:var(--fg)">Nuestra oficina digital <em>ya está lista</em>.</p>
+    <p class="enter">Repositorio, contenedores y JupyterLab preparados: con <code>git clone</code> y <code>docker compose up</code>, cualquiera del equipo puede empezar a trabajar.</p>
   </section>
 
 </main>
