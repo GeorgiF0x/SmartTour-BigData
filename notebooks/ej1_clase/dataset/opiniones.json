@@ -1,0 +1,16 @@
+[
+    {
+        "opinion_id": 101,
+        "producto_id": "P01",
+        "usuario": "@tech_user",
+        "comentario": "El ratón es muy ergonómico y rápido.",
+        "estrellas": 5
+    },
+    {
+        "opinion_id": 102,
+        "producto_id": "P02",
+        "usuario": "@gamer99",
+        "comentario": "El teclado es bueno, pero las teclas hacen algo de ruido.",
+        "estrellas": 4
+    }
+]

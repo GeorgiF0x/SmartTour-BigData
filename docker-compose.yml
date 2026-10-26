@@ -1,21 +1,38 @@
-version: "3.8"
-
 services:
-
-  jupyter:
-    image: jupyter/datascience-notebook
-    container_name: smarttour-jupyter
-    ports:
-      - "8888:8888"
-
-    volumes:
-      - ./notebooks:/home/jovyan/work
-      - ./datasets:/home/jovyan/datasets
-
-
+  postgres:
+    image: postgres:17
+    container_name: postgres-prueba
     environment:
-      - JUPYTER_ENABLE_LAB=yes
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: ClaseDB2026!
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      # Volumen virtual para que no se borren los datos de la BD
+      - datos_postgres:/var/lib/postgresql/data
+      # Carpeta local compartida para que Postgres vea tus archivos CSV
+      - ./datasets/labPstgrades:/datos    
+    networks:
+      - red-bbdd
+    restart: unless-stopped
+ 
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: pgadmin-prueba
+    environment:
+      PGADMIN_DEFAULT_EMAIL: alumno@clase.com
+      PGADMIN_DEFAULT_PASSWORD: AdminClase2026!
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+    networks:
+      - red-bbdd
+    restart: unless-stopped
+ 
+volumes:
+  datos_postgres: {}
 
-    command:
-      start-notebook.sh
-      --NotebookApp.token=''
+networks:
+  red-bbdd: {}

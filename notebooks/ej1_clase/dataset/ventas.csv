@@ -1,0 +1,4 @@
+cliente_id,producto_id,cantidad,precio
+1,P01,2,20
+2,P02,1,50
+3,P01,1,20
