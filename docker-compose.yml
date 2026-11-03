@@ -1,38 +1,61 @@
 services:
-  postgres:
-    image: postgres:17
-    container_name: postgres-prueba
-    environment:
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: ClaseDB2026!
-      POSTGRES_DB: postgres
+  jupyter:
+    # Docker Hub images stopped updating on 2023-10-20; official images live on quay.io
+    image: quay.io/jupyter/datascience-notebook:latest
+    container_name: smarttour-jupyter
     ports:
-      - "5432:5432"
+      # Bound to localhost only: the token is disabled, so it must not be reachable from the network
+      - "127.0.0.1:8888:8888"
     volumes:
-      # Volumen virtual para que no se borren los datos de la BD
-      - datos_postgres:/var/lib/postgresql/data
-      # Carpeta local compartida para que Postgres vea tus archivos CSV
-      - ./datasets/labPstgrades:/datos    
-    networks:
-      - red-bbdd
-    restart: unless-stopped
- 
-  pgadmin:
-    image: dpage/pgadmin4:latest
-    container_name: pgadmin-prueba
-    environment:
-      PGADMIN_DEFAULT_EMAIL: alumno@clase.com
-      PGADMIN_DEFAULT_PASSWORD: AdminClase2026!
-    ports:
-      - "5050:80"
+      - ./:/home/jovyan/smarttour
+    command: start-notebook.py --IdentityProvider.token=''
     depends_on:
       - postgres
     networks:
       - red-bbdd
     restart: unless-stopped
- 
+
+  postgres:
+    image: postgres:17
+    container_name: smarttour-postgres
+    environment:
+      POSTGRES_USER: smarttour
+      POSTGRES_PASSWORD: smarttour123
+      # Only applied when the volume is created for the first time
+      POSTGRES_DB: smarttour_db
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      # Named volume: data survives "docker compose down" (only "down -v" deletes it)
+      - datos_postgres:/var/lib/postgresql/data
+      # Local folder shared so Postgres can read CSV files
+      - ./datasets/labPstgrades:/datos
+      - ./:/smarttour
+    networks:
+      - red-bbdd
+    restart: unless-stopped
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: smarttour-pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: alumno@clase.com
+      PGADMIN_DEFAULT_PASSWORD: AdminClase2026!
+    ports:
+      - "127.0.0.1:5050:80"
+    volumes:
+      # Keeps registered servers and preferences between restarts
+      - datos_pgadmin:/var/lib/pgadmin
+      - ./:/smarttour
+    depends_on:
+      - postgres
+    networks:
+      - red-bbdd
+    restart: unless-stopped
+
 volumes:
   datos_postgres: {}
+  datos_pgadmin: {}
 
 networks:
   red-bbdd: {}
