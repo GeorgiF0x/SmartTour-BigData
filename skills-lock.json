@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "skills": {
+    "data-analysis-jupyter": {
+      "source": "mindrally/skills",
+      "sourceType": "github",
+      "skillPath": "data-analysis-jupyter/SKILL.md",
+      "computedHash": "8e471107d732ad0983458c327f7ee9e67d8662090f74d93d6ab8b071861103d0",
+      "installMode": "copy"
+    },
+    "ponytail": {
+      "source": "dietrichgebert/ponytail",
+      "sourceType": "github",
+      "skillPath": "skills/ponytail/SKILL.md",
+      "computedHash": "9feedbe220d039ba30720217b3fce16214817063fb54a48843d89368c86554e9",
+      "installMode": "copy"
+    }
+  }
+}
