@@ -1,10 +1,10 @@
-"""Configura Metabase y crea el cuadro de mando de reservas sobre las vistas del schema dw.
+"""Configura Metabase y crea el cuadro de mando de la constelación (reservas y visitas) sobre el schema dw.
 
 Hace lo mismo que se haría a mano en la interfaz de Metabase:
   1. crea el usuario administrador (solo la primera vez);
   2. conecta la base smarttour_db de PostgreSQL;
   3. crea la colección "SmartTour" con una pregunta SQL por gráfico;
-  4. monta el cuadro de mando "SmartTour · Reservas" con esas preguntas.
+  4. monta el cuadro de mando "SmartTour · Turismo en Castilla y León" con esas preguntas.
 
 Se puede volver a ejecutar: borra (archiva) las preguntas y el cuadro de mando que creó antes
 y los vuelve a crear, así que los cambios de este script siempre se aplican.
@@ -34,7 +34,7 @@ DATABASE = {
 }
 
 COLLECTION = "SmartTour"
-DASHBOARD = "SmartTour · Reservas"
+DASHBOARD = "SmartTour · Turismo en Castilla y León"
 
 EUR = {"number_style": "currency", "currency": "EUR", "currency_style": "symbol"}
 EUR0 = {**EUR, "decimals": 0}
@@ -57,13 +57,17 @@ def col(name, **settings):
 # La rejilla del cuadro de mando tiene 24 columnas: (fila, columna, ancho, alto).
 CARDS = [
     ("Reservas", "SELECT COUNT(*) AS reservas FROM dw.fact_reservas",
-     "scalar", {}, (0, 0, 6, 3)),
+     "scalar", {}, (0, 0, 4, 3)),
     ("Ingresos", "SELECT SUM(importe_total) AS ingresos FROM dw.fact_reservas",
-     "scalar", {"column_settings": col("ingresos", **EUR, scale=1)}, (0, 6, 6, 3)),
+     "scalar", {"column_settings": col("ingresos", **EUR, scale=1)}, (0, 4, 4, 3)),
     ("Turistas alojados", "SELECT SUM(num_huespedes) AS turistas FROM dw.fact_reservas",
-     "scalar", {}, (0, 12, 6, 3)),
-    ("Estancia media (noches)", "SELECT ROUND(AVG(num_noches), 2) AS noches FROM dw.fact_reservas",
-     "scalar", {}, (0, 18, 6, 3)),
+     "scalar", {}, (0, 8, 4, 3)),
+    ("Noches por reserva", "SELECT ROUND(AVG(num_noches), 2) AS noches FROM dw.fact_reservas",
+     "scalar", {}, (0, 12, 4, 3)),
+    ("Visitas monumentos", "SELECT SUM(num_visitas) AS visitas FROM dw.fact_visitas_monumentos",
+     "scalar", {}, (0, 16, 4, 3)),
+    ("Visitas oficinas", "SELECT SUM(num_visitas) AS visitas FROM dw.fact_visitas_oficinas",
+     "scalar", {}, (0, 20, 4, 3)),
 
     ("Ingresos por mes de entrada",
      """SELECT make_date(anio, mes, 1) AS mes, ingresos
@@ -132,6 +136,43 @@ ORDER BY antelacion_media_dias DESC""",
              "graph.show_values": True, "graph.max_categories_enabled": False, "graph.max_categories": 30,
              "graph.x_axis.title_text": "Días de antelación", "graph.y_axis.title_text": "",
              **series(antelacion_media_dias=RED)}, (21, 12, 12, 11)),
+
+    # --- Visitas: los otros dos procesos de la constelación ---
+    ("Visitas a monumentos por mes",
+     """SELECT make_date(anio, mes, 1) AS mes, SUM(visitas) AS visitas
+FROM dw.vw_visitas_monumentos_mensuales
+GROUP BY anio, mes
+ORDER BY mes""",
+     "line", {"graph.dimensions": ["mes"], "graph.metrics": ["visitas"],
+              "graph.x_axis.title_text": "Mes", "graph.y_axis.title_text": "Visitas",
+              **series(visitas=RED)}, (32, 0, 16, 6)),
+    ("Ingresos por entradas, por tipo de monumento",
+     """SELECT tipo, SUM(ingresos) AS ingresos
+FROM dw.vw_ingresos_monumentos
+GROUP BY tipo
+ORDER BY ingresos DESC""",
+     "row", {"graph.dimensions": ["tipo"], "graph.metrics": ["ingresos"], "graph.show_values": True,
+             "graph.max_categories_enabled": False, "graph.max_categories": 30,
+             "graph.x_axis.title_text": "Ingresos", "graph.y_axis.title_text": "",
+             "column_settings": col("ingresos", **EUR0), **series(ingresos=RED)}, (32, 16, 8, 6)),
+
+    ("Monumentos más visitados",
+     """SELECT monumento, total_visitas AS visitas
+FROM dw.vw_monumentos_mas_visitados
+ORDER BY total_visitas DESC
+LIMIT 12""",
+     "row", {"graph.dimensions": ["monumento"], "graph.metrics": ["visitas"], "graph.show_values": True,
+             "graph.max_categories_enabled": False, "graph.max_categories": 30,
+             "graph.x_axis.title_text": "Visitas (2024-2025)", "graph.y_axis.title_text": "",
+             **series(visitas=RED)}, (38, 0, 12, 9)),
+    ("Actividad turística por municipio en 2025 (tres procesos)",
+     """-- Cada hecho se agrega por municipio y año antes de unirlos (vista con CTE)
+SELECT municipio, provincia, reservas, visitas_oficinas, visitas_monumentos, ingresos_monumentos
+FROM dw.vw_actividad_turistica_municipio
+WHERE anio = 2025
+ORDER BY visitas_monumentos DESC
+LIMIT 15""",
+     "table", {"column_settings": col("ingresos_monumentos", **EUR0)}, (38, 12, 12, 9)),
 ]
 
 
@@ -234,8 +275,8 @@ def main():
     dashboard = call("POST", "/api/dashboard", {
         "name": DASHBOARD,
         "collection_id": collection_id,
-        "description": "Reservas turísticas simuladas en Castilla y León (2024-2025). "
-                       "Todas las preguntas leen las vistas del schema dw (sql/06_dw_views.sql).",
+        "description": "Reservas y visitas a oficinas y monumentos simuladas en Castilla y León "
+                       "(2024-2025). Todas las preguntas leen el schema dw (sql/06_dw_views.sql).",
     }, session=session)
     call("PUT", f"/api/dashboard/{dashboard['id']}", {"dashcards": dashcards}, session=session)
 
