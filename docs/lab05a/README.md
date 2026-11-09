@@ -90,11 +90,14 @@ Todas usan **claves sustitutas** (enteros autogenerados) en lugar de las claves 
 
 ## Actividad 4. Diagrama
 
-El diagrama editable está en `smarttour_dw.dbml`: se pega en [dbdiagram.io](https://dbdiagram.io/d) y se exporta a PNG/PDF.
-
 ![Esquema en estrella del DW de reservas](smarttour_dw.png)
 
-Fuente Mermaid de la imagen (se regenera con `npx @mermaid-js/mermaid-cli -i <bloque>.mmd -o smarttour_dw.png -b white -s 2`):
+El diagrama está hecho en HTML, CSS y JS, sin dependencias, con el mismo estilo visual que las presentaciones de los labs: [`diagrama.html`](diagrama.html). Ábrelo en el navegador para ver la versión interactiva: al pasar el cursor por una tabla se resalta su relación con la tabla de hechos. Cada línea va desde la clave primaria de la dimensión hasta su clave foránea en `fact_reservas`, con la notación «una dimensión, muchas reservas». `smarttour_dw.png` es una captura de esa página a 1440 px de ancho y doble resolución.
+
+También se incluye `smarttour_dw.dbml`, por si se quiere abrir el modelo en [dbdiagram.io](https://dbdiagram.io/d).
+
+<details>
+<summary>Versión Mermaid (se muestra directamente en GitHub)</summary>
 
 ```mermaid
 erDiagram
@@ -156,6 +159,8 @@ erDiagram
         varchar mercado
     }
 ```
+
+</details>
 
 Todas las relaciones son **1:N**: un miembro de dimensión (un día, un alojamiento…) aparece en muchas reservas, y cada reserva apunta a exactamente un miembro de cada dimensión.
 
