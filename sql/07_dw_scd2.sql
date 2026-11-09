@@ -58,7 +58,7 @@ SET alojamiento_key = v.alojamiento_key
 FROM dw.dim_fecha d,
      dw.dim_alojamiento actual,
      dw.dim_alojamiento v
-WHERE d.fecha_key = f.fecha_key
+WHERE d.fecha_key = f.fecha_entrada_key
   AND actual.alojamiento_key = f.alojamiento_key
   AND actual.tipo_establecimiento = 'Alojamientos Hoteleros'
   AND actual.n_registro = '37/000100'
@@ -88,7 +88,7 @@ WHERE n_registro = '37/000100' AND tipo_establecimiento = 'Alojamientos Hotelero
 SELECT d.anio, a.categoria, COUNT(*) AS reservas, SUM(f.importe_total) AS ingresos
 FROM dw.fact_reservas f
 JOIN dw.dim_alojamiento a ON a.alojamiento_key = f.alojamiento_key
-JOIN dw.dim_fecha d ON d.fecha_key = f.fecha_key
+JOIN dw.dim_fecha d ON d.fecha_key = f.fecha_entrada_key
 WHERE a.tipo_establecimiento = 'Alojamientos Hoteleros' AND a.n_registro = '37/000100'
 GROUP BY d.anio, a.categoria
 ORDER BY d.anio;

@@ -16,7 +16,7 @@ SELECT d.mes, d.nombre_mes,
        COUNT(*) FILTER (WHERE d.anio = 2024) AS reservas_2024,
        COUNT(*) FILTER (WHERE d.anio = 2025) AS reservas_2025
 FROM dw.fact_reservas f
-JOIN dw.dim_fecha d USING (fecha_key)
+JOIN dw.dim_fecha d ON d.fecha_key = f.fecha_entrada_key
 GROUP BY d.mes, d.nombre_mes
 ORDER BY d.mes;
 
@@ -66,6 +66,18 @@ SELECT d.temporada, d.es_fin_de_semana, d.es_festivo,
        ROUND(COUNT(*)::numeric / COUNT(DISTINCT d.fecha), 1) AS reservas_por_dia,
        ROUND(AVG(f.importe_total), 2)                    AS importe_medio
 FROM dw.fact_reservas f
-JOIN dw.dim_fecha d USING (fecha_key)
+JOIN dw.dim_fecha d ON d.fecha_key = f.fecha_entrada_key
 GROUP BY d.temporada, d.es_fin_de_semana, d.es_festivo
 ORDER BY d.temporada, d.es_fin_de_semana, d.es_festivo;
+
+-- 8. ¿Cuántas reservas se hacen cada mes y para cuándo? (dim_fecha con dos papeles)
+-- Se une dim_fecha DOS veces, con alias distintos: una como fecha de reserva y otra como fecha de entrada.
+SELECT r.anio AS anio_reserva, r.mes AS mes_reserva, r.nombre_mes AS nombre_mes_reserva,
+       COUNT(*)                                                AS reservas_realizadas,
+       COUNT(*) FILTER (WHERE e.mes IN (7, 8))                 AS para_verano,
+       ROUND(AVG(f.dias_antelacion), 1)                        AS antelacion_media_dias
+FROM dw.fact_reservas f
+JOIN dw.dim_fecha r ON r.fecha_key = f.fecha_reserva_key
+JOIN dw.dim_fecha e ON e.fecha_key = f.fecha_entrada_key
+GROUP BY r.anio, r.mes, r.nombre_mes
+ORDER BY r.anio, r.mes;

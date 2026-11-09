@@ -52,9 +52,28 @@ services:
       - red-bbdd
     restart: unless-stopped
 
+  # Dashboards over the dw views (stands in for Power BI, which has no macOS version)
+  metabase:
+    image: metabase/metabase:v0.64.3
+    container_name: smarttour-metabase
+    environment:
+      # Metabase's own settings (users, questions, dashboards) live in an H2 file on a named volume
+      MB_DB_FILE: /metabase-data/metabase.db
+      MB_SITE_LOCALE: es
+    ports:
+      - "127.0.0.1:3000:3000"
+    volumes:
+      - datos_metabase:/metabase-data
+    depends_on:
+      - postgres
+    networks:
+      - red-bbdd
+    restart: unless-stopped
+
 volumes:
   datos_postgres: {}
   datos_pgadmin: {}
+  datos_metabase: {}
 
 networks:
   red-bbdd: {}

@@ -63,6 +63,7 @@
   }
   .intro p { margin: 0; max-width: 58ch; font-size: clamp(15px, 1.2vw, 17px); line-height: 1.6; color: var(--grey-on-dark); }
   .intro p strong { color: #fff; font-weight: 500; }
+  .intro p code { font: 400 .88em var(--mono); color: #fff; background: rgba(255,255,255,.08); padding: .1em .4em; border-radius: 3px; }
   .legend { display: grid; gap: 10px; font: 400 12px/1.2 var(--mono); color: var(--grey-on-dark); }
   .legend div { display: flex; align-items: center; gap: 12px; }
   .legend svg { width: 56px; height: 14px; flex: none; }
@@ -171,7 +172,7 @@
 <header class="intro">
   <div>
     <h1>Las reservas, en estrella</h1>
-    <p>Una fila por reserva: <strong>150.000 reservas</strong> de 2024 y 2025 en el centro, rodeadas por las cinco dimensiones que las describen. Cada línea une una clave foránea de la tabla de hechos con la clave primaria de su dimensión. Pasa el cursor por una tabla para seguir su relación.</p>
+    <p>Una fila por reserva: <strong>150.000 reservas</strong> de 2024 y 2025 en el centro, rodeadas por las cinco dimensiones que las describen. Cada línea une una clave foránea de la tabla de hechos con la clave primaria de su dimensión. <code>dim_fecha</code> se usa tres veces: fecha de reserva, de entrada y de salida. Pasa el cursor por una tabla para seguir su relación.</p>
   </div>
   <div class="legend">
     <div><span class="k pk">PK</span>Clave primaria (sustituta)</div>
@@ -193,7 +194,7 @@
 <script>
 // Schema mirrors sql/03_dw_schema.sql; row counts are the loaded totals.
 const TABLES = {
-  dim_fecha: { side: 'left', rows: 731, cols: [
+  dim_fecha: { side: 'left', rows: 1461, cols: [
     ['fecha_key', 'integer', 'PK'], ['fecha', 'date'], ['dia', 'smallint'], ['mes', 'smallint'],
     ['nombre_mes', 'varchar'], ['trimestre', 'smallint'], ['anio', 'smallint'], ['dia_semana', 'smallint'],
     ['nombre_dia', 'varchar'], ['es_fin_de_semana', 'boolean'], ['es_festivo', 'boolean'], ['temporada', 'varchar'] ] },
@@ -215,7 +216,9 @@ const TABLES = {
 const FACT = { name: 'fact_reservas', rows: 150000, groups: [
   ['Claves', [
     ['reserva_id', 'integer', 'PK'],
-    ['fecha_key', 'integer', 'FK', 'dim_fecha'],
+    ['fecha_reserva_key', 'integer', 'FK', 'dim_fecha'],
+    ['fecha_entrada_key', 'integer', 'FK', 'dim_fecha'],
+    ['fecha_salida_key', 'integer', 'FK', 'dim_fecha'],
     ['alojamiento_key', 'integer', 'FK', 'dim_alojamiento'],
     ['municipio_key', 'integer', 'FK', 'dim_municipio'],
     ['canal_key', 'integer', 'FK', 'dim_canal'],
@@ -275,15 +278,16 @@ function drawWires() {
 
   ['left', 'right'].forEach(side => {
     const dir = side === 'left' ? 1 : -1;
-    const links = names(side).map(n => {
+    // One wire per FK row: dim_fecha plays three roles, so its PK fans out to three rows
+    const links = names(side).flatMap(n => {
       const dim = diagram.querySelector(`[data-table="${n}"]`).getBoundingClientRect();
-      return {
+      return [...diagram.querySelectorAll(`.fact li[data-rel="${n}"]`)].map(fk => ({
         rel: n,
         x1: (side === 'left' ? dim.right : dim.left) - box.left,
         y1: mid(diagram.querySelector(`[data-table="${n}"] li.pk`)),
         x2: (side === 'left' ? fact.left : fact.right) - box.left,
-        y2: mid(diagram.querySelector(`.fact li[data-rel="${n}"]`)),
-      };
+        y2: mid(fk),
+      }));
     });
     const down = links.filter(l => l.y1 <= l.y2).sort((a, b) => a.y2 - b.y2);
     const up = links.filter(l => l.y1 > l.y2).sort((a, b) => b.y2 - a.y2);

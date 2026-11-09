@@ -2,12 +2,13 @@
 
 Lee los CSV limpios de datasets/clean/ y escribe en datasets/dw/:
 
-- dim_fecha.csv          una fila por día (2024-01-01 a 2025-12-31)
+- dim_fecha.csv          una fila por día (2023-01-01 a 2026-12-31)
 - dim_municipio.csv      municipios de CyL + nº de monumentos y oficinas de turismo
 - dim_alojamiento.csv    alojamientos del registro de turismo
 - dim_canal.csv          canales de reserva (catálogo fijo)
 - dim_procedencia.csv    origen del cliente (catálogo fijo)
-- fact_reservas.csv      reservas FICTICIAS, una fila por reserva
+- fact_reservas.csv      reservas FICTICIAS, una fila por reserva, con tres fechas
+                         (reserva, entrada y salida) que apuntan a la misma dim_fecha
 
 Las reservas se simulan con una semilla fija, así que cada ejecución produce
 exactamente los mismos datos. La simulación respeta reglas de negocio básicas:
@@ -31,7 +32,10 @@ OUT = ROOT / "datasets" / "dw"
 
 SEED = 2026
 N_RESERVAS = 150_000
+# Las entradas (check-in) se simulan en 2024-2025. El calendario cubre también 2023 y 2026
+# porque la fecha de reserva puede ser hasta un año anterior y la de salida, posterior.
 START, END = date(2024, 1, 1), date(2025, 12, 31)
+CAL_START, CAL_END = date(2023, 1, 1), date(2026, 12, 31)
 
 MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio",
          "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
@@ -39,14 +43,21 @@ DIAS = ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "doming
 
 # Festivos nacionales y autonómicos principales de Castilla y León (aproximados)
 FESTIVOS = {
+    date(2023, 1, 6), date(2023, 4, 6), date(2023, 4, 7), date(2023, 5, 1),
+    date(2023, 8, 15), date(2023, 10, 12), date(2023, 11, 1), date(2023, 12, 6),
+    date(2023, 12, 8), date(2023, 12, 25),
     date(2024, 1, 1), date(2024, 1, 6), date(2024, 3, 28), date(2024, 3, 29),
     date(2024, 4, 23), date(2024, 5, 1), date(2024, 8, 15), date(2024, 10, 12),
     date(2024, 11, 1), date(2024, 12, 6), date(2024, 12, 25),
     date(2025, 1, 1), date(2025, 1, 6), date(2025, 4, 17), date(2025, 4, 18),
     date(2025, 4, 23), date(2025, 5, 1), date(2025, 7, 25), date(2025, 8, 15),
     date(2025, 11, 1), date(2025, 12, 6), date(2025, 12, 8), date(2025, 12, 25),
+    date(2026, 1, 1), date(2026, 1, 6), date(2026, 4, 2), date(2026, 4, 3),
+    date(2026, 4, 23), date(2026, 5, 1), date(2026, 8, 15), date(2026, 10, 12),
+    date(2026, 12, 8), date(2026, 12, 25),
 }
-SEMANA_SANTA = [(date(2024, 3, 24), date(2024, 3, 31)), (date(2025, 4, 13), date(2025, 4, 20))]
+SEMANA_SANTA = [(date(2023, 4, 2), date(2023, 4, 9)), (date(2024, 3, 24), date(2024, 3, 31)),
+                (date(2025, 4, 13), date(2025, 4, 20)), (date(2026, 3, 29), date(2026, 4, 5))]
 
 # (canal, tipo_canal, comision_pct, peso)
 CANALES = [
@@ -116,8 +127,8 @@ def temporada(d):
 
 
 def build_dim_fecha():
-    rows, d = [], START
-    while d <= END:
+    rows, d = [], CAL_START
+    while d <= CAL_END:
         rows.append([
             int(d.strftime("%Y%m%d")), d.isoformat(), d.day, d.month, MESES[d.month - 1],
             (d.month - 1) // 3 + 1, d.year, d.isoweekday(), DIAS[d.weekday()],
@@ -190,14 +201,16 @@ def main():
         w *= {5: 1.6, 6: 1.4}.get(d.isoweekday(), 1.0)  # viernes y sábado
         return w * (1.5 if f[10] else 1.0)
 
-    fecha_pesos = [peso_fecha(f) for f in fechas]
+    # Solo se sortean entradas dentro del periodo simulado (mismo orden y pesos que antes)
+    entradas = [f for f in fechas if START <= date.fromisoformat(f[1]) <= END]
+    fecha_pesos = [peso_fecha(f) for f in entradas]
     aloj_pesos = [a[4] ** 0.8 * MULT_PROVINCIA.get(a[5], 1.0) for a in reservables]
     canal_keys = list(range(1, len(CANALES) + 1))
     canal_pesos = [c[3] for c in CANALES]
     proc_keys = list(range(1, len(PROCEDENCIAS) + 1))
     proc_pesos = [p[4] for p in PROCEDENCIAS]
 
-    fechas_elegidas = rng.choices(fechas, weights=fecha_pesos, k=N_RESERVAS)
+    fechas_elegidas = rng.choices(entradas, weights=fecha_pesos, k=N_RESERVAS)
     alojs_elegidos = rng.choices(reservables, weights=aloj_pesos, k=N_RESERVAS)
     hechos = []
     for i, (f, a) in enumerate(zip(fechas_elegidas, alojs_elegidos), start=1):
@@ -223,10 +236,15 @@ def main():
         # El turista internacional planifica con más antelación que el de proximidad
         media = 50 if mercado == "Internacional" else 10 if origen == "Castilla y León" else 20
         antelacion = 0 if canal == 5 else min(int(rng.expovariate(1 / media)), 365)
-        hechos.append([i, f[0], aloj_key, mun_key, canal, proc, huespedes, noches, importe,
-                       antelacion])
+        # Las otras dos fechas se derivan de la entrada: no consumen números aleatorios
+        entrada = date.fromisoformat(f[1])
+        reserva_key = int((entrada - timedelta(days=antelacion)).strftime("%Y%m%d"))
+        salida_key = int((entrada + timedelta(days=noches)).strftime("%Y%m%d"))
+        hechos.append([i, reserva_key, f[0], salida_key, aloj_key, mun_key, canal, proc,
+                       huespedes, noches, importe, antelacion])
 
-    write("fact_reservas.csv", ["reserva_id", "fecha_key", "alojamiento_key", "municipio_key",
+    write("fact_reservas.csv", ["reserva_id", "fecha_reserva_key", "fecha_entrada_key",
+                                "fecha_salida_key", "alojamiento_key", "municipio_key",
                                 "canal_key", "procedencia_key", "num_huespedes", "num_noches",
                                 "importe_total", "dias_antelacion"], hechos)
 

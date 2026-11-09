@@ -50,7 +50,9 @@ También se incluye `smarttour_dw.dbml`, por si se quiere abrir el modelo en [db
 
 ```mermaid
 erDiagram
-    DIM_FECHA ||--o{ FACT_RESERVAS : "fecha_key"
+    DIM_FECHA ||--o{ FACT_RESERVAS : "fecha_reserva_key"
+    DIM_FECHA ||--o{ FACT_RESERVAS : "fecha_entrada_key"
+    DIM_FECHA ||--o{ FACT_RESERVAS : "fecha_salida_key"
     DIM_ALOJAMIENTO ||--o{ FACT_RESERVAS : "alojamiento_key"
     DIM_MUNICIPIO ||--o{ FACT_RESERVAS : "municipio_key"
     DIM_CANAL ||--o{ FACT_RESERVAS : "canal_key"
@@ -58,7 +60,9 @@ erDiagram
 
     FACT_RESERVAS {
         int reserva_id PK
-        int fecha_key FK
+        int fecha_reserva_key FK
+        int fecha_entrada_key FK
+        int fecha_salida_key FK
         int alojamiento_key FK
         int municipio_key FK
         int canal_key FK
