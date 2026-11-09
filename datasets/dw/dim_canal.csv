@@ -1,0 +1,6 @@
+canal_key,canal,tipo_canal,comision_pct
+1,Plataforma online (OTA),Intermediado,15.0
+2,Web propia,Directo,0.0
+3,Teléfono / email,Directo,0.0
+4,Agencia de viajes,Intermediado,10.0
+5,Presencial,Directo,0.0

@@ -1,0 +1,18 @@
+procedencia_key,origen,pais,mercado,continente
+1,Comunidad de Madrid,España,Nacional,Europa
+2,Castilla y León,España,Nacional,Europa
+3,País Vasco,España,Nacional,Europa
+4,Cataluña,España,Nacional,Europa
+5,Andalucía,España,Nacional,Europa
+6,Galicia,España,Nacional,Europa
+7,Comunidad Valenciana,España,Nacional,Europa
+8,Asturias,España,Nacional,Europa
+9,Resto de España,España,Nacional,Europa
+10,Francia,Francia,Internacional,Europa
+11,Portugal,Portugal,Internacional,Europa
+12,Reino Unido,Reino Unido,Internacional,Europa
+13,Alemania,Alemania,Internacional,Europa
+14,Italia,Italia,Internacional,Europa
+15,Estados Unidos,Estados Unidos,Internacional,América
+16,Latinoamérica,Varios,Internacional,América
+17,Otros países,Varios,Internacional,Otros

@@ -81,3 +81,13 @@ sql:
 Esquema y carga de la base de datos.
 
 Los laboratorios y ejercicios de clase están en el repositorio aparte `BigData-Labs`.
+
+### Data Warehouse de reservas (Lab 05a)
+
+Esquema en estrella en el schema `dw` (reservas ficticias + 5 dimensiones). Diseño, diagrama y justificación en [`docs/lab05a/README.md`](docs/lab05a/README.md).
+
+```bash
+python scripts/generate_dw.py
+docker exec smarttour-postgres psql -U smarttour -d smarttour_db -f /smarttour/sql/03_dw_schema.sql
+docker exec smarttour-postgres psql -U smarttour -d smarttour_db -f /smarttour/sql/04_dw_load.sql
+```
