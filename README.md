@@ -100,3 +100,12 @@ Capa de vistas analíticas (10 vistas y una vista materializada) y un ejemplo de
 docker exec smarttour-postgres psql -U smarttour -d smarttour_db -f /smarttour/sql/06_dw_views.sql
 docker exec smarttour-postgres psql -U smarttour -d smarttour_db -f /smarttour/sql/07_dw_scd2.sql
 ```
+
+### Cuadro de mando (Metabase)
+
+Metabase sustituye a Power BI, que no tiene versión para macOS. Muestra un cuadro de mando con las vistas de `dw` en http://127.0.0.1:3000 (`alumno@clase.com` / `AdminClase2026!`). Más detalle en [`docs/lab05c/README.md`](docs/lab05c/README.md#cuadro-de-mando-con-metabase).
+
+```bash
+docker compose up -d metabase
+python scripts/setup_metabase.py
+```
