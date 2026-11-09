@@ -91,3 +91,12 @@ python scripts/generate_dw.py
 docker exec smarttour-postgres psql -U smarttour -d smarttour_db -f /smarttour/sql/03_dw_schema.sql
 docker exec smarttour-postgres psql -U smarttour -d smarttour_db -f /smarttour/sql/04_dw_load.sql
 ```
+
+### Vistas y SCD tipo 2 (Lab 05c)
+
+Capa de vistas analíticas (9 vistas y una vista materializada) y un ejemplo de dimensión lentamente cambiante sobre el schema `dw`. Explicado y comprobado en el cuaderno [`notebooks/03_Lab05c_Vistas_SCD.ipynb`](notebooks/03_Lab05c_Vistas_SCD.ipynb); guía en [`docs/lab05c/README.md`](docs/lab05c/README.md).
+
+```bash
+docker exec smarttour-postgres psql -U smarttour -d smarttour_db -f /smarttour/sql/06_dw_views.sql
+docker exec smarttour-postgres psql -U smarttour -d smarttour_db -f /smarttour/sql/07_dw_scd2.sql
+```
