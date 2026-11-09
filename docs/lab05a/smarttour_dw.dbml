@@ -8,7 +8,9 @@ Project SmartTour_DW {
 
 Table dw.fact_reservas [headercolor: #C0392B] {
   reserva_id int [pk]
-  fecha_key int [not null, ref: > dw.dim_fecha.fecha_key, note: 'fecha de entrada']
+  fecha_reserva_key int [not null, ref: > dw.dim_fecha.fecha_key, note: 'cuándo se hace la reserva']
+  fecha_entrada_key int [not null, ref: > dw.dim_fecha.fecha_key, note: 'llegada (check-in)']
+  fecha_salida_key int [not null, ref: > dw.dim_fecha.fecha_key, note: 'salida (check-out)']
   alojamiento_key int [not null, ref: > dw.dim_alojamiento.alojamiento_key]
   municipio_key int [not null, ref: > dw.dim_municipio.municipio_key]
   canal_key int [not null, ref: > dw.dim_canal.canal_key]
@@ -21,7 +23,7 @@ Table dw.fact_reservas [headercolor: #C0392B] {
 }
 
 Table dw.dim_fecha [headercolor: #2471A3] {
-  fecha_key int [pk, note: 'AAAAMMDD']
+  fecha_key int [pk, note: 'AAAAMMDD. Calendario 2023-2026; la usan tres claves del hecho']
   fecha date [unique, not null]
   dia smallint
   mes smallint

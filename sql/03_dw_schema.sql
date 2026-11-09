@@ -7,7 +7,9 @@ CREATE SCHEMA IF NOT EXISTS dw;
 DROP TABLE IF EXISTS dw.fact_reservas, dw.dim_fecha, dw.dim_municipio, dw.dim_alojamiento,
                      dw.dim_canal, dw.dim_procedencia CASCADE;
 
--- Clave "inteligente" AAAAMMDD: legible y ordenable
+-- Clave "inteligente" AAAAMMDD: legible y ordenable.
+-- Calendario 2023-2026: las entradas son de 2024-2025, pero la fecha de reserva puede ser
+-- hasta un año anterior y la de salida, posterior.
 CREATE TABLE dw.dim_fecha (
     fecha_key        INTEGER PRIMARY KEY,
     fecha            DATE        NOT NULL UNIQUE,
@@ -72,7 +74,10 @@ CREATE TABLE dw.dim_procedencia (
 
 CREATE TABLE dw.fact_reservas (
     reserva_id      INTEGER PRIMARY KEY,
-    fecha_key       INTEGER NOT NULL REFERENCES dw.dim_fecha (fecha_key),  -- fecha de entrada
+    -- dim_fecha cumple tres papeles distintos (role-playing dimension)
+    fecha_reserva_key INTEGER NOT NULL REFERENCES dw.dim_fecha (fecha_key),  -- cuándo se reserva
+    fecha_entrada_key INTEGER NOT NULL REFERENCES dw.dim_fecha (fecha_key),  -- llegada (check-in)
+    fecha_salida_key  INTEGER NOT NULL REFERENCES dw.dim_fecha (fecha_key),  -- salida (check-out)
     alojamiento_key INTEGER NOT NULL REFERENCES dw.dim_alojamiento (alojamiento_key),
     municipio_key   INTEGER NOT NULL REFERENCES dw.dim_municipio (municipio_key),
     canal_key       INTEGER NOT NULL REFERENCES dw.dim_canal (canal_key),
@@ -81,11 +86,15 @@ CREATE TABLE dw.fact_reservas (
     num_huespedes   SMALLINT      NOT NULL CHECK (num_huespedes > 0),
     num_noches      SMALLINT      NOT NULL CHECK (num_noches > 0),
     importe_total   NUMERIC(10,2) NOT NULL CHECK (importe_total >= 0),
-    dias_antelacion SMALLINT      NOT NULL CHECK (dias_antelacion >= 0)
+    dias_antelacion SMALLINT      NOT NULL CHECK (dias_antelacion >= 0),
+    -- Las fechas deben ser coherentes con las medidas (AAAAMMDD se ordena igual que la fecha)
+    CHECK (fecha_reserva_key <= fecha_entrada_key AND fecha_entrada_key < fecha_salida_key)
 );
 
 -- Índices en las claves foráneas: las consultas filtran y agrupan por ellas
-CREATE INDEX ON dw.fact_reservas (fecha_key);
+CREATE INDEX ON dw.fact_reservas (fecha_reserva_key);
+CREATE INDEX ON dw.fact_reservas (fecha_entrada_key);
+CREATE INDEX ON dw.fact_reservas (fecha_salida_key);
 CREATE INDEX ON dw.fact_reservas (alojamiento_key);
 CREATE INDEX ON dw.fact_reservas (municipio_key);
 CREATE INDEX ON dw.fact_reservas (canal_key);

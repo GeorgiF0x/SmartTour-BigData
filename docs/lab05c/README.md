@@ -11,6 +11,7 @@ El enunciado deja elegir entre estrella y constelación. Se mantiene la **estrel
 | Hechos generados en CSV y cargados con `COPY` | `scripts/generate_dw.py` → `datasets/dw/*.csv`, `sql/03_dw_schema.sql`, `sql/04_dw_load.sql` |
 | Vistas analíticas, vista con CTE y vista materializada | `sql/06_dw_views.sql` |
 | SCD tipo 2 | `sql/07_dw_scd2.sql` |
+| Tres fechas en la reserva (reserva, entrada y salida) | `fact_reservas` con tres claves hacia `dim_fecha` (`sql/03_dw_schema.sql`) |
 | Explicación y comprobación de todo lo anterior | [`notebooks/03_Lab05c_Vistas_SCD.ipynb`](../../notebooks/03_Lab05c_Vistas_SCD.ipynb) |
 
 ## Reproducir
@@ -39,6 +40,7 @@ done
 | `vw_reservas_procedencia` | ¿De dónde vienen los clientes y con cuánta antelación reservan? |
 | `vw_reservas_temporada` | ¿Cuántas reservas hay por día en cada temporada? |
 | `vw_actividad_turistica_municipio` | Reservas frente a oferta y patrimonio por municipio y año (CTE) |
+| `vw_calendario_reservas` | Reservas hechas, llegadas y salidas por mes: `dim_fecha` en sus tres papeles |
 | `mv_reservas_municipio_mes` | Cubo municipio × mes precalculado (vista materializada) |
 
 Las consultas del enunciado sobre visitas a oficinas y monumentos no tienen equivalente directo, porque en esta estrella oficinas y monumentos no son hechos: son atributos de `dim_municipio`. Se sustituyen por vistas sobre las otras dimensiones de la estrella.
