@@ -84,7 +84,7 @@ Los laboratorios y ejercicios de clase están en el repositorio aparte `BigData-
 
 ### Data Warehouse de reservas (Lab 05a)
 
-Esquema en estrella en el schema `dw` (reservas ficticias + 5 dimensiones). Diseño, diagrama y justificación en [`docs/lab05a/README.md`](docs/lab05a/README.md).
+Esquema en estrella en el schema `dw` (reservas ficticias + 5 dimensiones). Actividades resueltas en el cuaderno [`notebooks/02_Lab05a_Data_Warehouse.ipynb`](notebooks/02_Lab05a_Data_Warehouse.ipynb); diagrama y guía de reproducción en [`docs/lab05a/README.md`](docs/lab05a/README.md).
 
 ```bash
 python scripts/generate_dw.py
