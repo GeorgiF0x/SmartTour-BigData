@@ -8,11 +8,18 @@ El enunciado deja elegir entre estrella y constelación. Se mantiene la **estrel
 |---|---|
 | Pasos 1–12: Docker, PostgreSQL y pgAdmin | `docker-compose.yml` (ya existente desde el Lab 03) |
 | Paso 13: modelo relacional `municipios` 1:N | `sql/01_schema.sql`, `sql/02_load.sql` (schema `public`) |
+| Diagrama entidad-relación del modelo relacional | [`modelo_relacional.html`](modelo_relacional.html) · `modelo_relacional.png` |
 | Hechos generados en CSV y cargados con `COPY` | `scripts/generate_dw.py` → `datasets/dw/*.csv`, `sql/03_dw_schema.sql`, `sql/04_dw_load.sql` |
 | Vistas analíticas, vista con CTE y vista materializada | `sql/06_dw_views.sql` |
 | SCD tipo 2 | `sql/07_dw_scd2.sql` |
 | Tres fechas en la reserva (reserva, entrada y salida) | `fact_reservas` con tres claves hacia `dim_fecha` (`sql/03_dw_schema.sql`) |
 | Explicación y comprobación de todo lo anterior | [`notebooks/03_Lab05c_Vistas_SCD.ipynb`](../../notebooks/03_Lab05c_Vistas_SCD.ipynb) |
+
+## Modelo relacional
+
+![Modelo entidad-relación del schema public](modelo_relacional.png)
+
+Abre [`modelo_relacional.html`](modelo_relacional.html) en el navegador para ver la versión interactiva: al pasar el cursor por una tabla se resalta su relación con `municipios`. Usa el mismo estilo que el diagrama de la estrella del Lab 05a.
 
 ## Reproducir
 

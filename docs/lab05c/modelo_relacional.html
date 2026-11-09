@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SmartTour · Modelo relacional</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Doto:wght@500;800&family=Geist+Mono:wght@400;500&family=Geist:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #040404;
+    --paper: #f4f4f4;
+    --line-light: #d8d9d9;
+    --line-dark: #2a2a2a;
+    --grey: #595a5a;
+    --grey-on-dark: #b1b3b3;
+    --red: #d71921;
+
+    --dot: "Doto", monospace;
+    --serif: "Instrument Serif", Georgia, serif;
+    --sans: "Geist", system-ui, sans-serif;
+    --mono: "Geist Mono", ui-monospace, monospace;
+
+    --gutter: clamp(16px, 4.5vw, 72px);
+    --ease: cubic-bezier(.16, 1, .3, 1);
+    --row: 26px;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  html { background: var(--black); }
+  body {
+    margin: 0; min-height: 100vh;
+    background-color: var(--black);
+    background-image: radial-gradient(circle, rgba(255,255,255,.14) 1px, transparent 1.4px);
+    background-size: 28px 28px;
+    color: #fff; font-family: var(--sans); -webkit-font-smoothing: antialiased;
+    padding: 88px var(--gutter) 56px;
+  }
+  ::selection { background: var(--red); color: #fff; }
+  :focus-visible { outline: 1px solid var(--red); outline-offset: 3px; }
+
+  /* ---------- chrome (same pill bar as the lab decks) ---------- */
+  .chrome {
+    position: fixed; z-index: 10; top: 16px; left: 50%; transform: translateX(-50%);
+    width: min(600px, calc(100% - 32px)); height: 44px;
+    display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+    padding: 0 16px; border-radius: 6px;
+    background: rgba(216,217,217,.86); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    color: var(--black); font: 500 11px/1 var(--mono); text-transform: uppercase; letter-spacing: .04em;
+  }
+  .chrome .brand { font: 800 17px/1 var(--dot); letter-spacing: .02em; }
+  .chrome .right { justify-self: end; }
+
+  /* ---------- header ---------- */
+  header.intro {
+    max-width: 1320px; margin: 0 auto 40px;
+    display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 24px 64px;
+  }
+  .intro h1 {
+    font: 400 clamp(40px, 5vw, 68px)/1 var(--serif); letter-spacing: -.01em; margin: 0 0 16px;
+  }
+  .intro p { margin: 0; max-width: 58ch; font-size: clamp(15px, 1.2vw, 17px); line-height: 1.6; color: var(--grey-on-dark); }
+  .intro p strong { color: #fff; font-weight: 500; }
+  .intro p code { font: 400 .88em var(--mono); color: #fff; background: rgba(255,255,255,.08); padding: .1em .4em; border-radius: 3px; }
+  .legend { display: grid; gap: 10px; font: 400 12px/1.2 var(--mono); color: var(--grey-on-dark); }
+  .legend div { display: flex; align-items: center; gap: 12px; }
+  .legend svg { width: 56px; height: 14px; flex: none; }
+  .legend .k { width: 56px; text-align: center; font-weight: 500; }
+  .legend .k.pk { color: var(--red); }
+  .legend .k.fk { color: #fff; }
+
+  /* ---------- diagram ---------- */
+  .diagram {
+    position: relative; max-width: 1320px; margin: 0 auto;
+    display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr) minmax(0, 1fr);
+    column-gap: clamp(64px, 9vw, 150px); align-items: center;
+  }
+  .col { display: grid; gap: 28px; align-content: center; position: relative; z-index: 1; }
+  .wires { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; z-index: 0; }
+
+  .table {
+    --fg: #fff; --fg-2: var(--grey-on-dark); --rule: var(--line-dark); --bg: var(--black);
+    background: var(--bg); color: var(--fg);
+    border: 1px solid var(--rule); border-radius: 6px; overflow: hidden;
+    transition: border-color .3s, opacity .3s;
+  }
+  .table:focus-visible { outline-offset: 4px; }
+  .table.fact { --fg: var(--black); --fg-2: var(--grey); --rule: var(--line-light); --bg: var(--paper); }
+
+  .thead {
+    display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+    padding: 14px 16px 12px; border-bottom: 1px solid var(--rule);
+  }
+  .thead .name { font: 500 14px/1.2 var(--mono); }
+  .thead .rows { display: grid; justify-items: end; gap: 4px; }
+  .thead .n { font: 800 22px/1 var(--dot); font-variant-numeric: tabular-nums; }
+  .thead .u { font: 400 10px/1 var(--mono); color: var(--fg-2); text-transform: uppercase; letter-spacing: .06em; }
+  .thead .n .sep { font-family: var(--sans); font-weight: 500; margin: 0 .04em; }
+  .fact .thead { padding-block: 18px 16px; }
+  .fact .thead .name { font-size: 16px; }
+  .fact .thead .n { font-size: 30px; color: var(--red); }
+
+  .cols { list-style: none; margin: 0; padding: 6px 0; }
+  .cols li {
+    display: grid; grid-template-columns: 26px minmax(0, 1fr) auto; align-items: center; gap: 8px;
+    height: var(--row); padding: 0 16px; font: 400 12.5px/1 var(--mono);
+    transition: background .25s, color .25s;
+  }
+  .cols .key { font-size: 10px; font-weight: 500; letter-spacing: .04em; color: var(--fg-2); }
+  .cols .pk .key { color: var(--red); }
+  .cols .fk .key { color: var(--fg); }
+  .cols .col-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .cols .pk .col-name, .cols .fk .col-name { font-weight: 500; }
+  .cols .type { color: var(--fg-2); font-size: 11px; }
+  .cols .ref { display: none; }
+  .cols .group {
+    height: auto; padding: 12px 16px 6px; display: block;
+    font: 500 10px/1 var(--mono); text-transform: uppercase; letter-spacing: .06em; color: var(--fg-2);
+  }
+  .cols .group:first-child { padding-top: 8px; }
+
+  /* ---------- wires ---------- */
+  .wire { fill: none; stroke: #6b6d6d; stroke-width: 1.25; transition: stroke .3s, opacity .3s; }
+  .wire-end { fill: none; stroke: #6b6d6d; stroke-width: 1.25; transition: stroke .3s, opacity .3s; }
+
+  /* ---------- highlight one relationship ---------- */
+  .diagram.focus .table:not(.on) { opacity: .38; }
+  .diagram.focus .wire:not(.on), .diagram.focus .wire-end:not(.on) { opacity: .18; }
+  .wire.on, .wire-end.on { stroke: var(--red); stroke-width: 1.75; }
+  .table.on { border-color: var(--red); }
+  .cols li.on { background: color-mix(in srgb, var(--red) 14%, transparent); }
+  .table.fact.on { border-color: var(--red); }
+
+  /* ---------- one authored moment: wires draw in on load ---------- */
+  .wire.draw { stroke-dasharray: var(--len); stroke-dashoffset: var(--len); animation: draw 1.1s var(--ease) forwards; animation-delay: var(--delay); }
+  .wire-end.draw { opacity: 0; animation: show .4s var(--ease) forwards; animation-delay: calc(var(--delay) + .7s); }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  @keyframes show { to { opacity: 1; } }
+  @media (prefers-reduced-motion: reduce) {
+    .wire.draw, .wire-end.draw { animation: none; stroke-dasharray: none; stroke-dashoffset: 0; opacity: 1; }
+    .table, .cols li, .wire, .wire-end { transition: none; }
+  }
+
+  footer {
+    max-width: 1320px; margin: 48px auto 0; padding-top: 18px; border-top: 1px solid var(--line-dark);
+    display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 32px;
+    font: 400 12px/1.5 var(--mono); color: var(--grey-on-dark);
+  }
+  footer b { color: #fff; font-weight: 500; }
+
+  /* ---------- narrow: stack, no wires, FK rows name their dimension ---------- */
+  @media (max-width: 1080px) {
+    .diagram { grid-template-columns: minmax(0, 1fr); row-gap: 28px; }
+    .col.center { order: -1; }
+    .wires { display: none; }
+    .cols .ref { display: inline; color: var(--red); font-size: 11px; }
+    .cols .fk .type { display: none; }
+    .legend .wire-legend { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="chrome" aria-hidden="true">
+  <span>Lab 05c</span>
+  <span class="brand">SMARTTOUR</span>
+  <span class="right">Esquema public</span>
+</div>
+
+<header class="intro">
+  <div>
+    <h1>Todo pasa por el municipio</h1>
+    <p>El modelo relacional guarda las cuatro fuentes tal como son: <strong>2.248 municipios</strong> en el centro y, alrededor, los alojamientos, monumentos y oficinas que hay en ellos. Cada línea es una relación <strong>1:N</strong>: un municipio tiene muchos registros, y cada registro apunta a su municipio con la clave foránea <code>cod_ine</code>. Pasa el cursor por una tabla para seguir su relación.</p>
+  </div>
+  <div class="legend">
+    <div><span class="k pk">PK</span>Clave primaria</div>
+    <div><span class="k fk">FK</span>Clave foránea</div>
+    <div class="wire-legend">
+      <svg viewBox="0 0 56 14" aria-hidden="true"><path class="wire" d="M4 7H52M8 2V12M44 7 52 2M44 7 52 12" /></svg>
+      Un municipio, muchos registros
+    </div>
+  </div>
+</header>
+
+<main class="diagram" id="diagram" aria-label="Modelo entidad-relación de la base de datos SmartTour"></main>
+
+<footer>
+  <span>Esquema <b>public</b> en PostgreSQL 17 · base <b>smarttour_db</b></span>
+  <span>Fuente: <b>sql/01_schema.sql</b> · recuentos de filas cargadas con <b>sql/02_load.sql</b></span>
+</footer>
+
+<script>
+// Schema mirrors sql/01_schema.sql; row counts are the loaded totals.
+const HUB = { name: 'municipios', rows: 2248, cols: [
+  ['cod_ine', 'char(5)', 'PK'], ['municipio', 'varchar'], ['provincia', 'varchar'], ['cod_provincia', 'char(2)'],
+  ['poblacion', 'integer'], ['latitud', 'numeric'], ['longitud', 'numeric'], ['comarca', 'varchar'],
+  ['mancomunidades', 'text'] ] };
+
+const TABLES = {
+  hoteles: { side: 'left', rows: 12688, cols: [
+    ['id', 'serial', 'PK'], ['n_registro', 'varchar'], ['tipo_establecimiento', 'varchar'], ['tipo', 'varchar'],
+    ['categoria', 'varchar'], ['nombre', 'varchar'], ['direccion', 'varchar'], ['codigo_postal', 'char(5)'],
+    ['provincia', 'varchar'], ['municipio', 'varchar'], ['localidad', 'varchar'], ['telefono', 'varchar'],
+    ['email', 'varchar'], ['web', 'varchar'], ['plazas', 'integer'], ['latitud', 'numeric'], ['longitud', 'numeric'],
+    ['q_calidad', 'boolean'], ['posada_real', 'boolean'], ['accesible', 'boolean'],
+    ['cod_ine', 'char(5)', 'FK', 'municipios'] ] },
+  monumentos: { side: 'right', rows: 1374, cols: [
+    ['id_monumento', 'integer', 'PK'], ['nombre', 'varchar'], ['tipo_monumento', 'varchar'], ['clasificacion', 'varchar'],
+    ['tipo_construccion', 'varchar'], ['periodo_historico', 'varchar'], ['descripcion', 'text'], ['calle', 'varchar'],
+    ['codigo_postal', 'char(5)'], ['id_bic', 'varchar'], ['provincia', 'varchar'], ['municipio', 'varchar'],
+    ['localidad', 'varchar'], ['latitud', 'numeric'], ['longitud', 'numeric'],
+    ['cod_ine', 'char(5)', 'FK', 'municipios'] ] },
+  oficinas_turismo: { side: 'right', rows: 262, cols: [
+    ['id', 'serial', 'PK'], ['nombre', 'varchar'], ['tipo_establecimiento', 'varchar'], ['ambito', 'varchar'],
+    ['provincia', 'varchar'], ['localidad', 'varchar'], ['cod_ine', 'char(5)', 'FK', 'municipios'] ] },
+};
+
+const fmt = n => n.toLocaleString('es-ES', { useGrouping: 'always' });
+// Doto's period glyph reads as a cross, so the thousands separator is set in Geist
+const dotNum = n => fmt(n).replace(/\./g, '<span class="sep">.</span>');
+const diagram = document.getElementById('diagram');
+
+function rowHTML([name, type, key, ref], rel) {
+  const cls = key ? key.toLowerCase() : '';
+  const relAttr = rel ? ` data-rel="${rel}"` : '';
+  return `<li class="${cls}"${relAttr}><span class="key">${key || ''}</span>` +
+    `<span class="col-name">${name}${ref ? ` <span class="ref">→ ${ref}</span>` : ''}</span>` +
+    `<span class="type">${type}</span></li>`;
+}
+
+// Child tables tag their FK row with their own name, so a wire and both ends share one key
+function tableHTML(name, t, hub = false) {
+  const rows = t.cols.map(c => rowHTML(c, c[2] === 'FK' ? name : null)).join('');
+  return `<section class="table${hub ? ' fact' : ''}" tabindex="0" data-table="${name}" aria-label="${name}, ${fmt(t.rows)} filas">` +
+    `<div class="thead"><span class="name">${name}</span>` +
+    `<span class="rows"><span class="n">${dotNum(t.rows)}</span><span class="u">filas</span></span></div>` +
+    `<ul class="cols">${rows}</ul></section>`;
+}
+
+const names = side => Object.keys(TABLES).filter(n => TABLES[n].side === side);
+diagram.innerHTML =
+  `<svg class="wires" id="wires" aria-hidden="true"></svg>` +
+  `<div class="col left">${names('left').map(n => tableHTML(n, TABLES[n])).join('')}</div>` +
+  `<div class="col center">${tableHTML(HUB.name, HUB, true)}</div>` +
+  `<div class="col right">${names('right').map(n => tableHTML(n, TABLES[n])).join('')}</div>`;
+
+const svg = document.getElementById('wires');
+let firstDraw = true;
+
+// Orthogonal wires from the municipios PK to each child FK row ("one" bar at the hub,
+// crow's foot at the child). Each wire gets its own vertical channel so none of them cross.
+function drawWires() {
+  if (getComputedStyle(svg).display === 'none') return;
+  const box = diagram.getBoundingClientRect();
+  const hub = diagram.querySelector(`[data-table="${HUB.name}"]`);
+  const hubBox = hub.getBoundingClientRect();
+  const mid = el => { const r = el.getBoundingClientRect(); return r.top + r.height / 2 - box.top; };
+  const pkY = mid(hub.querySelector('li.pk'));
+  let out = '';
+
+  ['left', 'right'].forEach(side => {
+    const links = names(side).map(n => {
+      const child = diagram.querySelector(`[data-table="${n}"]`);
+      const childBox = child.getBoundingClientRect();
+      return {
+        rel: n,
+        x1: (side === 'left' ? hubBox.left : hubBox.right) - box.left,
+        y1: pkY,
+        x2: (side === 'left' ? childBox.right : childBox.left) - box.left,
+        y2: mid(child.querySelector('li.fk')),
+      };
+    });
+    if (!links.length) return;
+    const dir = Math.sign(links[0].x2 - links[0].x1);
+    const down = links.filter(l => l.y1 <= l.y2).sort((a, b) => a.y2 - b.y2);
+    const up = links.filter(l => l.y1 > l.y2).sort((a, b) => b.y2 - a.y2);
+    const ordered = [...down, ...up]; // index 0 = channel nearest the child table
+    const gap = Math.abs(links[0].x2 - links[0].x1);
+    ordered.forEach((l, i) => {
+      const cx = l.x2 - dir * gap * (i + 1) / (ordered.length + 1);
+      const r = Math.min(8, Math.abs(l.y2 - l.y1) / 2);
+      const vy = Math.sign(l.y2 - l.y1);
+      const path = r < 1
+        ? `M${l.x1} ${l.y1}H${l.x2}`
+        : `M${l.x1} ${l.y1}H${cx - dir * r}Q${cx} ${l.y1} ${cx} ${l.y1 + vy * r}` +
+          `V${l.y2 - vy * r}Q${cx} ${l.y2} ${cx + dir * r} ${l.y2}H${l.x2}`;
+      const one = `M${l.x1 + dir * 10} ${l.y1 - 6}V${l.y1 + 6}`;
+      const many = `M${l.x2 - dir * 12} ${l.y2}L${l.x2} ${l.y2 - 6}M${l.x2 - dir * 12} ${l.y2}L${l.x2} ${l.y2 + 6}`;
+      const delay = `${(i * 0.12 + (side === 'right' ? 0.06 : 0)).toFixed(2)}s`;
+      out += `<path class="wire" data-rel="${l.rel}" d="${path}" style="--delay:${delay}"/>` +
+             `<path class="wire-end" data-rel="${l.rel}" d="${one}${many}" style="--delay:${delay}"/>`;
+    });
+  });
+
+  svg.innerHTML = out;
+  if (firstDraw) {
+    svg.querySelectorAll('.wire').forEach(p => p.style.setProperty('--len', Math.ceil(p.getTotalLength())));
+    svg.querySelectorAll('.wire, .wire-end').forEach(p => p.classList.add('draw'));
+    firstDraw = false;
+  }
+  if (active) highlight(active);
+}
+
+// ---------- highlight ----------
+let active = null;
+function highlight(table) {
+  active = table;
+  const rels = table === HUB.name ? Object.keys(TABLES) : [table];
+  diagram.classList.toggle('focus', !!table);
+  diagram.querySelectorAll('.on').forEach(el => el.classList.remove('on'));
+  if (!table) return;
+  rels.forEach(rel => {
+    diagram.querySelectorAll(`[data-rel="${rel}"], [data-table="${rel}"]`).forEach(el => el.classList.add('on'));
+  });
+  const hub = diagram.querySelector(`[data-table="${HUB.name}"]`);
+  hub.classList.add('on');
+  hub.querySelector('li.pk').classList.add('on');
+}
+
+diagram.querySelectorAll('.table').forEach(t => {
+  const name = t.dataset.table;
+  t.addEventListener('mouseenter', () => highlight(name));
+  t.addEventListener('mouseleave', () => highlight(null));
+  t.addEventListener('focus', () => highlight(name));
+  t.addEventListener('blur', () => highlight(null));
+});
+
+document.fonts.ready.then(drawWires);
+new ResizeObserver(drawWires).observe(diagram);
+</script>
+</body>
+</html>
