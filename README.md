@@ -77,5 +77,7 @@ Análisis realizados.
 docs:
 Documentación.
 
-laboratorios:
-Enunciados y presentaciones de cada laboratorio (lab01, lab02, ...).
+sql:
+Esquema y carga de la base de datos.
+
+Los laboratorios y ejercicios de clase están en el repositorio aparte `BigData-Labs`.

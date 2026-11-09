@@ -29,7 +29,6 @@ services:
       # Named volume: data survives "docker compose down" (only "down -v" deletes it)
       - datos_postgres:/var/lib/postgresql/data
       # Local folder shared so Postgres can read CSV files
-      - ./datasets/labPstgrades:/datos
       - ./:/smarttour
     networks:
       - red-bbdd
