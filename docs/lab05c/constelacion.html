@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SmartTour · Constelación</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Doto:wght@500;800&family=Geist+Mono:wght@400;500&family=Geist:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #040404;
+    --paper: #f4f4f4;
+    --line-light: #d8d9d9;
+    --line-dark: #2a2a2a;
+    --grey: #595a5a;
+    --grey-on-dark: #b1b3b3;
+    --red: #d71921;
+
+    --dot: "Doto", monospace;
+    --serif: "Instrument Serif", Georgia, serif;
+    --sans: "Geist", system-ui, sans-serif;
+    --mono: "Geist Mono", ui-monospace, monospace;
+
+    --gutter: clamp(16px, 4.5vw, 72px);
+    --ease: cubic-bezier(.16, 1, .3, 1);
+    --row: 26px;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  html { background: var(--black); }
+  body {
+    margin: 0; min-height: 100vh;
+    background-color: var(--black);
+    background-image: radial-gradient(circle, rgba(255,255,255,.14) 1px, transparent 1.4px);
+    background-size: 28px 28px;
+    color: #fff; font-family: var(--sans); -webkit-font-smoothing: antialiased;
+    padding: 88px var(--gutter) 56px;
+  }
+  ::selection { background: var(--red); color: #fff; }
+  :focus-visible { outline: 1px solid var(--red); outline-offset: 3px; }
+
+  /* ---------- chrome (same pill bar as the lab decks) ---------- */
+  .chrome {
+    position: fixed; z-index: 10; top: 16px; left: 50%; transform: translateX(-50%);
+    width: min(600px, calc(100% - 32px)); height: 44px;
+    display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+    padding: 0 16px; border-radius: 6px;
+    background: rgba(216,217,217,.86); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    color: var(--black); font: 500 11px/1 var(--mono); text-transform: uppercase; letter-spacing: .04em;
+  }
+  .chrome .brand { font: 800 17px/1 var(--dot); letter-spacing: .02em; }
+  .chrome .right { justify-self: end; }
+
+  /* ---------- header ---------- */
+  header.intro {
+    max-width: 1320px; margin: 0 auto 40px;
+    display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 24px 64px;
+  }
+  .intro h1 {
+    font: 400 clamp(40px, 5vw, 68px)/1 var(--serif); letter-spacing: -.01em; margin: 0 0 16px;
+  }
+  .intro p { margin: 0; max-width: 58ch; font-size: clamp(15px, 1.2vw, 17px); line-height: 1.6; color: var(--grey-on-dark); }
+  .intro p strong { color: #fff; font-weight: 500; }
+  .intro p code { font: 400 .88em var(--mono); color: #fff; background: rgba(255,255,255,.08); padding: .1em .4em; border-radius: 3px; }
+  .legend { display: grid; gap: 10px; font: 400 12px/1.2 var(--mono); color: var(--grey-on-dark); }
+  .legend div { display: flex; align-items: center; gap: 12px; }
+  .legend svg { width: 56px; height: 14px; flex: none; }
+  .legend .k { width: 56px; text-align: center; font-weight: 500; }
+  .legend .k.pk { color: var(--red); }
+  .legend .k.fk { color: #fff; }
+
+  /* ---------- diagram ---------- */
+  .diagram {
+    position: relative; max-width: 1320px; margin: 0 auto;
+    display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr) minmax(0, 1fr);
+    column-gap: clamp(64px, 9vw, 150px); align-items: center;
+  }
+  .col { display: grid; gap: 28px; align-content: center; position: relative; z-index: 1; }
+  .wires { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; z-index: 0; }
+
+  .table {
+    --fg: #fff; --fg-2: var(--grey-on-dark); --rule: var(--line-dark); --bg: var(--black);
+    background: var(--bg); color: var(--fg);
+    border: 1px solid var(--rule); border-radius: 6px; overflow: hidden;
+    transition: border-color .3s, opacity .3s;
+  }
+  .table:focus-visible { outline-offset: 4px; }
+  .table.fact { --fg: var(--black); --fg-2: var(--grey); --rule: var(--line-light); --bg: var(--paper); }
+
+  .thead {
+    display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+    padding: 14px 16px 12px; border-bottom: 1px solid var(--rule);
+  }
+  .thead .name { font: 500 14px/1.2 var(--mono); }
+  .thead .rows { display: grid; justify-items: end; gap: 4px; }
+  .thead .n { font: 800 22px/1 var(--dot); font-variant-numeric: tabular-nums; }
+  .thead .u { font: 400 10px/1 var(--mono); color: var(--fg-2); text-transform: uppercase; letter-spacing: .06em; }
+  .thead .n .sep { font-family: var(--sans); font-weight: 500; margin: 0 .04em; }
+  .fact .thead { padding-block: 18px 16px; }
+  .fact .thead .name { font-size: 16px; }
+  .fact .thead .n { font-size: 30px; color: var(--red); }
+
+  .cols { list-style: none; margin: 0; padding: 6px 0; }
+  .cols li {
+    display: grid; grid-template-columns: 38px minmax(0, 1fr) auto; align-items: center; gap: 8px;
+    height: var(--row); padding: 0 16px; font: 400 12.5px/1 var(--mono);
+    transition: background .25s, color .25s;
+  }
+  .cols .key { font-size: 10px; font-weight: 500; letter-spacing: .04em; color: var(--fg-2); }
+  .cols .pk .key { color: var(--red); }
+  .cols .fk .key { color: var(--fg); }
+  .cols .col-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .cols .pk .col-name, .cols .fk .col-name { font-weight: 500; }
+  .cols .type { color: var(--fg-2); font-size: 11px; }
+  .cols .ref { display: none; }
+  .cols .group {
+    height: auto; padding: 12px 16px 6px; display: block;
+    font: 500 10px/1 var(--mono); text-transform: uppercase; letter-spacing: .06em; color: var(--fg-2);
+  }
+  .cols .group:first-child { padding-top: 8px; }
+
+  /* ---------- wires ---------- */
+  .wire { fill: none; stroke: #6b6d6d; stroke-width: 1.25; transition: stroke .3s, opacity .3s; }
+  .wire-end { fill: none; stroke: #6b6d6d; stroke-width: 1.25; transition: stroke .3s, opacity .3s; }
+
+  /* ---------- highlight one relationship ---------- */
+  .diagram.focus .table:not(.on) { opacity: .38; }
+  .diagram.focus .wire:not(.on), .diagram.focus .wire-end:not(.on) { opacity: .18; }
+  .wire.on, .wire-end.on { stroke: var(--red); stroke-width: 1.75; }
+  .table.on { border-color: var(--red); }
+  .cols li.on { background: color-mix(in srgb, var(--red) 14%, transparent); }
+  .table.fact.on { border-color: var(--red); }
+
+  /* ---------- one authored moment: wires draw in on load ---------- */
+  .wire.draw { stroke-dasharray: var(--len); stroke-dashoffset: var(--len); animation: draw 1.1s var(--ease) forwards; animation-delay: var(--delay); }
+  .wire-end.draw { opacity: 0; animation: show .4s var(--ease) forwards; animation-delay: calc(var(--delay) + .7s); }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  @keyframes show { to { opacity: 1; } }
+  @media (prefers-reduced-motion: reduce) {
+    .wire.draw, .wire-end.draw { animation: none; stroke-dasharray: none; stroke-dashoffset: 0; opacity: 1; }
+    .table, .cols li, .wire, .wire-end { transition: none; }
+  }
+
+  footer {
+    max-width: 1320px; margin: 48px auto 0; padding-top: 18px; border-top: 1px solid var(--line-dark);
+    display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 32px;
+    font: 400 12px/1.5 var(--mono); color: var(--grey-on-dark);
+  }
+  footer b { color: #fff; font-weight: 500; }
+
+  /* ---------- narrow: stack, no wires, FK rows name their dimension ---------- */
+  @media (max-width: 1080px) {
+    .diagram { grid-template-columns: minmax(0, 1fr); row-gap: 28px; }
+    .col.center { order: -1; }
+    .wires { display: none; }
+    .cols .ref { display: inline; color: var(--red); font-size: 11px; }
+    .cols .fk .type { display: none; }
+    .legend .wire-legend { display: none; }
+  }
+  .col.center { gap: 40px; }
+  @media (min-width: 1081px) { .diagram { grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr) minmax(0, 1fr); } }
+  .fact .thead .n { font-size: 24px; }
+  .cols .pk.fk .key { color: var(--red); }
+  .thead .grain { display: block; margin-top: 6px; font: 400 11px/1.3 var(--sans); color: var(--fg-2); }
+</style>
+</head>
+<body>
+
+<div class="chrome" aria-hidden="true">
+  <span>Lab 05c</span>
+  <span class="brand">SMARTTOUR</span>
+  <span class="right">Esquema dw</span>
+</div>
+
+<header class="intro">
+  <div>
+    <h1>Tres procesos, un mismo calendario</h1>
+    <p>Una <strong>constelación de hechos</strong>: reservas, visitas a oficinas de turismo y visitas a monumentos, cada una con su propio grano. Las tres comparten <code>dim_fecha</code> y <code>dim_municipio</code> (dimensiones conformadas), así que se pueden comparar por día y por municipio. Pasa el cursor por una tabla para seguir sus relaciones.</p>
+  </div>
+  <div class="legend">
+    <div><span class="k pk">PK</span>Clave primaria</div>
+    <div><span class="k fk">FK</span>Clave foránea</div>
+    <div class="wire-legend">
+      <svg viewBox="0 0 56 14" aria-hidden="true"><path class="wire" d="M4 7H52M8 2V12M44 7 52 2M44 7 52 12" /></svg>
+      Un miembro de la dimensión, muchos hechos
+    </div>
+  </div>
+</header>
+
+<main class="diagram" id="diagram" aria-label="Constelación de hechos del Data Warehouse SmartTour"></main>
+
+<footer>
+  <span>Esquema <b>dw</b> en PostgreSQL 17 · base <b>smarttour_db</b></span>
+  <span>Fuente: <b>sql/03_dw_schema.sql</b> · recuentos de filas cargadas</span>
+</footer>
+
+<script>
+// Schema mirrors sql/03_dw_schema.sql; row counts are the loaded totals.
+const DIMS = {
+  // Order and sides chosen to minimise wire crossings: reservas-only dimensions on the left,
+  // shared (conformed) and visit dimensions on the right
+  dim_alojamiento: { side: 'left', rows: 12688, cols: [
+    ['alojamiento_key', 'integer', 'PK'], ['tipo_establecimiento', 'varchar'], ['n_registro', 'varchar'],
+    ['nombre', 'varchar'], ['tipo', 'varchar'], ['categoria', 'varchar'], ['nivel_categoria', 'smallint'],
+    ['plazas', 'integer'], ['q_calidad', 'boolean'], ['posada_real', 'boolean'], ['accesible', 'boolean'] ] },
+  dim_canal: { side: 'left', rows: 5, cols: [
+    ['canal_key', 'integer', 'PK'], ['canal', 'varchar'], ['tipo_canal', 'varchar'], ['comision_pct', 'numeric'] ] },
+  dim_procedencia: { side: 'left', rows: 17, cols: [
+    ['procedencia_key', 'integer', 'PK'], ['origen', 'varchar'], ['pais', 'varchar'], ['mercado', 'varchar'], ['continente', 'varchar'] ] },
+  dim_fecha: { side: 'right', rows: 1461, cols: [
+    ['fecha_key', 'integer', 'PK'], ['fecha', 'date'], ['dia', 'smallint'], ['mes', 'smallint'],
+    ['nombre_mes', 'varchar'], ['trimestre', 'smallint'], ['anio', 'smallint'], ['dia_semana', 'smallint'],
+    ['nombre_dia', 'varchar'], ['es_fin_de_semana', 'boolean'], ['es_festivo', 'boolean'], ['temporada', 'varchar'] ] },
+  dim_oficina_turismo: { side: 'right', rows: 262, cols: [
+    ['oficina_key', 'integer', 'PK'], ['nombre', 'varchar'], ['tipo_establecimiento', 'varchar'], ['ambito', 'varchar'],
+    ['localidad', 'varchar'], ['provincia', 'varchar'] ] },
+  dim_municipio: { side: 'right', rows: 2248, cols: [
+    ['municipio_key', 'integer', 'PK'], ['cod_ine', 'char(5)'], ['municipio', 'varchar'], ['provincia', 'varchar'],
+    ['cod_provincia', 'char(2)'], ['comunidad_autonoma', 'varchar'], ['poblacion', 'integer'],
+    ['tramo_poblacion', 'varchar'], ['num_monumentos', 'integer'], ['num_oficinas_turismo', 'integer'],
+    ['latitud', 'numeric'], ['longitud', 'numeric'] ] },
+  dim_monumento: { side: 'right', rows: 1374, cols: [
+    ['monumento_key', 'integer', 'PK'], ['id_monumento', 'integer'], ['nombre', 'varchar'], ['tipo_monumento', 'varchar'],
+    ['clasificacion', 'varchar'], ['tipo_construccion', 'varchar'], ['periodo_historico', 'varchar'], ['id_bic', 'varchar'],
+    ['es_visitable', 'boolean'], ['precio_entrada', 'numeric'] ] },
+};
+
+const FACTS = [
+  { name: 'fact_reservas', rows: 150000, unit: 'reservas', grain: 'Una fila por reserva', groups: [
+    ['Claves', [
+      ['reserva_id', 'integer', 'PK'],
+      ['fecha_reserva_key', 'integer', 'FK', 'dim_fecha'],
+      ['fecha_entrada_key', 'integer', 'FK', 'dim_fecha'],
+      ['fecha_salida_key', 'integer', 'FK', 'dim_fecha'],
+      ['alojamiento_key', 'integer', 'FK', 'dim_alojamiento'],
+      ['municipio_key', 'integer', 'FK', 'dim_municipio'],
+      ['canal_key', 'integer', 'FK', 'dim_canal'],
+      ['procedencia_key', 'integer', 'FK', 'dim_procedencia'] ]],
+    ['Medidas', [
+      ['num_huespedes', 'smallint'], ['num_noches', 'smallint'],
+      ['importe_total', 'numeric(10,2)'], ['dias_antelacion', 'smallint'] ]] ] },
+  { name: 'fact_visitas_oficinas', rows: 165515, unit: 'oficina-día', grain: 'Una fila por oficina y día', groups: [
+    ['Claves', [
+      ['fecha_key', 'integer', 'PK·FK', 'dim_fecha'],
+      ['oficina_key', 'integer', 'PK·FK', 'dim_oficina_turismo'],
+      ['municipio_key', 'integer', 'FK', 'dim_municipio'] ]],
+    ['Medidas', [
+      ['num_visitas', 'integer'], ['num_grupos', 'integer'],
+      ['num_consultas', 'integer'], ['num_visitas_individuales', 'integer'] ]] ] },
+  { name: 'fact_visitas_monumentos', rows: 271630, unit: 'monumento-día', grain: 'Una fila por monumento y día', groups: [
+    ['Claves', [
+      ['fecha_key', 'integer', 'PK·FK', 'dim_fecha'],
+      ['monumento_key', 'integer', 'PK·FK', 'dim_monumento'],
+      ['municipio_key', 'integer', 'FK', 'dim_municipio'] ]],
+    ['Medidas', [
+      ['num_visitas', 'integer'], ['num_entradas', 'integer'],
+      ['importe_entradas', 'numeric(12,2)'], ['num_visitas_gratuitas', 'integer'] ]] ] },
+];
+
+const fmt = n => n.toLocaleString('es-ES', { useGrouping: 'always' });
+// Doto's period glyph reads as a cross, so the thousands separator is set in Geist
+const dotNum = n => fmt(n).replace(/\./g, '<span class="sep">.</span>');
+const diagram = document.getElementById('diagram');
+
+function rowHTML([name, type, key, ref], attrs = '') {
+  const cls = key ? key.toLowerCase().replace('·', ' ') : '';
+  return `<li class="${cls}"${attrs}><span class="key">${key || ''}</span>` +
+    `<span class="col-name">${name}${ref ? ` <span class="ref">→ ${ref}</span>` : ''}</span>` +
+    `<span class="type">${type}</span></li>`;
+}
+
+function dimHTML(name, t) {
+  return `<section class="table" tabindex="0" data-table="${name}" aria-label="${name}, ${fmt(t.rows)} filas">` +
+    `<div class="thead"><span class="name">${name}</span>` +
+    `<span class="rows"><span class="n">${dotNum(t.rows)}</span><span class="u">filas</span></span></div>` +
+    `<ul class="cols">${t.cols.map(c => rowHTML(c)).join('')}</ul></section>`;
+}
+
+// FK rows carry both ends of their relationship, so a wire, its fact and its dimension share keys
+function factHTML(f) {
+  const body = f.groups.map(([label, cols]) => `<li class="group">${label}</li>` + cols.map(c =>
+    rowHTML(c, c[3] ? ` data-dim="${c[3]}" data-fact="${f.name}"` : '')).join('')).join('');
+  return `<section class="table fact" tabindex="0" data-table="${f.name}" aria-label="${f.name}, ${fmt(f.rows)} filas">` +
+    `<div class="thead"><span class="name">${f.name}<span class="grain">${f.grain}</span></span>` +
+    `<span class="rows"><span class="n">${dotNum(f.rows)}</span><span class="u">${f.unit}</span></span></div>` +
+    `<ul class="cols">${body}</ul></section>`;
+}
+
+const dimsOn = side => Object.keys(DIMS).filter(n => DIMS[n].side === side);
+diagram.innerHTML =
+  `<svg class="wires" id="wires" aria-hidden="true"></svg>` +
+  `<div class="col left">${dimsOn('left').map(n => dimHTML(n, DIMS[n])).join('')}</div>` +
+  `<div class="col center">${FACTS.map(factHTML).join('')}</div>` +
+  `<div class="col right">${dimsOn('right').map(n => dimHTML(n, DIMS[n])).join('')}</div>`;
+
+const svg = document.getElementById('wires');
+let firstDraw = true;
+
+// Crossings between two orthogonal wires (horizontal at y1, vertical at cx, horizontal at y2).
+// Wires leaving the same PK share their first stretch, which is not a crossing.
+function crossings(a, b) {
+  const segs = l => ({
+    h: [[l.y1, Math.min(l.x1, l.cx), Math.max(l.x1, l.cx)], [l.y2, Math.min(l.cx, l.x2), Math.max(l.cx, l.x2)]],
+    v: [l.cx, Math.min(l.y1, l.y2), Math.max(l.y1, l.y2)],
+  });
+  const A = segs(a), B = segs(b);
+  const hits = (h, v) => v[0] > h[1] + 0.5 && v[0] < h[2] - 0.5 && h[0] > v[1] + 0.5 && h[0] < v[2] - 0.5;
+  return A.h.filter(h => hits(h, B.v)).length + B.h.filter(h => hits(h, A.v)).length;
+}
+
+function* permutations(items) {
+  if (items.length <= 1) { yield items; return; }
+  for (let i = 0; i < items.length; i++) {
+    for (const rest of permutations([...items.slice(0, i), ...items.slice(i + 1)])) yield [items[i], ...rest];
+  }
+}
+
+// Try every channel order on one side and keep the one with fewest crossings
+function bestChannels(links, gap, x2, dir) {
+  let best = null, bestScore = Infinity;
+  for (const order of permutations(links.map((_, i) => i))) {
+    const placed = links.map((l, i) => ({ ...l, cx: x2 - dir * gap * (order[i] + 1) / (links.length + 1) }));
+    let score = 0;
+    for (let i = 0; i < placed.length && score < bestScore; i++)
+      for (let j = i + 1; j < placed.length; j++) score += crossings(placed[i], placed[j]);
+    if (score < bestScore) { bestScore = score; best = placed; if (score === 0) break; }
+  }
+  return best;
+}
+
+function drawWires() {
+  if (getComputedStyle(svg).display === 'none') return;
+  const box = diagram.getBoundingClientRect();
+  const facts = diagram.querySelector('.col.center').getBoundingClientRect();
+  const mid = el => { const r = el.getBoundingClientRect(); return r.top + r.height / 2 - box.top; };
+  let out = '';
+
+  ['left', 'right'].forEach(side => {
+    const dir = side === 'left' ? 1 : -1;
+    const x2 = (side === 'left' ? facts.left : facts.right) - box.left;
+    const links = dimsOn(side).flatMap(n => {
+      const dim = diagram.querySelector(`[data-table="${n}"]`);
+      const x1 = (side === 'left' ? dim.getBoundingClientRect().right : dim.getBoundingClientRect().left) - box.left;
+      const y1 = mid(dim.querySelector('li.pk'));
+      return [...diagram.querySelectorAll(`li[data-dim="${n}"]`)].map(fk => ({
+        dim: n, fact: fk.dataset.fact, x1, y1, x2, y2: mid(fk),
+      }));
+    });
+    const gap = Math.abs(x2 - links[0].x1);
+    bestChannels(links, gap, x2, dir).forEach((l, i) => {
+      const r = Math.min(8, Math.abs(l.y2 - l.y1) / 2);
+      const vy = Math.sign(l.y2 - l.y1);
+      const path = r < 1
+        ? `M${l.x1} ${l.y1}H${l.x2}`
+        : `M${l.x1} ${l.y1}H${l.cx - dir * r}Q${l.cx} ${l.y1} ${l.cx} ${l.y1 + vy * r}` +
+          `V${l.y2 - vy * r}Q${l.cx} ${l.y2} ${l.cx + dir * r} ${l.y2}H${l.x2}`;
+      const one = `M${l.x1 + dir * 10} ${l.y1 - 6}V${l.y1 + 6}`;
+      const many = `M${l.x2 - dir * 12} ${l.y2}L${l.x2} ${l.y2 - 6}M${l.x2 - dir * 12} ${l.y2}L${l.x2} ${l.y2 + 6}`;
+      const delay = `${(i * 0.08 + (side === 'right' ? 0.04 : 0)).toFixed(2)}s`;
+      const data = `data-dim="${l.dim}" data-fact="${l.fact}"`;
+      out += `<path class="wire" ${data} d="${path}" style="--delay:${delay}"/>` +
+             `<path class="wire-end" ${data} d="${one}${many}" style="--delay:${delay}"/>`;
+    });
+  });
+
+  svg.innerHTML = out;
+  if (firstDraw) {
+    svg.querySelectorAll('.wire').forEach(p => p.style.setProperty('--len', Math.ceil(p.getTotalLength())));
+    svg.querySelectorAll('.wire, .wire-end').forEach(p => p.classList.add('draw'));
+    firstDraw = false;
+  }
+  if (active) highlight(active);
+}
+
+// ---------- highlight: a dimension lights every fact that uses it, a fact lights its dimensions ----------
+let active = null;
+function highlight(table) {
+  active = table;
+  diagram.classList.toggle('focus', !!table);
+  diagram.querySelectorAll('.on').forEach(el => el.classList.remove('on'));
+  if (!table) return;
+  const attr = table in DIMS ? 'data-dim' : 'data-fact';
+  diagram.querySelectorAll(`[${attr}="${table}"]`).forEach(el => {
+    el.classList.add('on');
+    diagram.querySelector(`[data-table="${el.dataset.dim}"]`).classList.add('on');
+    diagram.querySelector(`[data-table="${el.dataset.fact}"]`).classList.add('on');
+    diagram.querySelector(`[data-table="${el.dataset.dim}"] li.pk`).classList.add('on');
+  });
+}
+
+diagram.querySelectorAll('.table').forEach(t => {
+  const name = t.dataset.table;
+  t.addEventListener('mouseenter', () => highlight(name));
+  t.addEventListener('mouseleave', () => highlight(null));
+  t.addEventListener('focus', () => highlight(name));
+  t.addEventListener('blur', () => highlight(null));
+});
+
+document.fonts.ready.then(drawWires);
+new ResizeObserver(drawWires).observe(diagram);
+</script>
+</body>
+</html>
