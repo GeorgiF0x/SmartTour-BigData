@@ -92,9 +92,9 @@ docker exec smarttour-postgres psql -U smarttour -d smarttour_db -f /smarttour/s
 docker exec smarttour-postgres psql -U smarttour -d smarttour_db -f /smarttour/sql/04_dw_load.sql
 ```
 
-### Vistas y SCD tipo 2 (Lab 05c)
+### Constelación, vistas y SCD tipo 2 (Lab 05c)
 
-Capa de vistas analíticas (10 vistas y una vista materializada) y un ejemplo de dimensión lentamente cambiante sobre el schema `dw`. Explicado y comprobado en el cuaderno [`notebooks/03_Lab05c_Vistas_SCD.ipynb`](notebooks/03_Lab05c_Vistas_SCD.ipynb); guía en [`docs/lab05c/README.md`](docs/lab05c/README.md).
+El schema `dw` pasa a ser una **constelación de hechos**: reservas, visitas a oficinas y visitas a monumentos, que comparten `dim_fecha` y `dim_municipio`. Encima hay una capa de 16 vistas analíticas y una vista materializada, y un ejemplo de dimensión lentamente cambiante. Explicado y comprobado en el cuaderno [`notebooks/03_Lab05c_Vistas_SCD.ipynb`](notebooks/03_Lab05c_Vistas_SCD.ipynb); guía en [`docs/lab05c/README.md`](docs/lab05c/README.md).
 
 ```bash
 docker exec smarttour-postgres psql -U smarttour -d smarttour_db -f /smarttour/sql/06_dw_views.sql

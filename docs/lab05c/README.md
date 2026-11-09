@@ -1,20 +1,33 @@
 # Lab 05c · Construcción de la base de datos, vistas y SCD tipo 2
 
-Base de datos relacional de SmartTour y capa analítica sobre el Data Warehouse de reservas del Lab 05a.
-
-El enunciado deja elegir entre estrella y constelación. Se mantiene la **estrella**, porque las fuentes solo permiten simular con base real un tipo de evento: las reservas. La justificación completa está en el cuaderno.
+Base de datos relacional de SmartTour y Data Warehouse en **constelación de hechos**: reservas, visitas a oficinas de turismo y visitas a monumentos, que comparten `dim_fecha` y `dim_municipio`. Así se cubren las cinco dimensiones del enunciado (fecha, municipio, hotel, oficina y monumento) y sus diez consultas.
 
 | Parte del enunciado | Dónde está |
 |---|---|
 | Pasos 1–12: Docker, PostgreSQL y pgAdmin | `docker-compose.yml` (ya existente desde el Lab 03) |
 | Paso 13: modelo relacional `municipios` 1:N | `sql/01_schema.sql`, `sql/02_load.sql` (schema `public`) |
 | Diagrama entidad-relación del modelo relacional | [`modelo_relacional.html`](modelo_relacional.html) · `modelo_relacional.png` |
-| Hechos generados en CSV y cargados con `COPY` | `scripts/generate_dw.py` → `datasets/dw/*.csv`, `sql/03_dw_schema.sql`, `sql/04_dw_load.sql` |
+| Constelación: 3 hechos y 7 dimensiones | `sql/03_dw_schema.sql` · diagrama [`constelacion.html`](constelacion.html) · `constelacion.png` |
+| Hechos generados en CSV y cargados con `COPY` | `scripts/generate_dw.py` → `datasets/dw/*.csv`, `sql/04_dw_load.sql` |
 | Vistas analíticas, vista con CTE y vista materializada | `sql/06_dw_views.sql` |
 | SCD tipo 2 | `sql/07_dw_scd2.sql` |
 | Tres fechas en la reserva (reserva, entrada y salida) | `fact_reservas` con tres claves hacia `dim_fecha` (`sql/03_dw_schema.sql`) |
 | Cuadro de mando sobre las vistas (en lugar de Power BI) | Metabase en `docker-compose.yml` + `scripts/setup_metabase.py` |
 | Explicación y comprobación de todo lo anterior | [`notebooks/03_Lab05c_Vistas_SCD.ipynb`](../../notebooks/03_Lab05c_Vistas_SCD.ipynb) |
+
+## Constelación de hechos
+
+![Constelación de hechos del schema dw](constelacion.png)
+
+| Tabla de hechos | Grano | Filas | Dimensiones |
+|---|---|---|---|
+| `fact_reservas` | Una reserva | 150.000 | fecha (reserva, entrada y salida), alojamiento, municipio, canal, procedencia |
+| `fact_visitas_oficinas` | Una oficina en un día | 165.515 | fecha, oficina de turismo, municipio |
+| `fact_visitas_monumentos` | Un monumento en un día | 271.630 | fecha, monumento, municipio |
+
+Los tres hechos son simulados por `scripts/generate_dw.py` con semilla fija, a partir de atributos reales de las fuentes: tipo de monumento, ámbito de la oficina, población y patrimonio del municipio, y estacionalidad. Solo se simulan visitas en los monumentos con horario y taquilla (catedrales, monasterios, palacios, castillos, murallas, reales sitios, sinagogas y jardines históricos). Los demás quedan en `dim_monumento` con `es_visitable = false`.
+
+Abre [`constelacion.html`](constelacion.html) en el navegador para ver la versión interactiva: al pasar el cursor por una dimensión se resaltan todos los hechos que la usan, y al pasar por un hecho, sus dimensiones.
 
 ## Modelo relacional
 
@@ -47,17 +60,22 @@ done
 | `vw_reservas_canal` | ¿Qué canales se usan más y cuánto se paga en comisiones? |
 | `vw_reservas_procedencia` | ¿De dónde vienen los clientes y con cuánta antelación reservan? |
 | `vw_reservas_temporada` | ¿Cuántas reservas hay por día en cada temporada? |
-| `vw_actividad_turistica_municipio` | Reservas frente a oferta y patrimonio por municipio y año (CTE) |
+| `vw_visitas_oficinas` | ¿Qué oficinas reciben más visitantes? (consulta 5) |
+| `vw_visitas_oficinas_municipio` | ¿Qué municipios reciben más visitantes en sus oficinas? (consulta 6) |
+| `vw_visitas_oficinas_mensuales` | ¿En qué meses hay más actividad en las oficinas? (consulta 7) |
+| `vw_monumentos_mas_visitados` | ¿Cuáles son los monumentos más visitados? (consulta 8) |
+| `vw_ingresos_monumentos` | ¿Qué monumentos generan más ingresos por entradas? (consulta 9) |
+| `vw_visitas_monumentos_mensuales` | ¿Cómo evolucionan por mes las visitas a cada monumento? (consulta 10) |
+| `vw_actividad_turistica_municipio` | Los tres procesos por municipio y año: cada hecho se agrega antes de unirlos (CTE) |
 | `vw_calendario_reservas` | Reservas hechas, llegadas y salidas por mes: `dim_fecha` en sus tres papeles |
 | `mv_reservas_municipio_mes` | Cubo municipio × mes precalculado (vista materializada) |
 
-Las consultas del enunciado sobre visitas a oficinas y monumentos no tienen equivalente directo, porque en esta estrella oficinas y monumentos no son hechos: son atributos de `dim_municipio`. Se sustituyen por vistas sobre las otras dimensiones de la estrella.
 
 ## Cuadro de mando con Metabase
 
 El enunciado propone conectar las vistas a Power BI, pero Power BI Desktop solo existe para Windows. Se usa **Metabase**, que funciona en cualquier sistema como un contenedor más del laboratorio y lee directamente las vistas del schema `dw`.
 
-![Cuadro de mando SmartTour · Reservas en Metabase](metabase_dashboard.png)
+![Cuadro de mando SmartTour · Turismo en Castilla y León en Metabase](metabase_dashboard.png)
 
 Para levantarlo y montar el cuadro de mando:
 
@@ -70,8 +88,8 @@ El script, que solo usa la librería estándar, hace por la API lo mismo que se 
 
 1. Crea el usuario administrador.
 2. Conecta `smarttour_db`.
-3. Crea la colección **SmartTour** con 12 preguntas SQL sobre las vistas.
-4. Monta el cuadro de mando **SmartTour · Reservas**.
+3. Crea la colección **SmartTour** con 18 preguntas SQL sobre los tres procesos.
+4. Monta el cuadro de mando **SmartTour · Turismo en Castilla y León**.
 
 Se puede volver a ejecutar: archiva lo que creó antes y lo vuelve a crear.
 
