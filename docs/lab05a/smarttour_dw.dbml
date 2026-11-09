@@ -1,0 +1,83 @@
+// SmartTour DW - esquema en estrella de reservas.
+// Pegar en https://dbdiagram.io/d para dibujarlo y exportarlo a PNG/PDF.
+
+Project SmartTour_DW {
+  database_type: 'PostgreSQL'
+  Note: 'Lab 05a - Data Warehouse de reservas turísticas de Castilla y León. Grano: una fila por reserva.'
+}
+
+Table dw.fact_reservas [headercolor: #C0392B] {
+  reserva_id int [pk]
+  fecha_key int [not null, ref: > dw.dim_fecha.fecha_key, note: 'fecha de entrada']
+  alojamiento_key int [not null, ref: > dw.dim_alojamiento.alojamiento_key]
+  municipio_key int [not null, ref: > dw.dim_municipio.municipio_key]
+  canal_key int [not null, ref: > dw.dim_canal.canal_key]
+  procedencia_key int [not null, ref: > dw.dim_procedencia.procedencia_key]
+  num_huespedes smallint [not null, note: 'medida aditiva']
+  num_noches smallint [not null, note: 'medida aditiva']
+  importe_total numeric(10,2) [not null, note: 'medida aditiva, en euros']
+  dias_antelacion smallint [not null, note: 'medida no aditiva: se promedia']
+  Note: 'Tabla de hechos. Reservas ficticias generadas por scripts/generate_dw.py'
+}
+
+Table dw.dim_fecha [headercolor: #2471A3] {
+  fecha_key int [pk, note: 'AAAAMMDD']
+  fecha date [unique, not null]
+  dia smallint
+  mes smallint
+  nombre_mes varchar(12)
+  trimestre smallint
+  anio smallint
+  dia_semana smallint
+  nombre_dia varchar(10)
+  es_fin_de_semana boolean
+  es_festivo boolean
+  temporada varchar(5) [note: 'Alta / Media / Baja']
+}
+
+Table dw.dim_municipio [headercolor: #2471A3] {
+  municipio_key int [pk]
+  cod_ine char(5) [unique, not null, note: 'clave natural (INE)']
+  municipio varchar(100)
+  provincia varchar(20)
+  cod_provincia char(2)
+  comunidad_autonoma varchar(30)
+  poblacion int
+  tramo_poblacion varchar(20)
+  num_monumentos int [note: 'derivado de monumentos.csv']
+  num_oficinas_turismo int [note: 'derivado de oficinas_turismo.csv']
+  latitud numeric(9,6)
+  longitud numeric(9,6)
+}
+
+Table dw.dim_alojamiento [headercolor: #2471A3] {
+  alojamiento_key int [pk]
+  tipo_establecimiento varchar(50) [not null]
+  n_registro varchar(30) [not null]
+  nombre varchar(200)
+  tipo varchar(100)
+  categoria varchar(50)
+  nivel_categoria smallint [note: '1-5 estrellas/llaves/conchas']
+  plazas int
+  q_calidad boolean
+  posada_real boolean
+  accesible boolean
+  indexes {
+    (tipo_establecimiento, n_registro) [unique, note: 'clave natural']
+  }
+}
+
+Table dw.dim_canal [headercolor: #2471A3] {
+  canal_key int [pk]
+  canal varchar(50) [unique]
+  tipo_canal varchar(20) [note: 'Directo / Intermediado']
+  comision_pct numeric(4,1)
+}
+
+Table dw.dim_procedencia [headercolor: #2471A3] {
+  procedencia_key int [pk]
+  origen varchar(50) [unique]
+  pais varchar(50)
+  mercado varchar(20) [note: 'Nacional / Internacional']
+  continente varchar(20)
+}
