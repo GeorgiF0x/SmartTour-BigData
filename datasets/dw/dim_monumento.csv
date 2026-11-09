@@ -1,0 +1,1375 @@
+monumento_key,id_monumento,nombre,tipo_monumento,clasificacion,tipo_construccion,periodo_historico,id_bic,es_visitable,precio_entrada
+1,23778,Catedral de Ávila,Catedrales,Arquitectura Religiosa,Catedral,Edad Media,264,True,8.0
+2,23779,Catedral de Burgos,Catedrales,Arquitectura Religiosa,Catedral,Edad Media,1715,True,8.0
+3,23780,Catedral de Astorga,Catedrales,Arquitectura Religiosa,Catedral,Edad Moderna,4282,True,8.0
+4,23781,Catedral de León,Catedrales,Arquitectura Religiosa,Catedral,Edad Media,4858,True,8.0
+5,23782,Catedral de Palencia,Catedrales,Arquitectura Religiosa,Catedral,"Edad Moderna,Edad Media",7583,True,8.0
+6,23783,Catedral de Ciudad Rodrigo,Catedrales,Arquitectura Religiosa,Catedral,Edad Media,8991,True,8.0
+7,23784,Catedrales de Salamanca,Catedrales,Arquitectura Religiosa,Catedral,"Edad Moderna,Edad Media",9598;9618,True,8.0
+8,23785,Catedral de Segovia,Catedrales,Arquitectura Religiosa,Catedral,Edad Moderna,11823,True,8.0
+9,23786,Concatedral de San Pedro,Catedrales,Arquitectura Religiosa,Catedral,"Edad Moderna,Edad Media",13867,True,8.0
+10,23787,Catedral de El Burgo de Osma,Catedrales,Arquitectura Religiosa,Catedral,"Edad Moderna,Edad Media",12750,True,8.0
+11,23788,Catedral de Valladolid,Catedrales,Arquitectura Religiosa,Catedral,Edad Moderna,15820,True,8.0
+12,23789,Catedral de Zamora,Catedrales,Arquitectura Religiosa,Catedral,Edad Media,17286,True,8.0
+13,23941,Risco La Zorrera,Yacimientos arqueológicos,Yacimiento,Arte rupestre,"Edad del Hierro,Neolítico,Edad del Bronce",696,False,
+14,23942,Finca de las Garoza,Yacimientos arqueológicos,Yacimiento,Arte rupestre,"Edad del Bronce,Edad del Cobre",993,False,
+15,23943,Peñaguila,Yacimientos arqueológicos,Yacimiento,Arte rupestre,Edad del Cobre,997,False,
+16,23944,Abrigo de las Cabras,Yacimientos arqueológicos,Yacimiento,Arte rupestre,,1067,False,
+17,23945,Peña Mingubela,Yacimientos arqueológicos,Yacimiento,Arte rupestre,"Edad Media,Edad del Bronce,Edad del Hierro,Prerromano",1071,False,
+18,23946,Los Castillejos,Yacimientos arqueológicos,Yacimiento,Castro,"Edad del Hierro,Edad del Bronce",1169,False,
+19,23947,Cueva de San García,Yacimientos arqueológicos,Yacimiento,Arte rupestre,Edad del Bronce,1975,False,
+20,23948,Cuevas del Montico,Yacimientos arqueológicos,Yacimiento,Eremitorio,Edad Media,1984,False,
+21,23949,Cuevas de Laño,Yacimientos arqueológicos,Yacimiento,Eremitorio,Edad Media,1995,False,
+22,23950,Yacimiento de La Ulaña,Yacimientos arqueológicos,Yacimiento,Castro,Edad del Hierro,2358,False,
+23,23951,Dolmen Cubillejo,Yacimientos arqueológicos,Yacimiento,Monumento Megalítico,"Edad del Bronce,Edad del Cobre",2423,False,
+24,23952,Eremitorio Mozárabe de Cueva Andrés,Yacimientos arqueológicos,Yacimiento,Eremitorio,Edad Media,3160,False,
+25,23953,Necrópolis Altomedieval de Cuyacabras,Yacimientos arqueológicos,Yacimiento,"Necrópolis,Santuario",Edad Media,3165,False,
+26,23954,Yacimiento de Deobrigula,Yacimientos arqueológicos,Yacimiento,Ciudad,Romano,3468,False,
+27,23955,Cueva del Azar,Yacimientos arqueológicos,Yacimiento,Arte rupestre,"Edad del Cobre,Neolítico",4065,False,
+28,23956,Villa Romana de Los Casarejos,Yacimientos arqueológicos,Yacimiento,Villa,Romano,4166,False,
+29,23957,Pintura Rupestre La Peña del Pozo Rocebros,Yacimientos arqueológicos,Yacimiento,Arte rupestre,"Edad del Bronce,Neolítico,Edad del Cobre",4584,False,
+30,23958,El Castro de San Martín de Torres,Yacimientos arqueológicos,Yacimiento,Castro,"Romano,Edad del Hierro",4604,False,
+31,23959,Conjunto rupestre esquemático de Librán,Yacimientos arqueológicos,Yacimiento,Arte rupestre,Postpaleolítico,5560,False,
+32,23960,Yacimiento de La Corona de Corporales,Yacimientos arqueológicos,Yacimiento,Castro,Edad del Hierro,5579,False,
+33,23961,Conjunto rupestre de Peña Piñera,Yacimientos arqueológicos,Yacimiento,Arte rupestre,"Edad del Hierro,Edad del Bronce",5692;5688,False,
+34,23962,Ruinas Romanas de Navatejera,Yacimientos arqueológicos,Yacimiento,Villa,Romano,5920,False,
+35,23963,Iglesia Martirial de Marialba de la Ribera,Yacimientos arqueológicos,Yacimiento,Iglesia,Paleocristiano,5955,False,
+36,23964,Abrigos Rupestres en La Alberca,Yacimientos arqueológicos,Yacimiento,Arte rupestre,"Edad del Cobre,Neolítico",8475,False,
+37,23965,Ruinas Romanas de San Julián de Valmuza,Yacimientos arqueológicos,Yacimiento,Villa,Romano,9108,False,
+38,23966,La Rueda,Yacimientos arqueológicos,Yacimiento,Arte rupestre,"Edad del Cobre,Neolítico",9391,False,
+39,23967,Cueva del Tío Papas,Yacimientos arqueológicos,Yacimiento,Arte rupestre,"Edad del Cobre,Neolítico",10406,False,
+40,23968,Monumento rupeste de Vilvestre,Yacimientos arqueológicos,Yacimiento,Arte rupestre,Neolítico,10428,False,
+41,23969,Antiguas Tenerías del Arrabal de San Segundo,Yacimientos arqueológicos,Yacimiento,Edificio Antiguo,"Edad Moderna,Edad Media",539482,False,
+42,23970,Villa Romana de 'Los Villares',Yacimientos arqueológicos,Yacimiento,Villa,Romano,13070,False,
+43,23971,La Peña de los Plantíos,Yacimientos arqueológicos,Yacimiento,Arte rupestre,Edad del Bronce,13137,False,
+44,23972,Abrigo del Este y del Oeste,Yacimientos arqueológicos,Yacimiento,Arte rupestre,"Edad del Hierro,Edad del Bronce",13307,False,
+45,23973,Villa romana de 'Los Quintanares',Yacimientos arqueológicos,Yacimiento,Villa,Romano,13650,False,
+46,23974,Ruinas Ciclopeas,Yacimientos arqueológicos,Yacimiento,Castro,"Edad del Hierro,Neolítico",13776,False,
+47,23975,Cueva Larga y Cueva Grande,Yacimientos arqueológicos,Yacimiento,Arte rupestre,"Edad del Hierro,Edad del Bronce",13792,False,
+48,23976,"Ucero, Cueva Conejos y Cueva de la Galiana",Yacimientos arqueológicos,Yacimiento,Arte rupestre,"Edad del Hierro,Edad del Bronce",14193,False,
+49,23977,Castro y Cisternas Romanas del Teso de la Mora,Yacimientos arqueológicos,Yacimiento,Castro,"Romano,Edad del Hierro",16773,False,
+50,23978,Castro del Buracote,Yacimientos arqueológicos,Yacimiento,Castro,Edad del Hierro,16786,False,
+51,23979,Yacimiento del Abrigo del Castillón. Sta Eulalia de Tábara,Yacimientos arqueológicos,Yacimiento,Arte rupestre,"Edad del Hierro,Edad del Bronce",16797,False,
+52,23980,Yacimiento del Castro del Pedroso,Yacimientos arqueológicos,Yacimiento,Castro,"Edad del Bronce,Neolítico",17079,False,
+53,23981,El castro del Cerco. Sejas de Aliste.,Yacimientos arqueológicos,Yacimiento,Castro,"Romano,Edad del Hierro",277584,False,
+54,23982,Las Cogotas,Yacimientos arqueológicos,Yacimiento,Castro,Prehistoria,720,False,
+55,23983,Calzada del Puerto del Pico,Yacimientos arqueológicos,Yacimiento,Calzada,Romano,,False,
+56,23984,El Prado de las Cruces,Yacimientos arqueológicos,Yacimiento,Monumento Megalítico,"Edad del Bronce,Neolítico",576,False,
+57,23985,El Castro del Raso,Yacimientos arqueológicos,Yacimiento,Castro,"Celta (Vetón),Edad del Hierro",667,False,
+58,23986,Pared de los Moros,Yacimientos arqueológicos,Yacimiento,Villa,"Romano,Edad del Bronce",1056,False,
+59,23987,Cabeza de Navasangil,Yacimientos arqueológicos,Yacimiento,Castro,"Visigodo,Edad del Hierro",,False,
+60,23988,Conjunto dolménico de la Lora,Yacimientos arqueológicos,Yacimiento,Monumento Megalítico,Neolítico,3366,False,
+61,23989,Villa Romana de Ciella,Yacimientos arqueológicos,Yacimiento,Villa,Romano,3547,False,
+62,23990,Necrópolis Altomedieval de Revenga,Yacimientos arqueológicos,Yacimiento,Necrópolis,"Edad Media,Visigodo",3172,False,
+63,23991,Clunia,Yacimientos arqueológicos,Yacimiento,Ciudad,Romano,2353,False,
+64,23992,Yacimiento de Rauda,Yacimientos arqueológicos,Yacimiento,Ciudad,Romano,3242,False,
+65,23993,Villa romana de Santa Cruz,Yacimientos arqueológicos,Yacimiento,Villa,Romano,1453,False,
+66,23994,Despoblado de Peña Amaya,Yacimientos arqueológicos,Yacimiento,Poblado,"Romano,Edad del Bronce",3463,False,
+67,23995,La Edrada,Yacimientos arqueológicos,Yacimiento,Poblado,Romano,4442,False,
+68,23996,Yacimiento Arqueológico de Lancia,Yacimientos arqueológicos,Yacimiento,Ciudad,Romano,5942,False,
+69,23997,Cripta de Puerta Obispo,Yacimientos arqueológicos,Yacimiento,Cripta,Romano,,False,
+70,23998,Castro Ventosa,Yacimientos arqueológicos,Yacimiento,Poblado,Prerromano,4454,False,
+71,23999,Cripta romana de Cascalería,Yacimientos arqueológicos,Yacimiento,Cripta,Romano,,False,
+72,24000,Castro de Chano. Centro de interpretación,Yacimientos arqueológicos,Yacimiento,Castro,Edad del Hierro,5149,False,
+73,24001,Campamento Pisoraca,Yacimientos arqueológicos,Yacimiento,Campamento,Romano,7353,False,
+74,24002,Villa Romana 'La Tejada',Yacimientos arqueológicos,Yacimiento,Villa,Romano,6912,False,
+75,24003,Ermita rupestre de San Martín,Yacimientos arqueológicos,Yacimiento,Ermita,,,False,
+76,24004,La Velilla,Yacimientos arqueológicos,Yacimiento,Monumento Megalítico,Neolítico,8325,False,
+77,24005,Monte Bernorio,Yacimientos arqueológicos,Yacimiento,Castro,Edad del Hierro,7832,False,
+78,24006,Monte Cildá,Yacimientos arqueológicos,Yacimiento,Poblado,Romano,118227,False,
+79,24007,Las Cavenes,Yacimientos arqueológicos,Yacimiento,Minas,Romano,8793,False,
+80,24008,Yacimiento 'El Castillo',Yacimientos arqueológicos,Yacimiento,Castro,Edad del Hierro,10156,False,
+81,24009,Dolmen de la Ermita de Galisancho,Yacimientos arqueológicos,Yacimiento,Monumento Megalítico,Neolítico,9168,False,
+82,24010,El Cerro del Berrueco,Yacimientos arqueológicos,Yacimiento,Castro,Edad del Hierro,10351,False,
+83,24011,Dolmen de Casa del Moro,Yacimientos arqueológicos,Yacimiento,Monumento Megalítico,Neolítico,9188,False,
+84,24012,Dolmen de Terriñuelo,Yacimientos arqueológicos,Yacimiento,Monumento Megalítico,Neolítico,8671,False,
+85,24013,El Castro de Irueña,Yacimientos arqueológicos,Yacimiento,Castro,Edad del Hierro,9140,False,
+86,24014,Lerilla,Yacimientos arqueológicos,Yacimiento,Villa,Romano,10549,False,
+87,24015,Castro de Yecla de Yeltes,Yacimientos arqueológicos,Yacimiento,Castro,"Celta (Vetón),Edad del Hierro",10539,False,
+88,24016,Cueva de los Siete Altares,Yacimientos arqueológicos,Yacimiento,"Eremitorio,Arte rupestre",Visigodo,12102,False,
+89,24017,Cerro de la Virgen del Castillo,Yacimientos arqueológicos,Yacimiento,Castro,,10652,False,
+90,24018,Los Cinco Caños,Yacimientos arqueológicos,Yacimiento,Edificio Antiguo,Romano,,False,
+91,24019,La villa romana de Santa Lucía,Yacimientos arqueológicos,Yacimiento,Villa,Romano,,False,
+92,24020,Cerro de San Isidro,Yacimientos arqueológicos,Yacimiento,Arte rupestre,Paleolítico,10905;10899,False,
+93,24021,Uxama,Yacimientos arqueológicos,Yacimiento,Villa,"Romano,Celtibérico (Arévaco)",12835;12800,False,
+94,24022,Castro de Zarranzano,Yacimientos arqueológicos,Yacimiento,Castro,Edad del Hierro,12403,False,
+95,24023,Yacimientos de Ambrona y Torralba,Yacimientos arqueológicos,Yacimiento,,Paleolítico,13256,False,
+96,24024,Villa romana 'La Dehesa' de las Cuevas de Soria,Yacimientos arqueológicos,Yacimiento,Villa,Romano,13512,False,
+97,24025,Yacimiento arqueológico de Tiermes,Yacimientos arqueológicos,Yacimiento,Ciudad,"Romano,Celtibérico (Arévaco)",13341,False,
+98,24026,Monte Valonsadero,Yacimientos arqueológicos,Yacimiento,Arte rupestre,"Romano,Postpaleolítico",13949,False,
+99,24027,San Gregorio,Yacimientos arqueológicos,Yacimiento,Monumento Megalítico,Neolítico,12384,False,
+100,24028,Castro de Santa María,Yacimientos arqueológicos,Yacimiento,Castro,Edad del Hierro,14153,False,
+101,24029,La Torre,Yacimientos arqueológicos,Yacimiento,Edificio Antiguo,Paleolítico,12857,False,
+102,24030,Yacimiento de Pintia,Yacimientos arqueológicos,Yacimiento,Ciudad,"Romano,Celta (Vacceo)",15058,False,
+103,24031,Fuenteungrillo,Yacimientos arqueológicos,Yacimiento,Poblado,Edad Media,16291,False,
+104,24032,Puente Romano y Calzada romana,Yacimientos arqueológicos,Yacimiento,Puente / Calzada,Romano,14420,False,
+105,24033,Villa romana de Almenara - Puras,Yacimientos arqueológicos,Yacimiento,Villa,Romano,14386,False,
+106,24034,Dólmenes de los Valles de Zamora,Yacimientos arqueológicos,Yacimiento,Monumento Megalítico,,16661,False,
+107,24035,Petavonium,Yacimientos arqueológicos,Yacimiento,Campamento,Romano,16962,False,
+108,24036,Castrotorafe,Yacimientos arqueológicos,Yacimiento,Despoblado,Medieval,16923,False,
+109,24037,Yacimiento de Valcuevo (Los Castros y El Alba),Yacimientos arqueológicos,Yacimiento,Poblado,Romano,17108,False,
+110,24038,Yacimiento de La Corona - El Pesadero,Yacimientos arqueológicos,Yacimiento,Poblado,Prerromano,16741,False,
+111,24039,El Castro de las Labradas,Yacimientos arqueológicos,Yacimiento,Castro,"Edad del Hierro,Edad del Bronce",16415,False,
+112,24040,Toro de Piedra o Verraco,Yacimientos arqueológicos,Yacimiento,Escultura / Estatua,Edad del Hierro,,False,
+113,24041,Verraco prerromano o la Yegua,Yacimientos arqueológicos,Yacimiento,Escultura / Estatua,Edad del Hierro,,False,
+114,24042,Zona Arqueológica de las Cuevas de Ojo Guareña,Yacimientos arqueológicos,Yacimiento,Arte rupestre,"Edad del Bronce,Paleolítico",2685,False,
+115,24043,Arte rupestre en Las Batuecas,Yacimientos arqueológicos,Yacimiento,Arte rupestre,"Edad del Cobre,Neolítico",8612,False,
+116,24044,Poblado de la Cueva de los Enebralejos,Yacimientos arqueológicos,Yacimiento,Poblado,Edad del Cobre,11404,False,
+117,24045,Yacimiento de Augustóbriga,Yacimientos arqueológicos,Yacimiento,Ciudad,"Romano,Celtibérico (Arévaco)",13458,False,
+118,24046,Icnitas de Dinosaurios entre Mambrillas de Lara y Campolara. Grupo Urbión,Yacimientos arqueológicos,Yacimiento,Restos paleontológicos,,2554,False,
+119,24047,Icnitas Fuentesalvo y la Dehesa,Yacimientos arqueológicos,Yacimiento,Restos paleontológicos,,,False,
+120,24544,Molino de agua del Tejado,Molinos,Museo,,,,False,
+121,24545,Molino de agua el Molinico,Molinos,Museo,,,,False,
+122,24839,Despoblado Castro de Las Merchanas,Yacimientos arqueológicos,Yacimiento,Castro,Celta (Vetón),9279,False,
+123,24840,Icnitas en Quintanilla de las Viñas,Yacimientos arqueológicos,Yacimiento,Restos paleontológicos,,,False,
+124,24841,Icnitas de Regumiel de la Sierra,Yacimientos arqueológicos,Yacimiento,Restos paleontológicos,,,False,
+125,24843,Ermita rupestre de San Pelayo,Yacimientos arqueológicos,Yacimiento,Ermita,,,False,
+126,24844,Ermita rupestre de Corvio,Yacimientos arqueológicos,Yacimiento,Ermita,,,False,
+127,24847,Ermita rupestre de Porquera de los Infantes,Yacimientos arqueológicos,Yacimiento,Ermita,,,False,
+128,24848,Eremitorio rupestre de San Vicente,Yacimientos arqueológicos,Yacimiento,Ermita,,,False,
+129,24849,Cementerio judío de la Cuesta de los Hoyos,Yacimientos arqueológicos,Yacimiento,Necrópolis,,,False,
+130,24850,Necrópolis medieval de San Martín,Yacimientos arqueológicos,Yacimiento,Necrópolis,,,False,
+131,24851,Yacimiento El Castro,Yacimientos arqueológicos,Yacimiento,,Edad del Hierro,16486,False,
+132,24852,Castro de Riomanzanas,Yacimientos arqueológicos,Yacimiento,Castro,Edad del Hierro,16601,False,
+133,24853,Castro de 'As Muradellas',Yacimientos arqueológicos,Yacimiento,Castro,Edad del Hierro,16703,False,
+134,24854,Castro del Viso,Yacimientos arqueológicos,Yacimiento,Castro,Celtibérico (Arévaco),16736,False,
+135,24855,Canchal de Melendro,Yacimientos arqueológicos,Yacimiento,Arte rupestre,Edad del Bronce,16755,False,
+136,24856,Covacha del Portillón,Yacimientos arqueológicos,Yacimiento,Arte rupestre,Edad del Bronce,16759,False,
+137,24936,Ermita de San Pelayo,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,,54623,False,
+138,24937,Iglesia de San Bartolomé,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Contemporánea,11499,False,
+139,24938,Torreón de los Condes de Puñoenrostro,Castillos,,Castillo / Fortaleza / Atalaya,Edad Moderna,12202,True,5.0
+140,24939,Torre del Rollo,Castillos,,Castillo / Fortaleza / Atalaya,,12340,True,5.0
+141,24940,Torre de Aldealpozo,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,12356,True,5.0
+142,24941,Convento Nuestra Señora de La Merced,Monasterios,Arquitectura Religiosa,Monasterio / Convento,,12429,True,4.0
+143,24942,Castillo de Somaén,Castillos,,Castillo / Fortaleza / Atalaya,,12545,True,5.0
+144,24943,Atalaya del Sur del Burgo de Osma,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,12731,True,5.0
+145,24944,Atalaya del Enebral,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,12725,True,5.0
+146,24945,Torre de Hinojosa del Campo,Castillos,,Castillo / Fortaleza / Atalaya,,13174,True,5.0
+147,24946,Castillo de Medinaceli,Castillos,,Castillo / Fortaleza / Atalaya,,13228,True,5.0
+148,24947,Atalaya de Hojaraca o Torre Melero,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,13639,True,5.0
+149,24948,Atalaya de Quintanilla,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,13677,True,5.0
+150,24949,Torre de Trévago,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,14183,True,5.0
+151,24950,Castillo de Fuente el Sol,Castillos,,Castillo / Fortaleza / Atalaya,,14680,True,5.0
+152,24951,Convento San José,Monasterios,Arquitectura Religiosa,Monasterio / Convento,,14845,True,4.0
+153,24952,Convento de Santa Teresa (M.M. Carmelitas descalzas),Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Moderna,15720,True,4.0
+154,24953,Convento de Comendadores de Santa Cruz,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Moderna,15734,True,4.0
+155,24954,Convento del Corpus Christi (Clarisas descalzas),Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Moderna,17224,True,4.0
+156,25142,Monasterio de San Zoilo,Monasterios,Arquitectura Religiosa,Monasterio / Convento,"Edad Moderna,Edad Media",6825,True,4.0
+157,25143,Monasterio de Santa María de la Espina,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Media,14513,True,4.0
+158,25144,Castillo de Coca,Castillos,,Castillo / Fortaleza / Atalaya,"Edad Moderna,Edad Media",10767,True,5.0
+159,25145,Castillo de Ampudia,Castillos,,Castillo / Fortaleza / Atalaya,"Edad Moderna,Edad Media",6365,True,5.0
+160,25146,Castillo de La Mota,Castillos,,Castillo / Fortaleza / Atalaya,"Edad Moderna,Edad Media",14768,True,5.0
+161,25147,Castillo de Peñafiel,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,15070,True,5.0
+162,25148,Castillo de Simancas,Castillos,,Castillo / Fortaleza / Atalaya,"Edad Moderna,Edad Media",15319,True,5.0
+163,25149,Iglesia de Nuestra Señora la Real y Antigua de Gamonal,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,1741,False,
+164,25150,Iglesia de San Benito,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,15861,False,
+165,25151,Iglesia de San Gil Abad,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,1729,False,
+166,25152,Iglesia de San Juan de Rabanera,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,13891,False,
+167,25153,Iglesia de San Martín de Frómista,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,7195,False,
+168,25154,Plaza Mayor de Salamanca,Plazas Mayores,Arquitectura Civil,Plaza,Edad Moderna,10089,False,
+169,25155,Convento de Agustinas y Palacio de Juan II,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Media,884,True,4.0
+170,25156,Monasterio de los Jerónimos,Monasterios,Arquitectura Religiosa,Monasterio / Convento,"Edad Moderna,Edad Media",1229,True,4.0
+171,25157,Monasterio Santa María Real de las Huelgas,Reales Sitios,Arquitectura Religiosa,"Real Sitio,Monasterio / Convento",Edad Media,1748,True,9.0
+172,25158,Monasterio de San Salvador de Oña,Monasterios,Arquitectura Religiosa,Monasterio / Convento,"Edad Moderna,Edad Media",2905,True,4.0
+173,25159,Monasterio de San Juan de Ortega,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Media,1504,True,4.0
+174,25160,Monasterio de San Pedro de Cardeña,Monasterios,Arquitectura Religiosa,Monasterio / Convento,"Edad Moderna,Edad Media",1880,True,4.0
+175,25161,Monasterio de Santo Domingo de Silos,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Media,3359,True,4.0
+176,25162,Monasterio de Santa María de La Vid,Monasterios,Arquitectura Religiosa,Monasterio / Convento,"Edad Moderna,Edad Media",3737,True,4.0
+177,25163,Monasterio de San Pedro de Arlanza,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Media,2323,True,4.0
+178,25164,Monasterio de Santa María de Carracedo,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Media,4518,True,4.0
+179,25165,Monasterio de Santa María de Carrizo,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Media,4537,True,4.0
+180,25167,Monasterio Iglesia de Santiago,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,5237,False,
+181,25168,Monasterio de San Miguel de Escalada,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Media,4738,True,4.0
+182,25169,Monasterio de Santa María la Real,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Media,6098,True,4.0
+183,25170,Real Colegiata de San Isidoro,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,4960,False,
+184,25171,Monasterio de Santa Clara,Monasterios,Arquitectura Religiosa,"Real Sitio,Monasterio / Convento",Edad Media,15434,True,4.0
+185,25172,Monasterio de San Leonardo / Seminario de San Jerónimo,Monasterios,Arquitectura Religiosa,Monasterio / Convento,"Edad Moderna,Edad Media",8461,True,4.0
+186,25173,Santuario de la Peña de Francia,Santuarios,Arquitectura Religiosa,Santuario,"Edad Moderna,Edad Media",8799,False,
+187,25174,Monasterio de Santa María la Real de Nieva,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Media,11613,True,4.0
+188,25175,Monasterio de San Antonio el Real,Monasterios,Arquitectura Religiosa,Monasterio / Convento,"Edad Moderna,Edad Media",11767,True,4.0
+189,25176,Monasterio del Parral,Monasterios,Arquitectura Religiosa,Monasterio / Convento,"Edad Moderna,Edad Media",11914,True,4.0
+190,25177,Monasterio de Santa María de Huerta,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Media,13768,True,4.0
+191,25178,Monasterio de San Juan de Duero,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Media,13927,True,4.0
+192,25179,Monasterio de Santa María de Retuerta,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Media,15289,True,4.0
+193,25180,Monasterio de Santa María de Valbuena,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Media,15535,True,4.0
+194,25181,Monasterio de Nuestra Señora del Prado,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Moderna,16001,True,4.0
+195,25182,Monasterio de Santa María de las Huelgas Reales,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Moderna,16017,True,4.0
+196,25183,Santa María de Moreruela,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Media,16646,True,4.0
+197,25184,Monasterio de San Martín de Castañeda,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Media,16632,True,4.0
+198,25185,Iglesia de San Salvador,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,17035,False,
+199,25186,Castillo de Cuéllar,Castillos,,Castillo / Fortaleza / Atalaya,"Edad Moderna,Edad Media",10887,True,5.0
+200,25187,Ermita de San Baudelio,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Media,12928,False,
+201,25188,Ermita de San Saturio,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Moderna,13859,False,
+202,25190,Escuelas Menores de la Universidad de Salamanca,Otros edificios,Arquitectura Civil,Edificio Universitario,"Edad Moderna,Edad Media",9832,False,
+203,25191,Cartuja de Santa María de Miraflores,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Media,1619,True,4.0
+204,25192,Cuatro Postes,Cruceros,Arquitectura Popular,Crucero,Edad Moderna,,False,
+205,25193,Cristo del Otero,Esculturas,Arquitectura Religiosa,Escultura / Estatua,Edad Contemporánea,,False,
+206,25194,Casa de las Conchas,Palacios,Arquitectura Civil,Palacio,Edad Moderna,9563,True,5.0
+207,25195,Casa de los Picos,Palacios,Arquitectura Civil,Palacio,Edad Moderna,,True,5.0
+208,25196,Casa del Cordón,Palacios,Arquitectura Civil,Palacio,Edad Moderna,1626,True,5.0
+209,25197,Palacio de los Velada,Palacios,Arquitectura Civil,Palacio,Edad Moderna,392,True,5.0
+210,25198,Iglesia de San Nicolás de Bari,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,1735,False,
+211,25199,Iglesia de San Pablo,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,15900,False,
+212,25200,Iglesia de San Pedro y San Ildefonso,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",17277,False,
+213,25201,Iglesia de San Salvador de Oña,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,,False,
+214,25202,Iglesia de Santa María de la Antigua,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",15907,False,
+215,25203,Iglesia de Santa María del Azogue,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,16463,False,
+216,25204,Convento de Santa María de Mave,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Media,6216,True,4.0
+217,25205,Iglesia de Santa Marta de Tera,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,16498,False,
+218,25206,Iglesia de Santo Tomé / Santo Domingo,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,13912,False,
+219,25207,Colegiata de Berlanga de Duero,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,12631,False,
+220,25208,Colegiata Santa María la Mayor de Toro,Monasterios,Arquitectura Religiosa,"Colegiata,Iglesia",Edad Media,17042,True,4.0
+221,25209,Palacio de la Salina o de Fonseca,Palacios,Arquitectura Civil,Palacio,Edad Moderna,9550,True,5.0
+222,25210,Palacio de Los Guzmanes,Palacios,Arquitectura Civil,Palacio,Edad Moderna,5010,True,5.0
+223,25211,Palacio Real de la Granja de San Ildefonso,Palacios,Arquitectura Civil,"Real Sitio,Palacio",Edad Moderna,11567,True,5.0
+224,25212,Palacio Real de Riofrío,Palacios,Arquitectura Civil,"Real Sitio,Palacio",Edad Moderna,11509,True,5.0
+225,25213,Puente de Piedra de Zamora,Puentes,Arquitectura Civil,Puente,Edad Media,,False,
+226,25214,Palacio de los Condes de Gomara,Palacios,Arquitectura Civil,Palacio,Edad Moderna,13982,True,5.0
+227,25215,Puerta de Doña Urraca,Murallas y puertas,Arquitectura Civil,Puerta,Edad Media,17452,True,5.0
+228,25216,Palacio de los Momos,Palacios,Arquitectura Civil,Palacio,Edad Moderna,17433,True,5.0
+229,25217,Casa de la Familia Del Río,Palacios,Arquitectura Civil,Palacio,Edad Moderna,,True,5.0
+230,25218,Palacio de Monterrey,Palacios,Arquitectura Civil,Palacio,Edad Moderna,10050,True,5.0
+231,25219,Palacio Real testamentario de Medina del Campo,Palacios,Arquitectura Civil,Palacio,Edad Moderna,14826,True,5.0
+232,25220,Palacio de Anaya,Palacios,Arquitectura Civil,"Edificio Universitario,Palacio","Edad Moderna,Edad Media",9708,True,5.0
+233,25221,Palacio de los Condes de Alba,Palacios,Arquitectura Civil,Palacio,"Edad Moderna,Edad Media",17428,True,5.0
+234,25222,Acueducto de Segovia,Puentes,Arquitectura Civil,Puente,Romano,11669,False,
+235,25223,Alcázar de Segovia,Castillos,,Castillo / Fortaleza / Atalaya,"Edad Moderna,Edad Media",11675,True,5.0
+236,25224,Palacio - Torreón de los Guzmanes,Palacios,Arquitectura Civil,Palacio,Edad Moderna,567,True,5.0
+237,25225,Escuelas Mayores de la Universidad de Salamanca,Otros edificios,Arquitectura Civil,Edificio Universitario,Edad Media,9815,False,
+238,25226,La Clerecía,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,9690,False,
+239,25227,Arco de Santa María,Murallas y puertas,Arquitectura Civil,Puerta,Edad Media,1603,True,5.0
+240,25228,Colegio Fonseca,Otros edificios,Arquitectura Civil,Edificio Universitario,Edad Moderna,9637,False,
+241,25229,Palacio de Santa Cruz,Palacios,Arquitectura Civil,Palacio,Edad Moderna,15699,True,5.0
+242,25230,Academia de Caballería,Otros edificios,Arquitectura Militar,,Edad Contemporánea,,False,
+243,25231,Numancia,Yacimientos arqueológicos,Yacimiento,Ciudad,"Romano,Celtibérico (Arévaco)",13102,False,
+244,25232,Convento de Santa Teresa (Iglesia),Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Moderna,273,True,4.0
+245,25233,Toros de Guisando,Yacimientos arqueológicos,Yacimiento,Escultura / Estatua,Celta (Vetón),1229,False,
+246,25234,Palacio de los Condes de Rivadavia / Pimentel,Palacios,Arquitectura Civil,Palacio,Edad Moderna,16049,True,5.0
+247,25235,Iglesia parroquial de Santa María la Real,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",3409,False,
+248,25236,Iglesia de San Juan,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,8393,False,
+249,25237,Iglesia Mayor de la Asunción de Nuestra Señora,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,595,False,
+250,25238,Castillo de Zamora,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,17219,True,5.0
+251,25239,Monasterio de Santa María,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Media,4725,True,4.0
+252,25241,Iglesia de Santa Eufemia de Cozollos,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,7493,False,
+253,25242,Iglesia de San Miguel,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,12440,False,
+254,25243,Iglesia de la Asunción de Nuestra Señora,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,3396,False,
+255,25244,Iglesia parroquial de San Pelayo,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,14982,False,
+256,25245,Palacio de los Águilas o de Don Miguel del Águila,Palacios,Arquitectura Civil,Palacio,Edad Moderna,464,True,5.0
+257,25246,Iglesia de San Lorenzo,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,3652,False,
+258,25247,Castillo de Puebla de Sanabria,Castillos,,Castillo / Fortaleza / Atalaya,"Edad Moderna,Edad Media",16876,True,5.0
+259,25248,Iglesia de la Asunción de Nuestra Señora,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",3319,False,
+260,25249,Palacio de los Condes de Altamira o de los Hurtado de Mendoza,Palacios,Arquitectura Civil,Palacio,Edad Moderna,12455,True,5.0
+261,25250,Iglesia de San Antolín,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,15441,False,
+262,25251,Castillo de Berlanga,Castillos,,Castillo / Fortaleza / Atalaya,"Edad Moderna,Edad Media",12619,True,5.0
+263,25252,Herrería de Compludo,Otros edificios,Arquitectura Popular,,Edad Contemporánea,5188,False,
+264,25253,Palacio de Arenas de San Pedro / de la Mosquera,Palacios,Arquitectura Civil,Palacio,Edad Contemporánea,17951,True,5.0
+265,25254,Iglesia de Sancti Spiritus,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",9990,False,
+266,25255,Casas del Tratado de Tordesillas / Sala de Cartografía,Casas Nobles,Arquitectura Civil,Casa Noble,"Edad Moderna,Edad Media",15419,False,
+267,25256,Iglesia de Nuestra Señora del Rivero,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,13702,False,
+268,25257,Iglesia de Santa María de Siones,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,3641,False,
+269,25258,Iglesia de San Julián y Santa Basilisa,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,3207,False,
+270,25259,Iglesia parroquial de San Salvador,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,8349,False,
+271,25260,Iglesia de Santiago,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,5831,False,
+272,25261,Iglesia de Santiago el Real,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,14801,False,
+273,25262,Monasterio de Santo Tomás,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Media,192,True,4.0
+274,25263,Casa del General San Martín,Otros edificios,Arquitectura Popular,,Edad Moderna,6898,False,
+275,25264,Iglesia colegiata de San Antolín (Parroquia Mayor),Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",14794,False,
+276,25265,Fuerte de la Concepción,Castillos,,Castillo / Fortaleza / Atalaya,Edad Moderna,8641,True,5.0
+277,25266,Iglesia parroquial de San Juan Bautista,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",11319,False,
+278,25267,Iglesia de San Tirso,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,5410,False,
+279,25268,Iglesia de San Francisco de Asís,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",5806,False,
+280,25269,Iglesia de San Miguel y San Julián,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,15893,False,
+281,25270,Castillo de los Cartagena,Castillos,,Castillo / Fortaleza / Atalaya,"Edad Moderna,Edad Media",3391,True,5.0
+282,25271,Iglesia de San Lorenzo,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,5404,False,
+283,25272,Iglesia de San Juan Evangelista,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,15133,False,
+284,25273,Iglesia de la Vera Cruz,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,15848,False,
+285,25274,Ermita de San Segundo del Río Adaja,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Media,236,False,
+286,25275,Iglesia de Santa María de Arbas,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,5970,False,
+287,25276,Palacio de Orellana/ Marqués de la Conquista/ Marqués de la Albaida,Palacios,Arquitectura Civil,Palacio,Edad Moderna,10057,True,5.0
+288,25277,Iglesia de San Juan Bautista,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",982,False,
+289,25278,Iglesia parroquial de Aldearrubia / San Miguel Arcángel,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,8652,False,
+290,25279,Palacio Ducal de Lerma,Palacios,Arquitectura Civil,Palacio,Edad Moderna,2459,True,5.0
+291,25280,Iglesia / Convento de Santa Clara,Iglesias y Ermitas,Arquitectura Religiosa,"Monasterio / Convento,Iglesia",Edad Moderna,15086,False,
+292,25281,Iglesia de Santa María Magdalena,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",15915,False,
+293,25282,Ermita Nuestra Señora de las Viñas,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Visigodo,2559,False,
+294,25283,Castillo-palacio de Magalia,Palacios,Arquitectura Civil,Palacio,Edad Moderna,1033,True,5.0
+295,25284,Colegiata de San Luis,Iglesias y Ermitas,Arquitectura Religiosa,Colegiata,Edad Moderna,16232,False,
+296,25285,Ex-colegiata de Santa María del Manzano,Iglesias y Ermitas,Arquitectura Religiosa,Colegiata,Edad Media,1909,False,
+297,25286,Ayuntamiento de Astorga,Casas Consistoriales,Arquitectura Civil,Ayuntamiento,Edad Moderna,4264,False,
+298,25287,Iglesia de Santa María,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,16372,False,
+299,25288,Pasaje Gutiérrez,Otros edificios,Arquitectura Civil,,Edad Contemporánea,16108,False,
+300,25289,Iglesia de San Cornelio y San Cipriano,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,6586,False,
+301,25290,Iglesia de Santiago (Alba de Tormes),Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,8411,False,
+302,25291,Iglesia de la Abadía de Santa María de Burgohondo o Santa María de Fondo,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,631,False,
+303,25292,Monasterio de Santa Clara Gordillas,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Media,2572,True,4.0
+304,25293,Iglesia de Nuestra Señora de la Asunción,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",13410,False,
+305,25294,Ermita de Santa Cecilia,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Media,6258,False,
+306,25295,Castillo de Los Sarmiento,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,7254,True,5.0
+307,25296,Iglesia parroquial de San Román,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,15263,False,
+308,25297,Monasterio de la Caridad,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Media,9012,True,4.0
+309,25298,Castillo de Turégano,Castillos,,Castillo / Fortaleza / Atalaya,"Edad Moderna,Edad Media",12185,True,5.0
+310,25299,Iglesia Santo Tomás de las Ollas,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,5310,False,
+311,25300,Fachada y Atrio de la Universidad de Valladolid,Otros edificios,Arquitectura Civil,Edificio Universitario,Edad Moderna,15784,False,
+312,25301,Palacio de Toral de los Guzmanes,Palacios,Arquitectura Civil,Palacio,"Edad Moderna,Edad Media",5551,True,5.0
+313,25302,Iglesia de Santiago de la Puebla,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",10247,False,
+314,25303,Castillo de Íscar,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,14698,True,5.0
+315,25304,Palacio de los Dávila / Palacio de Abrantes,Palacios,Arquitectura Civil,Palacio,"Edad Moderna,Edad Media",454,True,5.0
+316,25305,Hospital antiguo de San Agustín,Palacios,Arquitectura Civil,Palacio,"Edad Moderna,Edad Media",12714,True,5.0
+317,25306,Ermita de Nuestra Señora de Tiermes,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Media,13365,False,
+318,25307,Ermita de Santa Ana,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Moderna,15183,False,
+319,25308,Palacio de los Vivero - Chancillería,Palacios,Arquitectura Civil,Palacio,"Edad Moderna,Edad Media",16068,True,5.0
+320,25309,Plaza de toros El Castañar,Otros edificios,Arquitectura Popular,,Edad Moderna,8763,False,
+321,25310,Iglesia de San Martín,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,9960,False,
+322,25311,Iglesia de San Martín,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,15874,False,
+323,25312,Iglesia de Santa María de Mediavilla,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",14873,False,
+324,25313,Iglesia parroquial San Cornelio y San Cipriano,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,7977,False,
+325,25314,Convento de San José,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Moderna,178,True,4.0
+326,25315,Iglesia parroquial de Lois,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,4673,False,
+327,25316,Iglesia de Santa María la Blanca,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,8137,False,
+328,25317,Castillo de Encinas,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,14660,True,5.0
+329,25318,Castillo de Valdecorneja,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,590,True,5.0
+330,25319,Iglesia de San Pablo,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",7558,False,
+331,25320,Iglesia de San Juan Bautista,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,1918,False,
+332,25321,Castillo de Castilnovo,Castillos,,Castillo / Fortaleza / Atalaya,"Edad Moderna,Edad Media",10813,True,5.0
+333,25322,Iglesia parroquial de Peñarandilla,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,9453,False,
+334,25323,Iglesia de Santa María la Real,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",16690,False,
+335,25324,Iglesia de Santa María la Mayor,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,8221,False,
+336,25325,Iglesia de Santa María,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,14703,False,
+337,25326,Capilla de San Juan Bautista de la Iglesia de El Salvador,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",15636,False,
+338,25327,Iglesia de Nuestra Señora de Septiembre,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,2677,False,
+339,25328,Teatro Juan Bravo,Otros edificios,Arquitectura Civil,,Edad Contemporánea,11995,False,
+340,25329,Palacio de Saldañuela,Palacios,Arquitectura Civil,Palacio,Edad Moderna,3378,True,5.0
+341,25330,Iglesia Templo Rupestre de los Santos Justo y Pastor,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,118250,False,
+342,25331,Iglesia de San Vicente,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,12274,False,
+343,25332,Palacio de Enrique IV,Palacios,Arquitectura Civil,Palacio,"Edad Moderna,Edad Media",11934,True,5.0
+344,25333,Teatro Latorre,Otros edificios,Arquitectura Civil,,Edad Contemporánea,17002,False,
+345,25334,Torre del Caracol de Benavente,Palacios,Arquitectura Civil,"Palacio,Castillo / Fortaleza / Atalaya",Edad Moderna,16472,True,5.0
+346,25335,Murallas de Madrigal / Puertas de Cantalapiedra - de Medina - Arévalo y Peñaranda,Murallas y puertas,Arquitectura Militar,Muralla,Edad Media,934,True,5.0
+347,25336,Iglesia de San Justo,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,11845,False,
+348,25337,Castillo de Villanueva de Jamuz,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,5491,True,5.0
+349,25338,Palacio de Fabio Nelli,Palacios,Arquitectura Civil,Palacio,Edad Moderna,16083,True,5.0
+350,25339,Iglesia de Santiago,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,6807,False,
+351,25340,Castillo de los Duques de Alba,Castillos,,Castillo / Fortaleza / Atalaya,"Edad Moderna,Edad Media",8369,True,5.0
+352,25341,Castillo de Ciudad Rodrigo,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,8968,True,5.0
+353,25342,El Alcázar de Toro,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,16989,True,5.0
+354,25343,Castillo de Gormaz,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,13141,True,5.0
+355,25344,Iglesia de San Pedro,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,309,False,
+356,25345,Iglesia de San Juan,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,14665,False,
+357,25346,Castillo de Monzón de Campos,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,7449,True,5.0
+358,25347,Iglesia de San Juan Ante Portam Latinam,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,9113,False,
+359,25348,Casa de Cervantes,Otros edificios,Arquitectura Civil,,Edad Moderna,15649,False,
+360,25349,Restos Convento de San Antonio el Real,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Moderna,10119,True,4.0
+361,25350,Iglesia de Nuestra Señora de la Calle / Iglesia de la Compañia,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,7591,False,
+362,25351,Castillo de Villalonso,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,17125,True,5.0
+363,25352,Castillo de Fuensaldaña,Castillos,,Castillo / Fortaleza / Atalaya,"Edad Moderna,Edad Media",14673,True,5.0
+364,25353,Iglesia parroquial de San Pedro (Villoria),Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,10503,False,
+365,25354,Iglesia de San Sebastián,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,6005,False,
+366,25355,Iglesia de Santa María la Mayor,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,109,False,
+367,25356,Ermita de San Miguel de Gormaz,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Media,13147,False,
+368,25357,Iglesia de San Juan Bautista,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,10555,False,
+369,25358,Monasterio de Sancti Spíritus,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Media,16994,True,4.0
+370,25359,Iglesia de Santa María,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,1382,False,
+371,25360,Iglesia parroquial de Galleguillos,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,9145,False,
+372,25361,Teatro Principal,Otros edificios,Arquitectura Civil,,Edad Contemporánea,17458,False,
+373,25362,Iglesia de San Martín Obispo,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,6200,False,
+374,25363,Iglesia de San Miguel,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,13720,False,
+375,25364,Iglesia parroquial de Santa María la Real,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,6570,False,
+376,25365,Castillo de Montealegre,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,14905,True,5.0
+377,25366,Iglesia colegiata de San Cosme y San Damián,Iglesias y Ermitas,Arquitectura Religiosa,Colegiata,"Edad Moderna,Edad Media",2059,False,
+378,25367,Iglesia de la Asunción / Santa María,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,2243,False,
+379,25368,Iglesia de la Anunciación / MM. Carmelitas descalzas / Sepulcro de Sta. Teresa,Monasterios,Arquitectura Religiosa,Iglesia,Edad Moderna,8376,True,4.0
+380,25369,Iglesia Santa María del Castillo - Ermita del Cristo,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Media,14526,False,
+381,25370,Iglesia de Santa María de la Víctoria o del Camino,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,6786,False,
+382,25371,Iglesia de San Millán,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,13485,False,
+383,25372,Castillo de Urueña y murallas,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,15512,True,5.0
+384,25373,Capilla Real de San Pedro de Alcántara,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Moderna,58,True,4.0
+385,25374,Iglesia de Santa María,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,6327,False,
+386,25375,Casa de Doña María la Brava,Casas Nobles,Arquitectura Civil,Casa Noble,"Edad Moderna,Edad Media",9528,False,
+387,25376,Iglesia de Santa María del Azogue o Santa María la Mayor,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,16883,False,
+388,25377,Castillo de Torrelobatón o de los Comuneros,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,15487,True,5.0
+389,25378,Iglesia parroquial de la Asunción,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,15503,False,
+390,25379,Palacio de los Aguado Pardo / Palacio de los Junco,Palacios,Arquitectura Civil,Palacio,Edad Moderna,7642,True,5.0
+391,25380,Palacio Condes de Miranda / de los Zúñiga y Avellaneda,Palacios,Arquitectura Civil,Palacio,Edad Moderna,3035,True,5.0
+392,25381,Castillo de Almenar,Castillos,,Castillo / Fortaleza / Atalaya,"Edad Moderna,Edad Media",12477,True,5.0
+393,25382,Castillo de Vozmediano,Castillos,,Castillo / Fortaleza / Atalaya,"Edad Moderna,Edad Media",14302,True,5.0
+394,25383,Iglesia de Santiago Apóstol,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,14881,False,
+395,25384,Iglesia de Santa María la Nueva,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,17371,False,
+396,25385,Torre de Villasana,Castillos,,Castillo / Fortaleza / Atalaya,"Edad Moderna,Edad Media",3692,True,5.0
+397,25386,Iglesia de la Pasión,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,15841,False,
+398,25387,Monasterio de San Andrés de Arroyo,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Media,8005,True,4.0
+399,25388,Iglesia del Santo Sepulcro,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,17028,False,
+400,25389,Iglesia de Nuestra Señora de la Asunción y Santa María del Castillo,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,15480,False,
+401,25390,Palacio Butrón / Convento de las Brígidas,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Moderna,16042,True,4.0
+402,25391,Iglesia de San Juan Bautista,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,6264,False,
+403,25392,Palacio de los Dueñas,Palacios,Arquitectura Civil,Palacio,Edad Moderna,14820,True,5.0
+404,25393,Casa Natal de José Zorrilla,Otros edificios,Arquitectura Civil,,Edad Contemporánea,15671,False,
+405,25394,Castillo de Pedraza,Castillos,,Castillo / Fortaleza / Atalaya,"Edad Moderna,Edad Media",11365,True,5.0
+406,25395,Ermita de Santa Eulalia u Olalla,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Media,6113,False,
+407,25396,Plaza de toros de Toro,Otros edificios,Arquitectura Popular,,Edad Contemporánea,17060,False,
+408,25397,Castillo de Grajal,Castillos,,Castillo / Fortaleza / Atalaya,Edad Moderna,4760,True,5.0
+409,25398,Iglesia parroquial de la Asunción,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,537332,False,
+410,25399,Iglesia de San Miguel,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,15006,False,
+411,25400,Monasterio de la Encarnación,Monasterios,Arquitectura Religiosa,Monasterio / Convento,"Edad Moderna,Edad Media",416,True,4.0
+412,25401,Iglesia de la Vera Cruz,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,11831,False,
+413,25402,Castillo de Portillo,Castillos,,Castillo / Fortaleza / Atalaya,Edad Moderna,15150,True,5.0
+414,25403,Iglesia de San Leonardo,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,17339,False,
+415,25404,Iglesia de San Nicolás,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",2710,False,
+416,25405,Iglesia Parroquial de Pumarejo de Tera,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Contemporánea,539585,False,
+417,25406,Ermita de San Pantaleón,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Media,4201,False,
+418,25407,Iglesia parroquial de la Asunción,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,6860,False,
+419,25408,Iglesia de San Cipriano,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,15236,False,
+420,25409,Iglesia de Puebla de San Vicente,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,6313,False,
+421,25410,Iglesia de San Juan Bautista o de San Juan de Baños,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Media,Visigodo",6520,False,
+422,25411,Teatro Principal,Otros edificios,Arquitectura Civil,,Edad Contemporánea,1812,False,
+423,25412,Puente y calzada de Masegoso,Puentes,Arquitectura Civil,Puente,Romano,13492,False,
+424,25413,Iglesia de la Peregrina,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,5397,False,
+425,25414,Iglesia parroquial de Santa María la Mayor (Ledesma),Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",9236,False,
+426,25415,Iglesia de San Eutropio,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,10939,False,
+427,25416,Iglesia de San Juan Bautista - Villanueva del Río,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,7608,False,
+428,25417,Iglesia parroquial de Turra de Alba,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,9409,False,
+429,25418,Iglesia de Omeñaca,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,12502,False,
+430,25419,Castillo de Peñaranda de Duero,Castillos,,Castillo / Fortaleza / Atalaya,"Edad Moderna,Edad Media",3019,True,5.0
+431,25420,Iglesia convento de San Francisco,Iglesias y Ermitas,Arquitectura Religiosa,"Monasterio / Convento,Iglesia",Edad Media,7598,False,
+432,25421,Capilla de Cerralbo o Iglesia del Cardenal Pacheco,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,8945,False,
+433,25422,Castillo de Miranda del Castañar,Castillos,,Castillo / Fortaleza / Atalaya,"Edad Moderna,Edad Media",9340,True,5.0
+434,25423,Iglesia parroquial de Cubillo,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,6939,False,
+435,25424,Iglesia de Santa María del Castillo,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,6927,False,
+436,25425,Iglesia Nuestra Señora del Castillo Macotera,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",9294,False,
+437,25426,Iglesia de la Vera Cruz,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,9887,False,
+438,25427,Iglesia de los Santos Juanes,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,14974,False,
+439,25428,Iglesia de San Miguel,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",16326,False,
+440,25429,Iglesia del Carmen de Extramuros,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,15939,False,
+441,25430,Iglesia de Nuestra Señora del Castillo,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,14967,False,
+442,25431,Castillo de los Duques de Frías,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,2207,True,5.0
+443,25432,Castillo de Villafuerte,Castillos,,Castillo / Fortaleza / Atalaya,"Edad Moderna,Edad Media",16212,True,5.0
+444,25433,Palacio del Príncipe de Melito / Casa de los Águilas o del Marqués de Altares (Ciudad Rodrigo),Palacios,Arquitectura Civil,Palacio,Edad Moderna,9041,True,5.0
+445,25434,Colegiata de Santa María de Cluniaco,Iglesias y Ermitas,Arquitectura Religiosa,Colegiata,"Edad Moderna,Edad Media",5780,False,
+446,25435,Iglesia de Santa Marina,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,6605,False,
+447,25436,Iglesia parroquial de Olmos,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,15013,False,
+448,25437,Torre de La Loja,Castillos,,Castillo / Fortaleza / Atalaya,"Edad Moderna,Edad Media",2758,True,5.0
+449,25438,Iglesia / Ermita de Santa Cecilia,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Media,6076,False,
+450,25439,Colegio de Villandrando,Otros edificios,Arquitectura Civil,Colegio,Edad Contemporánea,7534,False,
+451,25440,Iglesia de San Bernardo,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,7577,False,
+452,25441,Iglesia de San Hipólito,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",8063,False,
+453,25442,Iglesia de San Miguel,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,2536,False,
+454,25443,Iglesia parroquial de Valpuesta,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,1543,False,
+455,25444,Ermita de San Juan de las Fuentes Divinas / Fuente de Reana,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Media,8108,False,
+456,25445,Iglesia parroquial de San Juan Bautista,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",338,False,
+457,25446,Castillo de Arévalo,Castillos,,Castillo / Fortaleza / Atalaya,"Edad Moderna,Edad Media",82,True,5.0
+458,25447,Castillo de Coyanza,Castillos,,Castillo / Fortaleza / Atalaya,"Edad Moderna,Edad Media",5661,True,5.0
+459,25448,Iglesia de Nuestra Señora de la Asunción,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,6121,False,
+460,25449,Iglesia parroquial de Nuestra Señora de la Asunción,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",6956,False,
+461,25450,Iglesia de San Juan,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",7485,False,
+462,25451,Castillo de Monleón,Castillos,,Castillo / Fortaleza / Atalaya,"Edad Moderna,Edad Media",9369,True,5.0
+463,25452,Iglesia de San Pedro de la Nave,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,16940,False,
+464,25453,Castillo de La Adrada,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,36,True,5.0
+465,25454,Iglesia de Santiago Apóstol,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,14363,False,
+466,25455,Iglesia parroquial de San Pedro,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,15302,False,
+467,25456,Iglesia de San Juan del Mercado,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,16456,False,
+468,25457,Iglesia de San Juan de Puerta Nueva,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,17439,False,
+469,25458,Iglesia de San Fructuoso,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,6382,False,
+470,25459,Ermita de San Pelayo de Perazancas,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Media,6950,False,
+471,25460,Iglesia de la Santa Cruz (Palencia de Negrilla),Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",9395,False,
+472,25461,Hospital Simón Ruiz / Purísima Concepción / San Diego de Alcalá,Otros edificios,Arquitectura Civil,,Edad Moderna,14782,False,
+473,25462,Iglesia parroquial de Cabezas del Villar,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,646,False,
+474,25463,Ermita de la Virgen del Val,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Media,13372,False,
+475,25464,Castillo de Bonilla de la Sierra,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,615,True,5.0
+476,25465,Hospital de la Purísima Concepción,Otros edificios,Arquitectura Civil,,Edad Media,904,False,
+477,25466,Palacio del Marqués de Chiloeches,Palacios,Arquitectura Civil,Palacio,Edad Moderna,2128,True,5.0
+478,25467,Iglesia de Santa Eulalia,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,7739,False,
+479,25468,Palacio de los Verdugo,Palacios,Arquitectura Civil,Palacio,"Edad Moderna,Edad Media",509,True,5.0
+480,25469,Convento de San Agustín,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Media,898,True,4.0
+481,25470,Convento de San Nicolás el Real,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Contemporánea,5826,True,4.0
+482,25471,Monasterio de Santa María de Palazuelos,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Media,14603,True,4.0
+483,25472,Castillo de Torrepadierne,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,2966,True,5.0
+484,25473,Palacio de los Castro / Palacio de los Condes de Montarco,Palacios,Arquitectura Civil,Palacio,"Edad Moderna,Edad Media",8961,True,5.0
+485,25474,Castillo de Monteagudo de las Vicarías,Castillos,,Castillo / Fortaleza / Atalaya,"Edad Moderna,Edad Media",13279,True,5.0
+486,25475,Iglesia de San Julián,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,9944,False,
+487,25476,Ermita de San Pedro de Tejada,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Media,2730,False,
+488,25477,Iglesia de San Millán,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,11881,False,
+489,25478,Iglesia parroquial de Tozalmoro,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,12509,False,
+490,25479,Iglesia de  los Santos Justo y Pastor,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,14630,False,
+491,25480,Iglesia de Nuestra Señora de la Asunción (Porta Coeli),Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,15829,False,
+492,25481,Iglesia de San Lorenzo el Real,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,17015,False,
+493,25482,Iglesia de San Andrés,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,280,False,
+494,25483,Iglesia de Santa María de los Reyes y San Miguel,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,2236,False,
+495,25484,Iglesia de la Asunción de Nuestra Señora/ Santa María,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,2616,False,
+496,25485,Iglesia de San Pelayo,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,6758,False,
+497,25486,Hospital del Rey,Otros edificios,Arquitectura Civil,,"Edad Moderna,Edad Media",1706,False,
+498,25487,Iglesia de la Asunción de Nuestra Señora,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",3815,False,
+499,25488,Iglesia de San Martín,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,11869,False,
+500,25489,Iglesia colegiata de Santa María,Iglesias y Ermitas,Arquitectura Religiosa,Colegiata,"Edad Moderna,Edad Media",1566,False,
+501,25490,Iglesia de San Esteban,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,4054,False,
+502,25491,Castillo - Palacio de los Marqueses de Villafranca,Castillos,Arquitectura Civil,Palacio,Edad Moderna,5775,True,5.0
+503,25492,Plaza del Coso,Otros edificios,Arquitectura Popular,,Edad Moderna,15103,False,
+504,25493,Casa del Cordón,Casas Nobles,Arquitectura Civil,Casa Noble,Edad Moderna,7635,False,
+505,25494,Calzada Romana,Otros edificios,Arquitectura Civil,Calzada,Romano,9256,False,
+506,25495,Torreón de Los Guzmanes,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,1859,True,5.0
+507,25496,Monasterio de Santa María,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Media,2369,True,4.0
+508,25497,Iglesia de San Martín de Tours,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,12702,False,
+509,25498,Castillo de Laguna de Negrillos,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,4815,True,5.0
+510,25499,Monasterio de Santa Isabel,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Moderna,15712,True,4.0
+511,25500,Iglesia de la Inmaculada Concepción,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,607,False,
+512,25501,Iglesia de San Pedro,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,6298,False,
+513,25502,Palacio de Garci Grande,Palacios,Arquitectura Civil,Palacio,Edad Moderna,9855,True,5.0
+514,25503,Iglesia parroquial de San Pedro,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",2952,False,
+515,25504,Colegiata de San Miguel,Iglesias y Ermitas,Arquitectura Religiosa,Colegiata,"Edad Moderna,Edad Media",6044,False,
+516,25505,Colegio de Calatrava (Salamanca),Otros edificios,Arquitectura Civil,Edificio Universitario,Edad Moderna,9823,False,
+517,25506,Iglesia de San Juan de los Caballeros,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,11838,False,
+518,25507,Iglesia de San Marcos,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,9953,False,
+519,25508,Ermita de San Frutos,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Media,10712,False,
+520,25509,Iglesia de San Esteban,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,1723,False,
+521,25510,Botica de Ximeno,Otros edificios,Arquitectura Popular,,Edad Moderna,3011,False,
+522,25511,Castillo de Corullón,Castillos,,Castillo / Fortaleza / Atalaya,"Edad Moderna,Edad Media",4639,True,5.0
+523,25512,Iglesia parroquial de San Salvador,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,6238,False,
+524,25513,Castillo de Puente Congosto,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,9478,True,5.0
+525,25514,Iglesia de San Cipriano,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,17294,False,
+526,25515,Palacio de los Marqueses de Cuevas de Velasco / Palacio de los Condestables,Palacios,Arquitectura Civil,Palacio,Edad Moderna,2148,True,5.0
+527,25516,Iglesia de San Cosme y San Damián,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,3090,False,
+528,25517,Palacio Superunda,Palacios,Arquitectura Civil,Palacio,Edad Moderna,499,True,5.0
+529,25518,Monasterio de Santa María la Real,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Media,3847,True,4.0
+530,25519,Iglesia colegiata de San Miguel,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,6371,False,
+531,25520,Iglesia de San Juan Bautista,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",8028,False,
+532,25521,Palacio de los Polentinos,Palacios,Arquitectura Civil,Palacio,Edad Moderna,484,True,5.0
+533,25522,Ayuntamiento de Ciudad Rodrigo,Casas Consistoriales,Arquitectura Civil,Ayuntamiento,Edad Moderna,8984,False,
+534,25523,Iglesia de San Miguel de Arcángel,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,12920,False,
+535,25524,Ermita de San Bartolomé (cañón Río Lobos),Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Media,14201,False,
+536,25525,Castillo de Sotopalacios o Palacio de El Cid,Palacios,Arquitectura Civil,Palacio,"Edad Moderna,Edad Media",4114,True,5.0
+537,25526,Iglesia de la Purísima (Inmaculada de Ribera),Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,9881,False,
+538,25527,Puente Romano de Salamanca,Puentes,Arquitectura Civil,Puente,Romano,10100,False,
+539,25528,Puerta Árabe,Murallas y puertas,Arquitectura Militar,Puerta,Califal,12329,True,5.0
+540,25529,Palacio del Cordón / Palacio de Puñonrostro,Palacios,Arquitectura Civil,Palacio,Edad Moderna,17417,True,5.0
+541,25530,Ermita de Santa María Gómez de Román / la Lugareja,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Media,103,False,
+542,25531,Monasterio convento de Santa Ana,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Moderna,559,True,4.0
+543,25532,Iglesia colegiata de San Martín de Tours,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,625,False,
+544,25533,Castillo de Mombeltrán,Castillos,,Castillo / Fortaleza / Atalaya,"Edad Moderna,Edad Media",965,True,5.0
+545,25534,Iglesia de San Salvador de Palat del Rey,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,4944,False,
+546,25535,Iglesia de San Juan de Barbalos,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,9932,False,
+547,25536,Iglesia parroquial de San Cipriano,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",833,False,
+548,25537,Castillo del Duque de Montellano,Palacios,Arquitectura Civil,Palacio,"Edad Moderna,Edad Media",1002,True,5.0
+549,25538,Palacio de los Duques de Alba,Palacios,Arquitectura Civil,Palacio,Edad Moderna,1128,True,5.0
+550,25539,Ex-colegiata de Santa María,Iglesias y Ermitas,Arquitectura Religiosa,Colegiata,Edad Moderna,3233,False,
+551,25540,Monasterio de San Pedro de las Dueñas,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Media,5436,True,4.0
+552,25541,Casa de las Muertes,Casas Nobles,Arquitectura Civil,Casa Noble,Edad Moderna,9571,False,
+553,25542,Iglesia de Nuestra Señora del Collado,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,14219,False,
+554,25543,Iglesia y Convento Descalzas Reales,Iglesias y Ermitas,Arquitectura Religiosa,"Monasterio / Convento,Iglesia",Edad Moderna,15964,False,
+555,25544,Iglesia de San Lorenzo,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,7700,False,
+556,25545,Iglesia de San Juan Bautista,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,1375,False,
+557,25546,Castillo de Cornatel,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,5350,True,5.0
+558,25547,Castillo de Castronuevo,Castillos,,Castillo / Fortaleza / Atalaya,"Edad Moderna,Edad Media",1153,True,5.0
+559,25548,Casa Grande / Palacio de los Serranos / Casa de los Pupas,Palacios,Arquitectura Civil,Palacio,Edad Moderna,3445,True,5.0
+560,25549,Colegio público Modesto Lafuente/ escuela del Barrio de la Puebla,Otros edificios,Arquitectura Civil,Colegio,Edad Contemporánea,7545,False,
+561,25550,Monasterio de las MM. Dominicas de Santa Catalina,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Moderna,15992,True,4.0
+562,25551,Casa Fuerte de Aldeaseñor,Palacios,Arquitectura Civil,Palacio,"Edad Moderna,Edad Media",12362,True,5.0
+563,25552,Torre de Maltranilla,Castillos,,Castillo / Fortaleza / Atalaya,"Edad Moderna,Edad Media",3617,True,5.0
+564,25553,Castillo de Ledesma,Castillos,,Castillo / Fortaleza / Atalaya,"Edad Moderna,Edad Media",9224,True,5.0
+565,25554,Iglesia parroquial Santa María Magdalena,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,14716,False,
+566,25555,Iglesia de San Martín,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,87,False,
+567,25556,Puerta de San Andrés / puerta Villa,Murallas y puertas,Arquitectura Civil,Puerta,"Edad Moderna,Edad Media",17142,True,5.0
+568,25557,Castillo de Montemayor,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,9380,True,5.0
+569,25558,Iglesia Santa María del Castillo,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",14638,False,
+570,25559,Iglesia parroquial de San Esteban Protomartir,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,1177,False,
+571,25560,Archivo del Adelantamiento de Castilla,Murallas y puertas,Arquitectura Civil,Puerta,Edad Moderna,2052,True,5.0
+572,25561,Ermita de Nuestra Señora de las Fuentes,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Media,6414,False,
+573,25562,Castillo de las Cabañas de Castilla,Castillos,,Castillo / Fortaleza / Atalaya,"Edad Moderna,Edad Media",8300,True,5.0
+574,25563,Iglesia de San Esteban,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,1437,False,
+575,25564,Torreón de Doña Urraca,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,2072,True,5.0
+576,25565,Recinto amurallado de Mansilla,Murallas y puertas,Arquitectura Militar,Muralla,Edad Media,5088,True,5.0
+577,25566,Puente de Simancas,Puentes,Arquitectura Civil,Puente,Romano,15338,False,
+578,25567,Iglesia de San Andrés y Rollo adyacente,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,14325,False,
+579,25568,Iglesia de Santa Lucía,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,17356,False,
+580,25569,Torreón de los Osorio,Castillos,,Castillo / Fortaleza / Atalaya,"Edad Moderna,Edad Media",5480,True,5.0
+581,25570,Torre del Clavero,Castillos,,Castillo / Fortaleza / Atalaya,"Edad Moderna,Edad Media",10142,True,5.0
+582,25571,Iglesia de la Trinidad,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,11889,False,
+583,25572,Iglesia parroquial de El Salvador,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,15324,False,
+584,25573,Palacio de los Marqueses de Valverde,Palacios,Arquitectura Civil,Palacio,Edad Moderna,15801,True,5.0
+585,25574,Monasterio de San Miguel de Las Dueñas,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Media,4623,True,4.0
+586,25575,Monasterio de San Vicente,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Media,11908,True,4.0
+587,25576,Iglesia de San Nicolás o del Espíritu Santo,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",2821,False,
+588,25577,Iglesia parroquial de Santa Eugenia,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,6667,False,
+589,25578,Iglesia parroquial de Muda,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,7468,False,
+590,25579,Iglesia parroquial de San Miguel,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,7837,False,
+591,25580,Torre de San Nicolás,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,10789,False,
+592,25581,Castillo de Villaviciosa,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,1205,True,5.0
+593,25582,Monasterio de San Pedro de Montes,Monasterios,Arquitectura Religiosa,Monasterio / Convento,"Edad Moderna,Edad Media",5205,True,4.0
+594,25583,Monasterio de San Andrés,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Media,5697,True,4.0
+595,25584,Iglesia de Santa Marina,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,4321,False,
+596,25585,Monasterio de Santa Clara Palacio Pedro I,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Media,6466,True,4.0
+597,25586,Casona-torre de los Monteros o Valanto,Palacios,Arquitectura Civil,Palacio,Edad Moderna,2168,True,5.0
+598,25587,Monasterio de Santa  Clara,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Media,8183,True,4.0
+599,25588,Palacio del Duque de Medinaceli,Palacios,Arquitectura Civil,Palacio,Edad Moderna,13249,True,5.0
+600,25589,Castillo del Buen Amor,Castillos,,Castillo / Fortaleza / Atalaya,"Edad Moderna,Edad Media",10372,True,5.0
+601,25590,Palacio Real,Palacios,Arquitectura Civil,Palacio,Edad Moderna,16101,True,5.0
+602,25591,El Torreón,Castillos,,Castillo / Fortaleza / Atalaya,"Edad Moderna,Edad Media",1432,True,5.0
+603,25592,Iglesia de Santa María de la Asunción,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,15224,False,
+604,25593,Iglesia de Santa María del Castillo,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,920,False,
+605,25594,Casa-palacio de los Fernández Villa,Palacios,Arquitectura Civil,Palacio,Edad Moderna,2112,True,5.0
+606,25595,Iglesia de Santo Tomé,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,17390,False,
+607,25596,Hospital de peregrinos de San Andrés,Otros edificios,Arquitectura Civil,,Edad Moderna,976,False,
+608,25597,"Castillo ""Las Torres""",Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,2566,True,5.0
+609,25598,Iglesia parroquial de San Andrés,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,6139,False,
+610,25599,Abadía de Santa María de Párraces,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Media,10646,True,4.0
+611,25600,Iglesia parroquial de Santa María de la Expectacion,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,15120,False,
+612,25601,Monasterio de San Joaquín y Santa Ana,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Moderna,16009,True,4.0
+613,25602,Iglesia de Santa Eufemia,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,6501,False,
+614,25603,Ermita de Nuestra Señora del Valle,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Media,2861,False,
+615,25604,Iglesia de Santa María,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,6676,False,
+616,25605,Iglesia parroquial de Santa María del Castillo,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",8082,False,
+617,25606,Iglesia de la Asunción,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,16791,False,
+618,25607,Iglesia de Santa María de la Horta,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,17364,False,
+619,25608,Abadía de San Quirce,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Media,1426,True,4.0
+620,25609,Torre de Hércules (convento de Santo Domingo) Convento de las Madre Dominicas,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,12009,True,5.0
+621,25610,Iglesia de San Esteban,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,12015,False,
+622,25611,Iglesia de San Nicolás de Bari,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,912,False,
+623,25612,Palacio Fortificado,Palacios,Arquitectura Civil,Palacio,Edad Moderna,2705,True,5.0
+624,25613,Puente del Paso Honroso,Puentes,Arquitectura Civil,Puente,Romano,4796,False,
+625,25614,Iglesia de Santa María de Vizbayo,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,5222,False,
+626,25615,Iglesia de San Juan,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,16319,False,
+627,25616,Casa de Santa Teresa,Otros edificios,Arquitectura Popular,,Edad Moderna,9591,False,
+628,25617,Iglesia de Santa María. Centro de Interpretación de los Beatos,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,16972,False,
+629,25618,Casona-torre de los Azulejos,Castillos,,Castillo / Fortaleza / Atalaya,Edad Moderna,2162,True,5.0
+630,25619,Iglesia parroquial de la Asunción,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,6729,False,
+631,25620,Iglesia parroquial de San Pedro,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,6421,False,
+632,25621,Monasterio de Santa María,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Media,11475,True,4.0
+633,25622,Iglesia parroquial de San Juan Bautista,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,12648,False,
+634,25623,Palacio de los Ríos y Salcedos,Palacios,Arquitectura Civil,Palacio,Edad Moderna,13993,True,5.0
+635,25624,Castillo de Albillos,Castillos,,Castillo / Fortaleza / Atalaya,Edad Moderna,1823,True,5.0
+636,25625,Castillo de Poza,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,3079,True,5.0
+637,25626,Iglesia parroquial de Coca de Alba,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,9093,False,
+638,25627,Monasterio convento de Nuestra Señora del Espino,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Media,3306,True,4.0
+639,25628,Iglesia de San Cornelio y San Cipriano,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",7961,False,
+640,25629,Iglesia de San Pedro,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,12951,False,
+641,25630,Torre de Noviercas,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,13448,True,5.0
+642,25631,Casa del Duque de Benavente,Palacios,Arquitectura Civil,Palacio,Edad Moderna,15655,True,5.0
+643,25632,Hospital de la Piedad,Otros edificios,Arquitectura Civil,,Edad Moderna,16449,False,
+644,25633,Iglesia de San Vicente,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,17446,False,
+645,25634,Palacio de Blasco Núñez Vela,Palacios,Arquitectura Civil,Palacio,Edad Moderna,447,True,5.0
+646,25635,Iglesia de El Salvador,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,12079,False,
+647,25636,Iglesia de San Martín,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,3906,False,
+648,25637,Iglesia de San Esteban,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",4214,False,
+649,25638,Iglesia de Santa María la Real,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",6749,False,
+650,25639,Iglesia de Santa María del Castillo,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,7201,False,
+651,25640,Iglesia de Santa María,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,7240,False,
+652,25641,Abadía de Santa María,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,7403,False,
+653,25642,Palacio de Figueroa (casino),Palacios,Arquitectura Civil,Palacio,Edad Moderna,9841,True,5.0
+654,25643,Iglesia de la Asunción,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,16406,False,
+655,25644,Iglesia de la Virgen del Robledo (Sequeros),Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,10300,False,
+656,25645,Iglesia de la Inmaculada Concepción,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,1948,False,
+657,25646,Iglesia de Santa María,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,14354,False,
+658,25647,Iglesia de Santa María Magdalena,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,17410,False,
+659,25648,Monasterio de Nuestra Señora de Porta Coeli,Monasterios,Arquitectura Religiosa,Monasterio / Convento,"Edad Moderna,Edad Media",8787,True,4.0
+660,25649,Iglesia de San Pedro,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,14338,False,
+661,25650,Monasterio de Santa Cruz la Real,Monasterios,Arquitectura Religiosa,Monasterio / Convento,"Edad Moderna,Edad Media",11776,True,4.0
+662,25651,Castillo de Castrojeriz,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,1904,True,5.0
+663,25652,Iglesia de San Pedro,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,537485,False,
+664,25653,Iglesia de Santa María del Camino o Mercado,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,4951,False,
+665,25654,Iglesia de San Martín,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,7993,False,
+666,25655,Iglesia de la Virgen de la Peña,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,12065,False,
+667,25656,Iglesia de San Facundo y San Primitivo,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",7011,False,
+668,25657,Iglesia de Santa María,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,15456,False,
+669,25658,Ermita de la Purísima Concepción,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Media,2001,False,
+670,25659,Palacio de los Condes de Grajal,Palacios,Arquitectura Civil,Palacio,Edad Moderna,4783,True,5.0
+671,25660,Iglesia de San Martín,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,12566,False,
+672,25661,Iglesia parroquial de Villacé,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,5883,False,
+673,25662,Castillo de Aguilar de Campoo,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,6039,True,5.0
+674,25663,Castillo de Curiel,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,14650,True,5.0
+675,25664,Reales Carnicerías (Antiguo Edificio),Otros edificios,Arquitectura Civil,,Edad Moderna,14748,False,
+676,25665,Iglesia de San Martín,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,16779,False,
+677,25666,Iglesia de San Esteban,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,17306,False,
+678,25667,Capilla del Convento de Mosén Rubí,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Moderna,145,True,4.0
+679,25668,Ermita de San Mamés,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Media,13394,False,
+680,25669,Iglesia de San Salvador de Villacete,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,16426,False,
+681,25670,Iglesia de Nuestra Señora de la Asunción,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,16577,False,
+682,25671,Torre de la Iglesia de Santo Tomás,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",17174,False,
+683,25672,Iglesia parroquial de Santiago,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",347,False,
+684,25673,Ermita de Santa Cecilia,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Media,3339,False,
+685,25674,Palacio de los Bustillo,Palacios,Arquitectura Civil,Palacio,Edad Moderna,4103,True,5.0
+686,25675,Iglesia Romana,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,12414,False,
+687,25676,Castillo de Alija del Infantado,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,4208,True,5.0
+688,25677,Murallas de León,Murallas y puertas,Arquitectura Militar,Muralla,Edad Media,5038,True,5.0
+689,25678,Torre del Aire o palacio de Fermoselle,Palacios,Arquitectura Civil,Palacio,"Edad Moderna,Edad Media",10134,True,5.0
+690,25679,Iglesia de San Miguel,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,12125,False,
+691,25680,Palacio de los Almarza,Palacios,Arquitectura Civil,Palacio,Edad Moderna,472,True,5.0
+692,25681,Teatro Trianón,Otros edificios,Arquitectura Civil,,Edad Contemporánea,5055,False,
+693,25682,Palacio de los Serrano,Palacios,Arquitectura Civil,Palacio,Edad Moderna,490,True,5.0
+694,25683,Iglesia de San Cristóbal,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,9920,False,
+695,25684,Palacio Marques de Lozoya,Palacios,Arquitectura Civil,Palacio,Edad Moderna,11940,True,5.0
+696,25685,Iglesia de la Invención de San Esteban,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,16564,False,
+697,25686,Iglesia de San Claudio de Olivares,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,17300,False,
+698,25687,Castillo de Aunqueospese,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,958,True,5.0
+699,25688,Iglesia de la Asunción de Nuestra Señora,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,2385,False,
+700,25689,Palacio del Conde Luna,Palacios,Arquitectura Civil,Palacio,"Edad Moderna,Edad Media",5018,True,5.0
+701,25690,Iglesia de San Polo,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,9978,False,
+702,25691,Casa de Esquileo,Otros edificios,Arquitectura Popular,,Edad Moderna,12134,False,
+703,25692,Iglesia de Santiago del Burgo,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,17378,False,
+704,25693,Torre de Olmosalbos,Torres,Arquitectura Civil,Torre,Edad Moderna,3220,False,
+705,25694,Arco de Medinaceli,Otros edificios,Arquitectura Civil,,Romano,13222,False,
+706,25695,Iglesia parroquial de la Santa Cruz,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,7821,False,
+707,25696,Iglesia de San Miguel Arcángel,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,12602,False,
+708,25697,Iglesia de San Isidoro,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,17331,False,
+709,25698,Iglesia parroquial de Santiago Apóstol,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,794,False,
+710,25699,Instituto Nacional de Bachillerato Mariano Quintanilla,Otros edificios,Arquitectura Civil,Colegio,Edad Moderna,11894,False,
+711,25700,Palacio Municipal,Palacios,Arquitectura Civil,Palacio,Edad Moderna,12323,True,5.0
+712,25701,Iglesia de Santiago el Viejo / Santiago de los Caballeros,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,17384,False,
+713,25702,Iglesia de San Martín,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,"Edad Moderna,Edad Media",227,False,
+714,25703,Iglesia de Santa Eugenia,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,3899,False,
+715,25704,Ermita de San Pedro,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Media,6164,False,
+716,25705,Palacio de los Abarca Maldonado (Salamanca),Palacios,Arquitectura Civil,Palacio,Edad Moderna,9583,True,5.0
+717,25706,Iglesia de Nuestra Señora de los Ángeles,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,13602,False,
+718,25707,Puente de Piedra o Puente Mayor,Puentes,Arquitectura Civil,Puente,Edad Media,17066,False,
+719,25708,Iglesia de San Juan Bautista,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,2814,False,
+720,25709,Iglesia de Nuestra Señora de la Antigua / de la Asunción,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,3116,False,
+721,25710,Archivo Histórico Provincial (Casa Señorial),Palacios,Arquitectura Civil,Palacio,Edad Moderna,11698,True,5.0
+722,25711,Seminario Conciliar,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Moderna,11981;11947,True,4.0
+723,25712,Iglesia parroquial de Nuestra Señora de la Asunción,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,13517,False,
+724,25713,Castillo de Puebla de Lillo,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,5356,True,5.0
+725,25714,Palacio Angulo,Palacios,Arquitectura Civil,Palacio,Edad Moderna,1771,True,5.0
+726,25715,Palacio del Paseo de la Isla,Palacios,Arquitectura Civil,Palacio,Edad Contemporánea,1778,True,5.0
+727,25716,Iglesia de San Nicolás,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,300,False,
+728,25717,Iglesia de San Julián,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,5720,False,
+729,25718,Castillo y murallas de San Felices de los Gallegos,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,10198,True,5.0
+730,25719,Iglesia de San Miguel,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,94,False,
+731,25720,Iglesia parroquial de San Vicentejo,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,2017,False,
+732,25721,Iglesia de San Miguel,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,4665,False,
+733,25722,Casa Fernández de Muras,Palacios,Arquitectura Civil,Palacio,Edad Moderna,15778,True,5.0
+734,25723,Iglesia de Santa María la Antigua,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,1351,False,
+735,25724,Consulado del mar,Palacios,Arquitectura Civil,Palacio,Edad Moderna,1653,True,5.0
+736,25725,Torre de Vivanco,Torres,Arquitectura Civil,Torre,Edad Moderna,3698,False,
+737,25726,Puente de Soria,Puentes,Arquitectura Civil,Puente,Edad Moderna,13012,False,
+738,25727,Monasterio de San Polo,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Media,13808,True,4.0
+739,25728,Ermita del Oteruelo,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Media,7454,False,
+740,25729,Iglesia de San Esteban (Castellanos de Moriscos),Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,8884,False,
+741,25730,Iglesia de San Lorenzo,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,11862,False,
+742,25731,Iglesia de San Frontis,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,17323,False,
+743,25732,Iglesia de San Pedro Apóstol,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,2447,False,
+744,25733,Iglesia parroquial de San Martín (San Martín del Castañar),Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",10221,False,
+745,25734,Iglesia de San Justo,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,12072,False,
+746,25735,Iglesia de Nuestra Señora de la Asunción,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,678,False,
+747,25736,Palacio de los Salazar / las Torres,Palacios,Arquitectura Civil,Palacio,Edad Moderna,3980,True,5.0
+748,25737,Iglesia del Santo Sepulcro,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,17403,False,
+749,25738,Iglesia parroquial de Nuestra Señora de la Asunción,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",14,False,
+750,25739,Casa de los Cubos,Casas Nobles,Arquitectura Civil,Casa Noble,Edad Media,2100,False,
+751,25740,Iglesia de San Esteban,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,4644,False,
+752,25741,Iglesia de San Fructuoso,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,8126,False,
+753,25742,Claustro de la Iglesia de San Pedro,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",13827,False,
+754,25743,Torre del Reloj,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,15113,False,
+755,25744,Iglesia parroquial de Santa María,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,15167,False,
+756,25745,Iglesia de Santo Tomé el Viejo,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,328,False,
+757,25746,Torre de los Cantimplor,Casas Nobles,Arquitectura Civil,Casa Noble,Edad Moderna,2156,False,
+758,25747,Torre de Valdenoceda o de Los Velasco,Torres,Arquitectura Militar,Torre,Edad Media,2793,False,
+759,25748,Casa Palacio Contreras y Huerta Jardín,Palacios,Arquitectura Civil,Palacio,Edad Moderna,10596,True,5.0
+760,25749,Iglesia de San Andrés,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,10825,False,
+761,25750,Palacio de los Hurtado de Mendoza,Palacios,Arquitectura Civil,Palacio,Edad Moderna,13665,True,5.0
+762,25751,Iglesia parroquial de San Juan,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,3950,False,
+763,25752,Iglesia parroquial de Siero,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,4391,False,
+764,25753,Iglesia de San Esteban,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,10832,False,
+765,25754,Iglesia de Santa María,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,10986,False,
+766,25755,Iglesia de San Miguel,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,11046,False,
+767,25756,Casa Bauer,Palacios,Arquitectura Civil,Palacio,Edad Moderna,11516,True,5.0
+768,25757,Iglesia de Santiago Apóstol,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,14555,False,
+769,25758,Iglesia Nuestra Señora del Pilar,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Contemporánea,15957,False,
+770,25759,Torre de la iglesia de San Nicolás,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,16557,False,
+771,25760,Casa Miranda y Casa de Íñigo Angulo,Palacios,Arquitectura Civil,Palacio,Edad Moderna,1633,True,5.0
+772,25761,Ermita de la Monjía,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Media,13124,False,
+773,25762,Casa Blanca,Palacios,Arquitectura Civil,Palacio,Edad Moderna,14761,True,5.0
+774,25763,Iglesia de San Nicolás de Bari,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,1399,False,
+775,25764,Castillo de Haza,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,2287,True,5.0
+776,25765,Palacio de la Antigua Audiencia Provincial,Palacios,Arquitectura Civil,Palacio,Edad Moderna,13969,True,5.0
+777,25766,Ermita de la Virgen de la Anunciada,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Media,15518,False,
+778,25767,Iglesia Nuestra Señora de la Asunción,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,17162,False,
+779,25768,Iglesia de San Miguel,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,2875,False,
+780,25769,Iglesia de San Martín,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,5296,False,
+781,25770,Iglesia de Santa María del Castillo (Cantalapiedra),Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,8839,False,
+782,25771,Iglesia parroquial de San Juan,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,14832,False,
+783,25772,Ermita de la Virgen de las Fuentes,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Moderna,1193,False,
+784,25773,Castillo de Virtus,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,3722,True,5.0
+785,25774,Castillo de Quintana del Marco,Castillos,,Castillo / Fortaleza / Atalaya,"Edad Moderna,Edad Media",5363,True,5.0
+786,25775,Iglesia de Santiago,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,10004,False,
+787,25776,Iglesia de San Martín,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,14920,False,
+788,25777,Palacio de los Ayala Berganza / Casa del Crimen,Palacios,Arquitectura Civil,Palacio,"Edad Moderna,Edad Media",11927,True,5.0
+789,25778,Torre de Mazuelo,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,2190,True,5.0
+790,25779,Iglesia parroquial de San Vicente Mártir,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,11382,False,
+791,25780,Palacio de los Marqueses de Lozoya,Casas Nobles,Arquitectura Civil,Casa Noble,Edad Media,11740,False,
+792,25781,Iglesia de San Miguel,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,12159,False,
+793,25782,Iglesia de San Esteban o San Sebastián,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,12266,False,
+794,25783,Palacio de Santa Cruz o Bracamonte,Palacios,Arquitectura Civil,Palacio,"Edad Moderna,Edad Media",518,True,5.0
+795,25784,Ermita del Santo Cristo de San Sebastián,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Media,2040,False,
+796,25785,Iglesia parroquial de San Andrés,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",3103,False,
+797,25786,Castillo de los Velasco,Castillos,,Castillo / Fortaleza / Atalaya,"Edad Moderna,Edad Media",3606,True,5.0
+798,25787,Iglesia de Santo Tomás de Canterbury,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,12237,False,
+799,25788,Monasterio de San Juan,Monasterios,Arquitectura Religiosa,Monasterio / Convento,"Edad Moderna,Edad Media",1644,True,4.0
+800,25789,Torre de Quisicedo,Torres,Arquitectura Civil,Torre,Edad Media,2694,False,
+801,25790,Iglesia parroquial de la Asunción,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,7500,False,
+802,25791,Iglesia de Santa María de la Cuesta,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,10846,False,
+803,25792,Casa del Sello de Paños,Casas Nobles,Arquitectura Civil,Casa Noble,Edad Moderna,11727,False,
+804,25793,Iglesia de Santiago,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,12193,False,
+805,25794,Atalaya de la Veruela,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,12901,True,5.0
+806,25795,Iglesia de Nuestra Señora de la Asunción,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,12977,False,
+807,25796,Colegio de las Arcas Reales,Otros edificios,Arquitectura Civil,Colegio,Edad Contemporánea,539557,False,
+808,25797,Santuario de la Tuiza,Santuarios,Arquitectura Religiosa,Santuario,Edad Moderna,16718,False,
+809,25798,Iglesia de San Andrés Apóstol o Virgen Paz,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",17086,False,
+810,25799,Hórreos de Posada,Hórreos,Arquitectura Popular,Hórreo,,5342,False,
+811,25800,Puente de Puentecillas,Puentes,Arquitectura Civil,Puente,Romano,7665,False,
+812,25801,Iglesia de Carracielo del Pinar,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,11482,False,
+813,25802,Iglesia de Nuestra Señora de la Asunción,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,13165,False,
+814,25803,Iglesia parroquial de San Juan Bautista,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,16520,False,
+815,25804,Muralla de Burgos,Murallas y puertas,Arquitectura Militar,Muralla,Edad Media,711219,True,5.0
+816,25805,Castillo de Arenillas de Muñó,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,2174,True,5.0
+817,25806,Torre de Ordás,Castillos,,Castillo / Fortaleza / Atalaya,"Edad Moderna,Edad Media",5517,True,5.0
+818,25807,Palacio del Obispo Vellosillo,Palacios,Arquitectura Civil,Palacio,Edad Moderna,10614,True,5.0
+819,25808,Iglesia de San Martín,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",14584,False,
+820,25809,Iglesia de San Miguel Arcángel,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,14685,False,
+821,25810,Iglesia de Santa María del Río,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,16536,False,
+822,25811,Iglesia de Santo Tomás Apóstol,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,13089,False,
+823,25812,Iglesia de Santa María,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,7145,False,
+824,25813,Iglesia de la Asunción  de Nuestra Señora,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,11600,False,
+825,25814,Casa de las Cadenas,Casas Nobles,Arquitectura Militar,Casa Noble,"Edad Moderna,Edad Media",11719,False,
+826,25815,Casa Palacio del Marqués de Vadillo,Palacios,Arquitectura Civil,Palacio,"Edad Moderna,Edad Media",12421,True,5.0
+827,25816,Iglesia de San Pedro,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,12984,False,
+828,25817,Iglesia del Espíritu Santo,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,17396,False,
+829,25818,Iglesia parroquial de San Juan Bautista,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,1087,False,
+830,25819,Casa de Gabriel y Galán,Casas Nobles,Arquitectura Civil,Casa Noble,Edad Moderna,1112,False,
+831,25820,Iglesia de San Millán,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,1445,False,
+832,25821,Iglesia parroquial de San Juan Bautista,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,2992,False,
+833,25822,Iglesia de Nuestra Señora de la Asunción y San Sebastián,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",11187,False,
+834,25823,Iglesia de San Pedro,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,12039,False,
+835,25824,Castillo de Cabia - Casa Fuerte de los Rojas,Casas Nobles,Arquitectura Militar,Casa Noble,"Edad Moderna,Edad Media",1854;1848,False,
+836,25825,Torre de Castrovido,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,3266,True,5.0
+837,25826,Castillo de Zumel,Castillos,,Castillo / Fortaleza / Atalaya,"Edad Moderna,Edad Media",3939,True,5.0
+838,25827,Puerta de Reinosa,Murallas y puertas,Arquitectura Militar,Puerta,Edad Media,6107,True,5.0
+839,25828,Iglesia de Nuestra Señora del Castillo,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,8163,False,
+840,25829,Santuario de Nuestra Señora de Hornuez,Santuarios,Arquitectura Religiosa,Santuario,Edad Moderna,11251,False,
+841,25830,Iglesia de San Pedro,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,15569,False,
+842,25831,Iglesia de Santa María del Castillo,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,16360,False,
+843,25832,Iglesia de San Juan Bautista,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",16928,False,
+844,25833,Iglesia parroquial de la Asunción,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",5467,False,
+845,25834,Monasterio de Villoria,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Media,5926,True,4.0
+846,25835,Palacio Episcopal,Palacios,Arquitectura Religiosa,Palacio,Edad Media,209,True,5.0
+847,25836,Iglesia parroquial de San Esteban Protomartir,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,2849,False,
+848,25837,Torre de Lastras de la Torre,Torres,Arquitectura Civil,Torre,"Edad Moderna,Edad Media",4161,False,
+849,25838,Casa de las Carnicerías,Otros edificios,Arquitectura Civil,,Edad Moderna,4929,False,
+850,25839,Santuario del Buen Suceso,Santuarios,Arquitectura Religiosa,Santuario,Edad Moderna,5165,False,
+851,25840,Plaza cerrada y restos del Alto Horno,Otros edificios,Arquitectura Civil,,Edad Contemporánea,5381,False,
+852,25841,Iglesia parroquial de la Asunción,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,14533,False,
+853,25842,Iglesia de Santa María de Arbas,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",14736,False,
+854,25843,Iglesia de San Ginés,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,16191,False,
+855,25844,Ayuntamiento de Puebla de Sanabria o Casa Consistorial,Palacios,Arquitectura Civil,Palacio,Edad Moderna,16870,True,5.0
+856,25845,Castillo de Villatoro,Castillos,,Castillo / Fortaleza / Atalaya,Edad Moderna,1266,True,5.0
+857,25846,Torre de Villaute,Castillos,,Castillo / Fortaleza / Atalaya,"Edad Moderna,Edad Media",3793,True,5.0
+858,25847,Palacio del Cardenal Espinosa,Palacios,Arquitectura Civil,Palacio,Edad Moderna,11204,True,5.0
+859,25848,Iglesia Santa María del Templo,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,16272,False,
+860,25849,Iglesia parroquial de Grijalba,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,16672,False,
+861,25850,"Casa, entorno y dependencias de la finca Quexigal",Otros edificios,Arquitectura Civil,,Edad Moderna,782,False,
+862,25851,Castillo de Lomana,Castillos,,Castillo / Fortaleza / Atalaya,Edad Moderna,3710,True,5.0
+863,25852,Iglesia de Nuestra Señora de la Paz,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,6986,False,
+864,25853,Palacio de los Duques de Béjar,Palacios,Arquitectura Civil,Palacio,Edad Moderna,8757,True,5.0
+865,25854,Puentes Medievales,Puentes,Arquitectura Civil,Puente,Edad Media,125,False,
+866,25855,Iglesia de la Asunción de Nuestra Señora,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,842,False,
+867,25856,Casonas de Torme,Casas Nobles,Arquitectura Civil,Casa Noble,Edad Moderna,3991,False,
+868,25857,Iglesia parroquial de Valdesaz,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,5130,False,
+869,25858,Iglesia de Santa Colomba de la Vega,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",5538,False,
+870,25859,Iglesia de San Cristóbal,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,12167,False,
+871,25860,Monasterio de San Agustín,Monasterios,Arquitectura Religiosa,Monasterio / Convento,"Edad Moderna,Edad Media",1801,True,4.0
+872,25861,Palacio de los Gallo,Palacios,Arquitectura Civil,Palacio,Edad Moderna,4039,True,5.0
+873,25862,Hotel Oliden,Otros edificios,Arquitectura Civil,,Edad Contemporánea,4938,False,
+874,25863,Ermita hospital de Los Templarios,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Media,8046,False,
+875,25864,Mercado de San Juan,Otros edificios,Arquitectura Civil,,,10032,False,
+876,25865,Murallas y Puerta de las Heras,Murallas y puertas,Arquitectura Militar,Muralla,Edad Media,13300,True,5.0
+877,25866,Iglesia de San Miguel,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,15249,False,
+878,25867,Iglesia parroquial Santa María la Mayor,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,1290,False,
+879,25868,Torre de Valpuesta,Torres,Arquitectura Militar,Torre,"Edad Moderna,Edad Media",1551,False,
+880,25869,Iglesia de San Cosme y San Damián,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,2087,False,
+881,25870,Iglesia de San Blas,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,2867,False,
+882,25871,Torre de los López de Cartes,Casas Nobles,Arquitectura Civil,Casa Noble,Edad Moderna,3966,False,
+883,25872,Palacio de Don Pedro el Cruel,Palacios,Arquitectura Civil,Palacio,Edad Media,10880,True,5.0
+884,25873,Iglesia de Santa María del Castillo,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,16614,False,
+885,25874,Iglesia parroquial de Nuestra Señora de la Asunción,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,17153,False,
+886,25875,Casa del Cid,Otros edificios,Arquitectura Civil,,Edad Media,17213,False,
+887,25876,Iglesia parroquial de Melque de Cercos,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,11221,False,
+888,25877,Puerta de San Esteban,Murallas y puertas,Arquitectura Militar,Puerta,Edad Media,1795,True,5.0
+889,25878,Palacio de los Guzmán y Santoyo,Palacios,Arquitectura Civil,Palacio,Edad Moderna,3002,True,5.0
+890,25879,Iglesia de San Fiz de Visonia o de San Juan,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,5799,False,
+891,25880,Iglesia de la Asunción de Nuestra Señora,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,3427,False,
+892,25881,Iglesia de San Esteban Protomartir,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,3518,False,
+893,25882,Santuario de la Virgen de la Velilla,Santuarios,Arquitectura Religiosa,Santuario,Edad Moderna,5629,False,
+894,25883,Iglesia parroquial de Almenara de Tormes,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,8687,False,
+895,25884,Iglesia de Nuestra Señora de la Asunción,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,10576,False,
+896,25885,Casa de la Tierra,Otros edificios,Arquitectura Civil,,Edad Moderna,11711,False,
+897,25886,Iglesia parroquial de San Pedro Apóstol,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,14950,False,
+898,25887,Torre de los Angulo,Torres,Arquitectura Civil,Torre,Edad Media,4186,False,
+899,25888,Torre de los Salinas,Torres,Arquitectura Civil,Torre,Edad Moderna,4191,False,
+900,25889,Torre de los Villamor,Torres,Arquitectura Civil,Torre,Edad Moderna,4196,False,
+901,25890,Molino de los Señores,Otros edificios,Arquitectura Popular,,Edad Media,11901,False,
+902,25891,Torre de los Gómez de Porras,Torres,Arquitectura Civil,Torre,Edad Moderna,3985,False,
+903,25892,"Edificio de la calle Alcázar de Toledo, nº 13",Otros edificios,Arquitectura Civil,,Edad Contemporánea,4893,False,
+904,25893,"Edificio de la calle Alcázar de Toledo, nº 11",Otros edificios,Arquitectura Civil,,Edad Contemporánea,4908,False,
+905,25894,Iglesia parroquial de Duruelo,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,10913,False,
+906,25895,Archivo Histórico Provincial de Ávila,Otros edificios,Arquitectura Civil,,,138,False,
+907,25896,Ermita de Nuestra Señora de las Vacas,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,"Edad Moderna,Edad Media",221,False,
+908,25897,Casa de los Deanes,Casas Nobles,Arquitectura Civil,Casa Noble,Edad Moderna,439,False,
+909,25898,Iglesia y torre de Santiago Apóstol,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,1146,False,
+910,25899,Iglesia parroquial de San Juan Bautista,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,1185,False,
+911,25900,Ermita de Nuestra Señora del Cubillo,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Moderna,1277,False,
+912,25901,Casa Fuerte de Río Quintanilla,Casas Nobles,Arquitectura Militar,Casa Noble,"Edad Moderna,Edad Media",1299,False,
+913,25902,Iglesia parroquial de Aguilar de Bureba,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,1304,False,
+914,25903,Ermita de la Virgen de la Oliva,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Media,1328,False,
+915,25904,Torreón de los Guevara,Torres,Arquitectura Militar,Torre,"Edad Moderna,Edad Media",1370,False,
+916,25905,Ermita de San Facundo,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Media,1497,False,
+917,25906,Iglesia de San Pelayo,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,1594,False,
+918,25907,Iglesia parroquial de Celada,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,1957,False,
+919,25908,Ermita de la Santísima Trinidad,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Moderna,2230,False,
+920,25909,Torre-palacio de Espinosilla de San Bartolomé,Palacios,Arquitectura Civil,Palacio,Edad Moderna,2313,True,5.0
+921,25910,Iglesia parroquial de Lara,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,2427,False,
+922,25911,Iglesia de San Saturnino,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,2440,False,
+923,25912,Torre Palacio de los Alvarado,Palacios,Arquitectura Civil,Palacio,Edad Moderna,2661,True,5.0
+924,25913,Casa solariega del barrio Grande,Casas Nobles,Arquitectura Civil,Casa Noble,Edad Moderna,2784,False,
+925,25914,Iglesia parroquial de San Juan,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",2929,False,
+926,25915,Iglesia de San Sebastián,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,3054,False,
+927,25916,Iglesia parroquial de San Andrés,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,3143,False,
+928,25917,Iglesia parroquial de Santa María de la Asunción,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,3327,False,
+929,25918,Ermita de Santa María de Retortillo,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Media,3499,False,
+930,25919,Torreón de Olmos de la Picaza,Torres,Arquitectura Militar,Torre,"Edad Moderna,Edad Media",3762,False,
+931,25920,Iglesia de Santiago Apóstol,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,3875,False,
+932,25921,Iglesia de San Pedro,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,3923,False,
+933,25922,Iglesia de San Nicolás,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,3931,False,
+934,25923,Palacio Fortificado,Palacios,Arquitectura Civil,Palacio,Edad Moderna,4001,True,5.0
+935,25924,Palacio de los Tiros,Palacios,Arquitectura Civil,Palacio,Edad Moderna,4120,True,5.0
+936,25925,Iglesia de San Juan Bautista,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",4141,False,
+937,25926,El Castillo,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,92060,True,5.0
+938,25927,Palacio de Canedo,Palacios,Arquitectura Civil,Palacio,Edad Moderna,4248,True,5.0
+939,25928,Ergástula,Otros edificios,Arquitectura Civil,,Romano,4290,False,
+940,25929,Castillo de Boca de Huérgano,Castillos,Arquitectura Civil,Torre,Edad Moderna,4385,True,5.0
+941,25930,Iglesia parroquial de Grisuela,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,4419,False,
+942,25931,Iglesia parroquial de Suárbol,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,4485,False,
+943,25932,Iglesia parroquial de la Asunción,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,4751,False,
+944,25933,Casa Palacio,Palacios,Arquitectura Civil,Palacio,Edad Moderna,4844,True,5.0
+945,25934,Fábrica productos químicos Abelló,Otros edificios,Arquitectura Civil,,Edad Contemporánea,4923,False,
+946,25935,Iglesia de la Asunción,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,5319,False,
+947,25936,Torre de la iglesia parroquial de Callejo,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,,5496,False,
+948,25937,Iglesia parroquial de San Martín,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,5641,False,
+949,25938,Torre de Fresno de la Valduerna,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,5909,False,
+950,25939,Casa Rectoral,Otros edificios,Arquitectura Civil,,Edad Media,6032,False,
+951,25940,Castillo de Gama,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,6190,True,5.0
+952,25941,Casa Torre,Casas Nobles,Arquitectura Civil,Casa Noble,Edad Moderna,6253,False,
+953,25942,Torreón de la Greda,Castillos,,Castillo / Fortaleza / Atalaya,Edad Moderna,6441,True,5.0
+954,25943,Iglesia parroquial de la Asunción,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,6484,False,
+955,25944,Fuentes de San Juan,Otros edificios,Arquitectura Civil,,Edad Media,6513,False,
+956,25945,Iglesia de Santa María de Arbis,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,6548,False,
+957,25946,Iglesia parroquial de Boada de Campos,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",6714,False,
+958,25947,Iglesia de la Transfiguración,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",6871,False,
+959,25948,Puente de Cordovilla,Puentes,Arquitectura Civil,Puente,Edad Moderna,7023,False,
+960,25949,Casa Grande,Palacios,Arquitectura Civil,Palacio,Edad Moderna,7304,True,5.0
+961,25950,Ermita de Santa María de las Heras,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Media,7315,False,
+962,25951,Iglesia de Santa Cecilia,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",7383,False,
+963,25952,Iglesia de Santiago,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,7806,False,
+964,25953,Casa Torre,Casas Nobles,Arquitectura Civil,Casa Noble,,7847,False,
+965,25954,Iglesia parroquial de San Juan Bautista,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,8090,False,
+966,25955,Iglesia de San Juan,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,8269,False,
+967,25956,Iglesia parroquial de San Pedro Apóstol (Cantalpino),Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,8852,False,
+968,25957,Iglesia parroquial de Forfoleda,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,9125,False,
+969,25958,Línea férrea La Fuente de San Esteban - Barca de Alba,Otros edificios,Arquitectura Civil,,Edad Contemporánea,9133,False,
+970,25961,Iglesia de Santa Elena,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,9229,False,
+971,25962,Monasterio de las Carmelitas,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Moderna,9429,True,4.0
+972,25963,Convento de Santa Clara,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Moderna,9740,True,4.0
+973,25964,Convento de las Úrsulas,Monasterios,Arquitectura Religiosa,Monasterio / Convento,"Edad Moderna,Edad Media",9766,True,4.0
+974,25965,Convento de San Esteban,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Moderna,9872,True,4.0
+975,25966,Iglesia de Nuestra Señora de la Asunción (Salmoral),Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,10161,False,
+976,25967,Iglesia parroquial de San Pelayo de Guareña,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,10240,False,
+977,25968,Iglesia parroquial de Los Santos,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",10260,False,
+978,25969,Ermita del Humilladero (Sequeros),Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Moderna,10280,False,
+979,25970,Castillo de Sobradillo,Castillos,,Castillo / Fortaleza / Atalaya,"Edad Moderna,Edad Media",10330,True,5.0
+980,25971,Iglesia parroquial de Torresmenudas,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",10378,False,
+981,25972,Iglesia parroquial Nuestra Señora de la Asunción (Valdefuentes de Sangusín),Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",10393,False,
+982,25973,Iglesia de San Cornelio y San Cipriano (Villaverde de Guareña),Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,10486,False,
+983,25974,Murallas de Ayllón,Murallas y puertas,Arquitectura Militar,Muralla,Edad Media,10620,True,5.0
+984,25975,Iglesia parroquial de San Bartolomé,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,10630,False,
+985,25976,Iglesia de San Andrés,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,10672,False,
+986,25977,Iglesia de la Asunción,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,10718,False,
+987,25978,Iglesia parroquial de San Mamés,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,10754,False,
+988,25979,Iglesia de El Salvador,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,11001,False,
+989,25980,Capilla de los Condes de Montijo,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,11021,False,
+990,25981,Iglesia parroquial de San Vitores,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,11092,False,
+991,25982,Torre de los Mercado - Peñalosa,Torres,Arquitectura Militar,Torre,"Edad Moderna,Edad Media",11123,False,
+992,25983,Iglesia parroquial de la Losa,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",11139,False,
+993,25984,Ermita de la Vera Cruz,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Media,11165,False,
+994,25985,Martinete de Navafría,Otros edificios,Arquitectura Popular,,Edad Media,11267,False,
+995,25986,Ermita de la Virgen del Barrio,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Media,11281,False,
+996,25987,Iglesia parroquial San Nicolás de Bari,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,11308,False,
+997,25988,Iglesia parroquial de Pinarejos,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,11389,False,
+998,25989,Ermita del Cristo de la Moralejilla,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Media,11416,False,
+999,25990,Iglesia de Nuestra Señora de la Asunción,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,11431,False,
+1000,25991,Iglesia Nuestra Señora de las Nieves,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,11437,False,
+1001,25992,Ermita de San Miguel de Villoslada,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Media,11624,False,
+1002,25993,Ermita de Nuestra Señora de las Vegas,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Media,11631,False,
+1003,25994,Iglesia de Santo Domingo,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,11643,False,
+1004,25995,Casa del Hidalgo o de los Contreras,Casas Nobles,Arquitectura Civil,Casa Noble,Edad Moderna,11748,False,
+1005,25996,Real Casa de la Moneda,Otros edificios,Arquitectura Civil,,Edad Moderna,11782,False,
+1006,25997,Ermita del Cristo del Mercado,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,"Edad Moderna,Edad Media",11801,False,
+1007,25998,Estación de ferrocarril de Segovia,Otros edificios,Arquitectura Civil,,Edad Contemporánea,11816,False,
+1008,25999,Iglesia de Santa María de Cárdaba,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,12220,False,
+1009,26000,Iglesia parroquial de Abanco,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,12581,False,
+1010,26001,Ermita de la Virgen de la Calzada,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Media,12667,False,
+1011,26002,Iglesia Parroquial de Santa María Magdalena,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,12845,False,
+1012,26003,Puente de Santo Domingo,Puentes,Arquitectura Civil,Puente,Edad Media,13001,False,
+1013,26004,Iglesia parroquial de Deza,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,13043,False,
+1014,26005,Ermita de los Santos Mártires,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Media,13096,False,
+1015,26006,Iglesia de la Asunción de Nuestra Señora,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,13213,False,
+1016,26007,Ermita de Nuestra Señora de la Bienvenida,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Moderna,13294,False,
+1017,26008,Iglesia de San Juan Bautista,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,13315,False,
+1018,26009,Casa de la Media Naranja,Palacios,Arquitectura Civil,Palacio,Edad Moderna,13435,True,5.0
+1019,26010,Casona de los Salvadores,Casas Nobles,Arquitectura Civil,Casa Noble,Edad Moderna,13801,False,
+1020,26011,Iglesia parroquial de Aldeamayor,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,14372,False,
+1021,26012,Iglesia parroquial de Benafarces,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,14431,False,
+1022,26013,Castillo de Abajo de Curiel de Duero,Castillos,,Castillo / Fortaleza / Atalaya,"Edad Moderna,Edad Media",14645,True,5.0
+1023,26014,Convento de San Francisco,Monasterios,Arquitectura Religiosa,Monasterio / Convento,"Edad Moderna,Edad Media",14839,True,4.0
+1024,26015,Capilla de Santa María - Monasterio de La Mejorada,Monasterios,Arquitectura Religiosa,Monasterio / Convento,"Edad Moderna,Edad Media",14991,True,4.0
+1025,26016,Palacio de los Cuadrilleros,Palacios,Arquitectura Civil,Palacio,Edad Moderna,15026,True,5.0
+1026,26017,Iglesia de San Miguel Arcángel,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,15038,False,
+1027,26018,Convento de San Pablo,Monasterios,Arquitectura Religiosa,Monasterio / Convento,"Edad Moderna,Edad Media",15077,True,4.0
+1028,26019,Cárcel vieja,Otros edificios,Arquitectura Civil,,Edad Moderna,15642,False,
+1029,26020,Fuentes de Argales,Fuentes,Arquitectura Civil,Fuentes,"Edad Moderna,Edad Media",15975,False,
+1030,26021,Recinto Murado de Alcañices,Murallas y puertas,Arquitectura Militar,Muralla,"Edad Moderna,Edad Media",16384,True,5.0
+1031,26022,Iglesia Santa María de los Caballeros,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,16606,False,
+1032,26023,Ermita de Santa María de la Vega o del Cristo de las Batallas,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Media,17009,False,
+1033,26024,Convento de San Francisco,Monasterios,Arquitectura Religiosa,Monasterio / Convento,"Edad Moderna,Edad Media",17250,True,4.0
+1034,26025,Castillo de El Gardón,Castillos,,Castillo / Fortaleza / Atalaya,Edad Moderna,8632,True,5.0
+1035,26026,Monasterio de San Francisco,Monasterios,Arquitectura Religiosa,Monasterio / Convento,"Edad Moderna,Edad Media",9066,True,4.0
+1036,26027,Castillo de San Martín del Castañar,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,10216,True,5.0
+1037,26028,Casa Fuerte / Convento / Iglesia San Gregorio,Iglesias y Ermitas,Arquitectura Religiosa,"Monasterio / Convento,Iglesia","Edad Moderna,Edad Media",12374,False,
+1038,26029,Puerta de San Andrés,Murallas y puertas,Arquitectura Militar,Puerta,Edad Media,11971,True,5.0
+1039,26030,Iglesia parroquial Nuestra Señora de la Asunción,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",14257,False,
+1040,26031,Iglesia parroquial de la Asunción,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",14487,False,
+1041,26032,Iglesia parroquial de Cedillo de la Torre,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",10739,False,
+1042,26033,Iglesia Nuestra Señora de Tovar,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",7438,False,
+1043,26034,Iglesia parroquial de Santa Columba,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",8169,False,
+1044,26035,Ruinas Monasterio San Facundo y San Primitivo,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Media,5427,True,4.0
+1045,26036,Castillo de Alcuetas,Castillos,,Castillo / Fortaleza / Atalaya,Edad Moderna,5753,True,5.0
+1046,26037,Castillo de los Duques del Infantado,Castillos,,Castillo / Fortaleza / Atalaya,"Edad Moderna,Edad Media",7925,True,5.0
+1047,26038,Castillo de Torremormojón,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,8076,True,5.0
+1048,26039,Ruinas Monasterio de Santa María de Sierra,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Media,10806,True,4.0
+1049,26040,Antigua Iglesia de la Asunción,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",12207,False,
+1050,26041,Castillo de Tiedra,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,15386,True,5.0
+1051,26042,Castillo de Villalba de los Alcores,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,16264,True,5.0
+1052,26043,Ruinas Monasterio Santa María de Matallana,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Media,16303,True,4.0
+1053,26044,Castillo de Belver de los Montes,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,16421,True,5.0
+1054,26045,Fuerte de San Carlos,Castillos,,Castillo / Fortaleza / Atalaya,Edad Moderna,16515,True,5.0
+1055,26046,Castillo de Fermoselle,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,16572,True,5.0
+1056,26047,Castillo de Alba de Aliste,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,16698,True,5.0
+1057,26048,Ruinas del Santuario Nuestra Señora del Valle,Santuarios,Arquitectura Religiosa,Santuario,Edad Moderna,17092,False,
+1058,26049,Iglesia de San Miguel de Reoyo,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,,False,
+1059,26050,Iglesia de las Angustias,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,,False,
+1060,26051,Iglesia de Nuestra Señora de Campanario,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,,False,
+1061,26052,Iglesia de San Vicente,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,,False,
+1062,26053,Iglesia de Santa María de Calatañazor,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,,False,
+1063,26054,Iglesia de San Miguel Arcángel,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,,False,
+1064,26055,Monasterio carmelita de San José de las Batuecas,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Moderna,,True,4.0
+1065,26056,Iglesia de San Pedro,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,,False,
+1066,26057,Colegiata de Santa María de la Asunción,Iglesias y Ermitas,Arquitectura Religiosa,Colegiata,Edad Moderna,,False,
+1067,26058,Iglesia de San Juan de la Cruz / Casa Natal,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,,False,
+1068,26059,Jardín Renacentista de Don Diego de Castejón,Otros edificios,Arquitectura Civil,Jardín,Edad Moderna,,False,
+1069,26060,Monasterio de San Isidro de Dueñas,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Moderna,,True,4.0
+1070,26061,Murallas de Almazán,Murallas y puertas,Arquitectura Militar,Muralla,Edad Media,,True,5.0
+1071,26062,Iglesia de San Lorenzo,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,,False,
+1072,26063,Iglesia de San Juan Bautista,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,,False,
+1073,26064,Iglesia de San Miguel Arcángel,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,,False,
+1074,26065,Iglesia de Santa María,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,,False,
+1075,26066,Plaza mayor de Valladolid,Plazas Mayores,Arquitectura Civil,Plaza,Edad Moderna,,False,
+1076,26067,Basílica de los Milagros,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,,False,
+1077,26068,Basílica de Nuestra Señora de la Encina,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,,False,
+1078,26069,Iglesia parroquial de San Leonardo de Yagüe,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,,False,
+1079,26070,Iglesia de la Asunción,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,,False,
+1080,26071,Iglesia de San Cosme y San Damián,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,,False,
+1081,26072,Iglesia de San Andrés,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,,False,
+1082,26073,Iglesia parroquial de Nuestra Señora del Vado,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,,False,
+1083,26074,Iglesia de San Benito,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,,False,
+1084,26075,Iglesia parroquial y excolegial de Santa Ana,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,,False,
+1085,26076,Iglesia de Santiago,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,,False,
+1086,26077,Ermita de Jesús,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,,False,
+1087,26078,Iglesia Nuestra Señora del Rosario / Santa María del Salcinar,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,,False,
+1088,26079,Iglesia de San Juan Bautista,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,,False,
+1089,26080,Iglesia de San Silvestre,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,,False,
+1090,26081,Iglesia de Santa María Magdalena,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,,False,
+1091,26082,Iglesia de San Juan,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",,False,
+1092,26083,Iglesia de San Lesmes,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",,False,
+1093,26084,Iglesia de Nuestra Señora de la Peña,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,,False,
+1094,26085,Iglesia de San Agustín,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Contemporánea,,False,
+1095,26086,Iglesia parroquial de San Martín de Tours,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,,False,
+1096,26087,Hospital de San Antonio Abad,Otros edificios,Arquitectura Civil,,Edad Moderna,,False,
+1097,26088,Casa de los Arcos,Casas Nobles,Arquitectura Civil,Casa Noble,Edad Moderna,,False,
+1098,26089,Iglesia de San Pedro,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,,False,
+1099,26090,Santuario de Nuestra Señora de Fuencisla,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,,False,
+1100,26091,Iglesia parroquial de Santa María,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,,False,
+1101,26092,Iglesia de San Lorenzo,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Contemporánea,Edad Moderna",,False,
+1102,26093,Iglesia de Santa Clara,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,,False,
+1103,26094,Iglesia de Santa María la Mayor,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,,False,
+1104,26095,Iglesia de Nuestra Señora de la Asunción (Cantaracillo),Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,,False,
+1105,26096,Iglesia de San Pedro,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,,False,
+1106,26097,Iglesia parroquial de Hontalbilla,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,,False,
+1107,26098,Iglesia de San Protasio,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,,False,
+1108,26099,Iglesia de San Miguel Arcángel,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,,False,
+1109,26100,Iglesia parroquial de San Pedro Manrique,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",,False,
+1110,26101,Iglesia de la Merced,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,,False,
+1111,26102,Arco de San Martín / Puerta Real / Puerta Juradera,Murallas y puertas,Arquitectura Civil,Puerta,Edad Media,,True,5.0
+1112,26103,Iglesia de San Martín,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,,False,
+1113,26104,Iglesia de Santa María la Mayor,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,,False,
+1114,26105,Iglesia de San Esteban,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,,False,
+1115,26106,Iglesia de Santa Clara,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,,False,
+1116,26107,Hospital de la Vera Cruz,Otros edificios,Arquitectura Civil,,,,False,
+1117,26108,Iglesia del Corpus Christi (Sinagoga Mayor de Segovia),Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,,False,
+1118,26109,Casa de los Balcones,Casas Nobles,Arquitectura Civil,Casa Noble,Edad Moderna,,False,
+1119,26110,Casa del Reloj,Casas Consistoriales,Arquitectura Civil,Ayuntamiento,Edad Moderna,,False,
+1120,26111,Ermita de la Virgen de Oca,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Media,,False,
+1121,26112,Ermita de la Virgen del Mirón,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Media,,False,
+1122,26113,Muralla de El Burgo de Osma,Murallas y puertas,Arquitectura Civil,Muralla,Edad Moderna,,True,5.0
+1123,26114,Iglesia de San Juan Bautista (Fuenteguinaldo),Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,,False,
+1124,26115,Murallas de El Barco de Ávila,Murallas y puertas,Arquitectura Civil,Muralla,Edad Media,,True,5.0
+1125,26116,Iglesia de Nuestra Señora la Mayor,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,,False,
+1126,26117,Iglesia de San Miguel,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,,False,
+1127,26118,Casa Consistorial (Ayuntamiento),Casas Consistoriales,Arquitectura Civil,Ayuntamiento,Edad Moderna,,False,
+1128,26119,Ermita de Nuestra Señora de la Peña,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Media,,False,
+1129,26120,Convento de San Juan de la Cruz (Convento de los Padres Carmelitas),Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Moderna,,True,4.0
+1130,26121,Casa de los Ramos,Casas Nobles,Arquitectura Civil,Casa Noble,Edad Moderna,,False,
+1131,26122,Torre del Reloj,Torres,Arquitectura Civil,Torre,Edad Moderna,,False,
+1132,26123,Plaza mayor de San Esteban,Plazas Mayores,Arquitectura Civil,Plaza,,,False,
+1133,26124,Puente de Olivares- Quintanilla,Puentes,Arquitectura Civil,Puente,Edad Media,,False,
+1134,26125,Murallas de Toro,Murallas y puertas,Arquitectura Militar,Muralla,"Edad Moderna,Edad Media",,True,5.0
+1135,26126,Iglesia de Santa Eugenia,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",,False,
+1136,26127,Iglesia de Santa María,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,,False,
+1137,26128,Iglesia parroquial de Santa Eulalia,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,,False,
+1138,26129,Iglesia parroquial de San Miguel Arcángel,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",,False,
+1139,26130,Instituto de Bachillerato Antonio Machado,Otros edificios,Arquitectura Civil,Colegio,Edad Moderna,,False,
+1140,26131,Consistorio (Ayuntamiento) antiguo o Casa Consistorial,Casas Consistoriales,Arquitectura Civil,Ayuntamiento,Edad Moderna,,False,
+1141,26132,Solar del Cid,Otros edificios,Arquitectura Civil,,Edad Moderna,,False,
+1142,26133,Hospital antiguo de San Antonio,Otros edificios,Arquitectura Civil,,Edad Moderna,,False,
+1143,26134,Iglesia parroquial de Santiago,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,,False,
+1144,26135,Iglesia de Barca,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,,False,
+1145,26136,Iglesia de Nuestra Señora del Espino,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,,False,
+1146,26137,Ayuntamiento de Burgos,Casas Consistoriales,Arquitectura Civil,Ayuntamiento,Edad Moderna,,False,
+1147,26138,Ermita de la Virgen de Paúl,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,,,False,
+1148,26139,Basílica Teresiana (Alba de Tormes),Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Contemporánea,,False,
+1149,26140,Palacio de Don Juan de Henao o de Benavites,Palacios,Arquitectura Civil,Palacio,Edad Moderna,,True,5.0
+1150,26141,Palacio de los Manrique o de los Marqueses de Aguilar,Palacios,Arquitectura Civil,Palacio,Edad Moderna,,True,5.0
+1151,26142,Recinto amurallado de Rello,Murallas y puertas,Arquitectura Militar,Muralla,Edad Media,,True,5.0
+1152,26143,Ermita del Cristo de las Batallas,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Moderna,,False,
+1153,26144,Iglesia parroquial de San Quirico y Santa Julita,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,,False,
+1154,26145,Iglesia de Nuestra Señora de la Asunción,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,,False,
+1155,26146,Arco de San Basilio,Otros edificios,Arquitectura Civil,,Edad Media,,False,
+1156,26147,Iglesia parroquial de Santo Tomás,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,,False,
+1157,26148,Casonas señoriales de El Almiñe,Palacios,Arquitectura Civil,Palacio,Edad Moderna,,True,5.0
+1158,26149,Iglesia de Santa Águeda o de Santa Gadea,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,,False,
+1159,26150,Iglesia de San Quirce,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,,False,
+1160,26151,Beaterio de San Román,Otros edificios,Arquitectura Religiosa,,Edad Moderna,,False,
+1161,26152,Puerta de Aguilera,Murallas y puertas,Arquitectura Militar,Puerta,Edad Moderna,,True,5.0
+1162,26153,Torreón de Lozoya. Museo de la Fundación Caja Segovia,Torres,Arquitectura Militar,Torre,Edad Moderna,,False,
+1163,26154,Plaza mayor de Tordesillas,Plazas Mayores,Arquitectura Civil,Plaza,Edad Moderna,,False,
+1164,26155,Iglesia parroquial de San Miguel,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,,False,
+1165,26156,Iglesia parroquial de San Salvador,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,"Edad Moderna,Edad Media",,False,
+1166,26157,Iglesia parroquial de San Miguel Arcángel,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,,False,
+1167,26158,Iglesia de Santa María,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,,False,
+1168,26159,Ermita de Santa Cruz,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,"Edad Moderna,Edad Media",,False,
+1169,26160,Plaza de Medina del Campo,Plazas Mayores,Arquitectura Civil,Plaza,Edad Moderna,,False,
+1170,26161,Iglesia de San Sebastián de los Caballeros,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,,False,
+1171,26162,Torre del Reloj,Torres,Arquitectura Militar,Torre,Edad Moderna,,False,
+1172,26163,"Portillo de la Lealtad, antiguo portillo de la traición",Murallas y puertas,Arquitectura Militar,Puerta,Edad Media,,True,5.0
+1173,26164,Palacio de los Berdugo,Palacios,Arquitectura Civil,Palacio,Edad Moderna,,True,5.0
+1174,26165,Plaza mayor de Peñaranda,Plazas Mayores,Arquitectura Civil,Plaza,,,False,
+1175,26166,Arco de la Villa,Murallas y puertas,Arquitectura Civil,Puerta,Edad Media,,True,5.0
+1176,26167,Iglesia de San Juan,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,,False,
+1177,26168,Teatro Calderón de la Barca,Otros edificios,Arquitectura Civil,Teatro,Edad Contemporánea,,False,
+1178,26169,Puente medieval de San Esteban de Gormaz,Puentes,Arquitectura Civil,Puente,Edad Media,,False,
+1179,26170,Capilla de Nuestra Señora de las Nieves,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,,False,
+1180,26171,Jardín de Moshé de León,Otros edificios,Arquitectura Civil,Jardín,Edad Contemporánea,,False,
+1181,26172,Barrio Húmedo,Otros edificios,Arquitectura Civil,,Edad Media,,False,
+1182,26173,Plaza Mayor de León,Plazas Mayores,Arquitectura Civil,Plaza,Edad Moderna,,False,
+1183,26174,Plaza de Santa María del Camino,Plazas Mayores,Arquitectura Civil,Plaza,Edad Media,,False,
+1184,26175,La Judería de Puente Castro,Otros edificios,Arquitectura Civil,,Edad Media,,False,
+1185,26176,Monolito en memoria de los judíos,Esculturas,Arquitectura Civil,Escultura / Estatua,Edad Contemporánea,,False,
+1186,26177,Midrash del corral de Cayón,Otros edificios,Arquitectura Civil,,Edad Media,,False,
+1187,26178,Sinagoga de los Ibáñez de Segovia (Segunda Sinagoga Mayor),Sinagogas,Arquitectura Religiosa,Sinagoga,Edad Media,,True,3.0
+1188,26179,Murallas. La Puerta Romana,Murallas y puertas,Arquitectura Militar,Muralla,Edad Media,,True,5.0
+1189,26180,La Domus del Mosaico del Oso y los Pájaros,Yacimientos arqueológicos,Yacimiento,,Romano,,False,
+1190,26181,Cloacas Romanas,Otros edificios,Arquitectura Civil,,Romano,,False,
+1191,26182,Termas Menores,Yacimientos arqueológicos,Yacimiento,,Romano,,False,
+1192,26183,El Foso del Campamento,Yacimientos arqueológicos,Yacimiento,Campamento,Romano,,False,
+1193,26184,El Foro (Pórtico Sur),Yacimientos arqueológicos,Yacimiento,,Romano,,False,
+1194,26185,Aedes Augusti,Yacimientos arqueológicos,Yacimiento,,Romano,,False,
+1195,26186,Casa del Sol e Iglesia de San Benito el Viejo,Palacios,Arquitectura Civil,Palacio,Edad Moderna,15663,True,5.0
+1196,26187,Palacio de Villena,Palacios,Arquitectura Civil,Palacio,Edad Moderna,16076,True,5.0
+1197,26188,Colegio de San Gregorio,Otros edificios,Arquitectura Civil,Edificio Universitario,Edad Moderna,15692,False,
+1198,26189,Iglesia de San Martín,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,13683,False,
+1199,26190,Iglesia de San Martín,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,10840,False,
+1200,26191,Palacio de la Diputación Provincial de Palencia,Palacios,Arquitectura Civil,Palacio,Edad Contemporánea,,True,5.0
+1201,26192,Iglesia de San Miguel,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,7614,False,
+1202,26193,Palacio Episcopal / Palacio de Gaudí,Palacios,Arquitectura Civil,Palacio,Edad Moderna,4302,True,5.0
+1203,26194,Casa Botines,Palacios,Arquitectura Civil,Palacio,Edad Contemporánea,4836,True,5.0
+1204,26195,Hospital de la Concepción,Otros edificios,Arquitectura Civil,,Edad Media,1697,False,
+1205,26196,Subida a la Muralla de Ávila,Murallas y puertas,Arquitectura Militar,Muralla,Edad Media,381,True,5.0
+1206,26197,Basílica de San Vicente,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,355,False,
+1207,26198,Villa Romana de 'La Olmeda',Yacimientos arqueológicos,Yacimiento,Villa,Romano,7767,False,
+1208,26199,Siega Verde,Yacimientos arqueológicos,Yacimiento,Arte rupestre,Paleolítico,10446,False,
+1209,26200,Yacimientos de Atapuerca,Yacimientos arqueológicos,Yacimiento,,Prehistoria,1414;1418,False,
+1210,26201,Convento de las Dueñas,Monasterios,Arquitectura Religiosa,Monasterio / Convento,"Edad Moderna,Edad Media",9757,True,4.0
+1211,26202,Monasterio de Santo Domingo de Guzmán,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Media,,True,4.0
+1212,26203,Puerta del Obispo (o de Olivares),Murallas y puertas,Arquitectura Civil,Puerta,Edad Media,,True,5.0
+1213,26204,Iglesia de Santo Tomás Cantuariense,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,10010,False,
+1214,26205,Antiguo Convento de Las Monjas,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Moderna,42,True,4.0
+1215,26206,Convento de San Francisco,Monasterios,Arquitectura Religiosa,Monasterio / Convento,"Edad Moderna,Edad Media",171,True,4.0
+1216,26207,"Convento Madres Clarisas ""Gordillas""",Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Moderna,200,True,4.0
+1217,26208,Matadero de Ávila,Otros edificios,Arquitectura Civil,,Edad Contemporánea,405,False,
+1218,26209,Puente Romano sobre el río Adaja,Puentes,Arquitectura Civil,Puente,"Edad Media,Romano",545,False,
+1219,26210,Convento de San Pablo,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Moderna,1042,True,4.0
+1220,26211,Iglesia y Convento de Santa Clara,Iglesias y Ermitas,Arquitectura Religiosa,"Monasterio / Convento,Iglesia",Edad Moderna,1576,False,
+1221,26212,Torre de los Varona,Castillos,,Castillo / Fortaleza / Atalaya,,1589,True,5.0
+1222,26213,Torreón de Hinestrosa,Castillos,,Castillo / Fortaleza / Atalaya,,1943,True,5.0
+1223,26214,Castillo de Hoyales de Roa,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,2331,True,5.0
+1224,26215,Torreón de Isar,Castillos,,Castillo / Fortaleza / Atalaya,,2375,True,5.0
+1225,26216,Torreón de Tagarrosa,Castillos,,Castillo / Fortaleza / Atalaya,Edad Moderna,2629,True,5.0
+1226,26217,Torre de Paralacuesta,Castillos,,Castillo / Fortaleza / Atalaya,Edad Moderna,2644,True,5.0
+1227,26218,Torre de Los Bustamante,Castillos,,Castillo / Fortaleza / Atalaya,Edad Moderna,2672,True,5.0
+1228,26219,Torre de El Almiñe,Castillos,,Castillo / Fortaleza / Atalaya,Edad Moderna,2718,True,5.0
+1229,26220,Torre del Almirante Bonifaz,Castillos,,Castillo / Fortaleza / Atalaya,,2724,True,5.0
+1230,26221,La Casona,Casas Nobles,Arquitectura Civil,Casa Noble,Edad Moderna,2737,False,
+1231,26222,Castillo de Vizmalo,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,3228,True,5.0
+1232,26223,Torre de Hoyuelos de la Sierra,Castillos,,Castillo / Fortaleza / Atalaya,,3272,True,5.0
+1233,26224,Torre de Sarracin,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,3386,True,5.0
+1234,26225,Torre de Cozuela,Castillos,,Castillo / Fortaleza / Atalaya,Edad Moderna,3571,True,5.0
+1235,26226,Torre de Doña María,Castillos,,Castillo / Fortaleza / Atalaya,,3582,True,5.0
+1236,26227,Torre del Marqués de San Isidro,Castillos,,Castillo / Fortaleza / Atalaya,,3588,True,5.0
+1237,26228,Torre de Gijano,Castillos,,Castillo / Fortaleza / Atalaya,,3594,True,5.0
+1238,26229,Torre de Ovilla I,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,3629,True,5.0
+1239,26230,Torre de Ovilla II,Castillos,,Castillo / Fortaleza / Atalaya,,3635,True,5.0
+1240,26231,Casa de La Torre,Castillos,,Castillo / Fortaleza / Atalaya,,3647,True,5.0
+1241,26232,Torre de Vallejuelo,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,3660,True,5.0
+1242,26233,Casa-Fuerte de Villanueva de Mena,Castillos,,Castillo / Fortaleza / Atalaya,,3666,True,5.0
+1243,26234,Casa-Torre de Gabanes,Castillos,,Castillo / Fortaleza / Atalaya,,3704,True,5.0
+1244,26235,Torre de Salazar,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,3716,True,5.0
+1245,26236,Torre de Villanoño,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,3786,True,5.0
+1246,26237,Torre de Bocos,Castillos,,Castillo / Fortaleza / Atalaya,,3957,True,5.0
+1247,26238,Torre de Rioseras,Castillos,,Castillo / Fortaleza / Atalaya,,4026,True,5.0
+1248,26239,Casa de Los Bocanegra,Castillos,,Castillo / Fortaleza / Atalaya,Edad Moderna,4044,True,5.0
+1249,26240,Torre de La Vid,Castillos,,Castillo / Fortaleza / Atalaya,,5182,True,5.0
+1250,26241,Castillo - Palacio de Los Álvarez Acebedo,Castillos,,Castillo / Fortaleza / Atalaya,Edad Moderna,5589,True,5.0
+1251,26242,Convento de Santa Clara,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Media,6052,True,4.0
+1252,26243,La Casa Grande de Monte El Viejo,Castillos,,Castillo / Fortaleza / Atalaya,,7620,True,5.0
+1253,26244,Torreón de la Muralla,Castillos,,Castillo / Fortaleza / Atalaya,,8847,True,5.0
+1254,26245,Castillo de El Cubo de Don Sancho,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,9102,True,5.0
+1255,26246,Convento de Los Capuchinos,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Moderna,9724,True,4.0
+1256,26247,Convento de Santa María de La Vega,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Media,9748,True,4.0
+1257,26248,Ermita de San Roque,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Moderna,11344,False,
+1258,26249,Casa Fortificada de Medianas,Castillos,,Castillo / Fortaleza / Atalaya,"Edad Moderna,Edad Media",3623,True,5.0
+1259,26250,Torre de Ribacardo,Castillos,,Castillo / Fortaleza / Atalaya,"Edad Moderna,Edad Media",4015,True,5.0
+1260,26251,Iglesia del Convento de Las Madres Isabeles (Alba de Tormes),Iglesias y Ermitas,Arquitectura Religiosa,"Monasterio / Convento,Iglesia",Edad Moderna,8433,False,
+1261,26529,Estatua de Cristóbal Colón,Esculturas,,Escultura / Estatua,Edad Contemporánea,,False,
+1262,26530,Plaza mayor de Medina del Campo,Plazas Mayores,,Plaza,,,False,
+1263,26532,Estatua del poeta Don José de Zorrilla,Esculturas,,Escultura / Estatua,Edad Contemporánea,,False,
+1264,26534,Paseo de la Isla,Otros edificios,,,Edad Contemporánea,,False,
+1265,26535,Convento de San Marcos,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Moderna,4874,True,4.0
+1266,26536,Castillo de Ponferrada,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,5250,True,5.0
+1267,26537,Castillo del Condestable Dávalos,Castillos,,Castillo / Fortaleza / Atalaya,"Edad Moderna,Edad Media",65,True,5.0
+1268,26541,La Mesa de Miranda,Yacimientos arqueológicos,Yacimiento,Castro,Celta (Vetón),816;822,False,
+1269,26542,Ulaca,Yacimientos arqueológicos,Yacimiento,Castro,Celta (Vetón),1210,False,
+1270,26543,Alameda del Clamores y Alameda del Eresma,Paraje pintoresco,Paraje Pintoresco,,,11755,False,
+1271,26544,La Cuenca de Golmayo,Conjunto Etnológico,Conjunto Etnológico,,,13117,False,
+1272,26545,Villalar de los Comuneros,Sitio Histórico,Sitio Histórico,,,16249,False,
+1273,26561,Complejo Minero de Puras-Villafranca,Conjunto Etnológico,Conjunto Etnológico,,,539494,False,
+1274,26562,Santa Cruz de los Cuérragos,Conjunto Etnológico,Conjunto Etnológico,,,16763,False,
+1275,26564,Bosque de Béjar,Jardín Histórico,Jardín Histórico,,,8738,True,3.0
+1276,26568,Campo Grande,Otros edificios,,Jardín,Edad Moderna,,False,
+1277,26569,Huerto de Calisto y Melibea,Otros edificios,,Jardín,Edad Contemporánea,,False,
+1278,26624,Las Salinas de Poza de la Sal,Sitio Histórico,Sitio Histórico,,,3097,False,
+1279,26625,Bodegas de Aranda de Duero,Conjunto Etnológico,Conjunto Etnológico,,,805168,False,
+1280,26679,Coto de Nuestra Señora del Carmen,Jardín Histórico,Jardín Histórico,,,9484,True,3.0
+1281,26680,Pozo de Ibarra,Conjunto Etnológico,Conjunto Etnológico,,,5172,False,
+1282,26802,Ermita rupestre de Quintanilla de la Berzosa,Yacimientos arqueológicos,Yacimiento,Ermita,,,False,
+1283,26803,Ermita rupestre de Renedo de la Inera,Yacimientos arqueológicos,Yacimiento,Ermita,,,False,
+1284,26804,Ermita rupestre de Quintanilla de Corvio,Yacimientos arqueológicos,Yacimiento,Ermita,,,False,
+1285,35741,Convento de San Vítores,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Media,,True,4.0
+1286,40121,Ermita de Nuestra Señora de Tiedra Vieja,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Moderna,,False,
+1287,48343,Ermita de las Santas Centola y Elena de Siero,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Media,,False,
+1288,49523,Hornos postmedievales,Otros edificios,Arquitectura Civil,,,,False,
+1289,51103,Iglesia de San Juan Bautista,Iglesias y Ermitas,,Iglesia,Edad Media,,False,
+1290,51105,Iglesia de Santa María del Castillo,Iglesias y Ermitas,,Iglesia,Edad Media,,False,
+1291,51824,Cueva de Salamanca,Otros edificios,Arquitectura Religiosa,Cripta,,,False,
+1292,51827,Muralla de Zamora,Murallas y puertas,Arquitectura Militar,Muralla,Edad Media,,True,5.0
+1293,54103,Galería de Orellán,Yacimientos arqueológicos,Yacimiento,,Romano,,False,
+1294,54104,Castillo de la Mota,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,,True,5.0
+1295,54105,Castillo de Hornillos de Cerrato,Castillos,,Castillo / Fortaleza / Atalaya,"Edad Moderna,Edad Media",,True,5.0
+1296,54106,Castillo de Palenzuela,Castillos,,Castillo / Fortaleza / Atalaya,Edad Media,,True,5.0
+1297,54107,Iglesia de San Andrés,Iglesias y Ermitas,,Iglesia,Edad Media,,False,
+1298,54563,Proyecto astronómico San Pedro Cultural,Otros edificios,,,,,False,
+1299,54903,Santuario de Nuestra Señora de Sonsoles,Santuarios,Arquitectura Religiosa,Santuario,,,False,
+1300,54907,Santuario Nuestra Señora de Chilla,Santuarios,Arquitectura Religiosa,Santuario,,,False,
+1301,54914,Iglesia Santo Domingo de Silos,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,,,False,
+1302,54916,Convento de Duruelo Capilla de San Juan de la Cruz,Monasterios,Arquitectura Religiosa,Monasterio / Convento,,,True,4.0
+1303,54922,Bodegas del S. XIII - XVIII,Conjunto Etnológico,Conjunto Etnológico,,,,False,
+1304,55643,Castillo de Trigueros,Castillos,,,,,True,5.0
+1305,57239,Iglesia Nuestra Señora de la Asunción,Iglesias y Ermitas,,Iglesia,Edad Moderna,,False,
+1306,58544,"Mina ""Pozo Julia""",Paraje pintoresco,Paraje Pintoresco,,,,False,
+1307,58546,La Lechería Hidráulica,Conjunto Etnológico,Conjunto Etnológico,,,,False,
+1308,69924,Centro de Interpretación de los Castros,Yacimientos arqueológicos,Yacimiento,Castro,Edad del Hierro,,False,
+1309,71933,Casino de Palencia,Otros edificios,Arquitectura Civil,Edificio Antiguo,,,False,
+1310,111837,Iglesia de San Miguel Arcángel,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,,False,
+1311,111857,Iglesia de San Cristóbal,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Prehistoria,,False,
+1312,111859,Iglesia de Nuestra Señora de la Asunción,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,,False,
+1313,112077,Monasterio de Santa María de Sandoval,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Media,,True,4.0
+1314,114237,Monasterio de Santa Cruz de la Zarza,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Media,,True,4.0
+1315,116817,Minas romanas de la Leitosa,Paraje pintoresco,Paraje Pintoresco,,,,False,
+1316,116818,Galería Minera,Paraje pintoresco,Paraje Pintoresco,,,,False,
+1317,118717,Paraje de Las Cocinitas. Antiguas cantera de piedra,Paraje pintoresco,Paraje Pintoresco,,,,False,
+1318,118917,Mina Ceferina,Paraje pintoresco,Paraje Pintoresco,,,,False,
+1319,118977,Minas de Navasfrías,Paraje pintoresco,Paraje Pintoresco,,,,False,
+1320,129077,Villa romana Orpheus,Yacimientos arqueológicos,Yacimiento,Villa,Romano,,False,
+1321,135899,Iglesia de San Miguel Arcángel,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,,False,
+1322,139368,Casa - Cueva. Dueñas,Otros edificios,Arquitectura Civil,,,,False,
+1323,141224,"Molino ""Los Genicios""",Molinos,Museo,,,,False,
+1324,146626,Monasterio de la Ascensión de Nuestro Señor,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Moderna,,True,4.0
+1325,146628,Ermita de la Piedad,Iglesias y Ermitas,Arquitectura Religiosa,Ermita,Edad Media,,False,
+1326,146630,Iglesia de San Pedro,Iglesias y Ermitas,Arquitectura Religiosa,Colegiata,Edad Moderna,,False,
+1327,161014,Iglesia de La Veracruz,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,,False,
+1328,170331,Castillo de Granucillo,Castillos,,,,,True,5.0
+1329,171206,"Campo del Agua, El Regueiral y Las Valiñas",Conjunto Etnológico,Conjunto Etnológico,,,,False,
+1330,171254,Iglesia de Santo Tomás Cantuariense,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Media,,False,
+1331,171572,Castillo de Almanza,Castillos,,Castillo / Fortaleza / Atalaya,,,True,5.0
+1332,171573,Castillo de Cea,Castillos,,Castillo / Fortaleza / Atalaya,,,True,5.0
+1333,171786,La Cerca Legionaria,Otros edificios,Arquitectura Militar,,Romano,,False,
+1334,171787,La Curia,Otros edificios,Arquitectura Civil,,Romano,,False,
+1335,171937,Convento de San Juan de la Cruz,Monasterios,Arquitectura Religiosa,Monasterio / Convento,Edad Moderna,,True,4.0
+1336,172106,Castillo de San Leonardo de Yagüe,Castillos,Arquitectura Militar,Castillo / Fortaleza / Atalaya,,,True,5.0
+1337,172146,Santuario de Nuestra Señora de El Henar,Monasterios,,,,,True,4.0
+1338,172247,Iglesia de Santo Tomás Apóstol,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,,,False,
+1339,172330,Castillo de Magaña,Castillos,Arquitectura Militar,Castillo / Fortaleza / Atalaya,,,True,5.0
+1340,172346,Castillo de San Esteban de Gormaz,Castillos,Arquitectura Civil,Castillo / Fortaleza / Atalaya,,,True,5.0
+1341,172531,Castillo de Osma,Castillos,Arquitectura Civil,Castillo / Fortaleza / Atalaya,,,True,5.0
+1342,172826,Muralla y castillo de Soria,Castillos,Arquitectura Civil,Castillo / Fortaleza / Atalaya,,,True,5.0
+1343,172946,Castillo de Calatañazor,Castillos,Arquitectura Civil,Castillo / Fortaleza / Atalaya,Edad Media,,True,5.0
+1344,172986,Castillo de Ucero,Castillos,Arquitectura Civil,Castillo / Fortaleza / Atalaya,"Edad Media,Edad del Hierro",,True,5.0
+1345,173006,Castillo de Caracena,Castillos,Arquitectura Civil,Castillo / Fortaleza / Atalaya,,,True,5.0
+1346,173128,Castillo de Yanguas,Castillos,Arquitectura Civil,Castillo / Fortaleza / Atalaya,,,True,5.0
+1347,173629,Murallas y castillo de Rello,Castillos,Arquitectura Civil,Castillo / Fortaleza / Atalaya,Edad Media,,True,5.0
+1348,184766,Villa Romana del Prado,Yacimientos arqueológicos,Yacimiento,Villa,Tardoromano,,False,
+1349,185526,Sepulcro Megalítico de los Zumacales,Yacimientos arqueológicos,Yacimiento,Dolmen,Neolítico,,False,
+1350,187832,Castro de Monte Cildá,Yacimientos arqueológicos,Yacimiento,Castro,Edad del Hierro,,False,
+1351,188628,Iglesia San Miguel Arcángel,Iglesias y Ermitas,Arquitectura Religiosa,Iglesia,Edad Moderna,,False,
+1352,188932,Iglesia del Salvador,Iglesias y Ermitas,,,,,False,
+1353,188934,Iglesia de San Pedro,Iglesias y Ermitas,,,,,False,
+1354,188936,Iglesia de la Asunción,Iglesias y Ermitas,,,,,False,
+1355,188938,Iglesia de Santa Eulalia,Iglesias y Ermitas,,,,,False,
+1356,188942,Iglesia de San Juan Bautista,Iglesias y Ermitas,,,,,False,
+1357,188946,Iglesia de Nuestra Señora del Caño,Iglesias y Ermitas,,,,,False,
+1358,188950,Iglesia de San Cristóbal,Iglesias y Ermitas,,,,,False,
+1359,188952,Iglesia de Santiago Apóstol,Iglesias y Ermitas,,,,,False,
+1360,188954,Iglesia de San Félix,Iglesias y Ermitas,,,,,False,
+1361,188956,Iglesia de Santa María,Iglesias y Ermitas,,,,,False,
+1362,189026,Iglesia de San Pedro Apóstol,Iglesias y Ermitas,,,,,False,
+1363,189028,Iglesia de Nuestra Señora de Arbás,Iglesias y Ermitas,,,,,False,
+1364,189030,Iglesia de San Andrés,Iglesias y Ermitas,,,,,False,
+1365,189032,Iglesia de los santos Justo y Pastor,Iglesias y Ermitas,,,,,False,
+1366,189034,Iglesia de San Andrés Apóstol,Iglesias y Ermitas,,,,,False,
+1367,189036,Iglesia de San Julián y Santa Basilisa,Iglesias y Ermitas,,,,,False,
+1368,189038,Iglesia de los santos Facundo y Primitivo,Iglesias y Ermitas,,,,,False,
+1369,189040,Iglesia de Cristo Rey,Iglesias y Ermitas,,,,,False,
+1370,189042,Iglesia de San Salvador,Iglesias y Ermitas,,,,,False,
+1371,189448,La cuenca minera de Fabero,Paraje pintoresco,Paraje Pintoresco,,,,False,
+1372,191926,Iglesia de San Pedro,Iglesias y Ermitas,,,,,False,
+1373,196899,Iglesia de Santo Tomás,Iglesias y Ermitas,Arquitectura Religiosa,,,,False,
+1374,200849,Castro de la Loma,Yacimientos arqueológicos,Yacimiento,,Edad del Hierro,,False,

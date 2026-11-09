@@ -1,4 +1,4 @@
-"""Genera el Data Warehouse de SmartTour (esquema en estrella de reservas).
+"""Genera el Data Warehouse de SmartTour (constelación de reservas, visitas a oficinas y a monumentos).
 
 Lee los CSV limpios de datasets/clean/ y escribe en datasets/dw/:
 
@@ -7,8 +7,14 @@ Lee los CSV limpios de datasets/clean/ y escribe en datasets/dw/:
 - dim_alojamiento.csv    alojamientos del registro de turismo
 - dim_canal.csv          canales de reserva (catálogo fijo)
 - dim_procedencia.csv    origen del cliente (catálogo fijo)
+- dim_monumento.csv      todos los monumentos, con su precio y si son visitables
+- dim_oficina_turismo.csv  todas las oficinas de turismo
 - fact_reservas.csv      reservas FICTICIAS, una fila por reserva, con tres fechas
                          (reserva, entrada y salida) que apuntan a la misma dim_fecha
+- fact_visitas_oficinas.csv    visitas FICTICIAS: una fila por oficina y día abierto
+- fact_visitas_monumentos.csv  visitas FICTICIAS: una fila por monumento visitable y día abierto
+
+Los tres hechos comparten dim_fecha y dim_municipio (dimensiones conformadas).
 
 Las reservas se simulan con una semilla fija, así que cada ejecución produce
 exactamente los mismos datos. La simulación respeta reglas de negocio básicas:
@@ -102,6 +108,21 @@ MULT_NIVEL = {1: 0.8, 2: 0.9, 3: 1.0, 4: 1.3, 5: 1.7}
 MULT_MES = [0.6, 0.6, 0.8, 1.1, 1.0, 1.1, 1.4, 1.6, 1.1, 1.0, 0.7, 0.9]
 MULT_PROVINCIA = {"Segovia": 1.4, "Salamanca": 1.3, "León": 1.2, "Burgos": 1.2, "Ávila": 1.1}
 
+# Monumentos con horario y taquilla: (visitas diarias base, precio de la entrada general €)
+VISITABLES = {
+    "Catedrales": (600, 8.0),
+    "Reales Sitios": (600, 9.0),
+    "Murallas y puertas": (200, 5.0),
+    "Jardín Histórico": (150, 3.0),
+    "Monasterios": (120, 4.0),
+    "Castillos": (110, 5.0),
+    "Palacios": (90, 5.0),
+    "Sinagogas": (80, 3.0),
+}
+# Visitantes diarios base de una oficina según su ámbito
+BASE_OFICINA = {"Regional": 60, "Provincial": 50, "Municipal": 15}
+DIA_CERRADO = {date(2024, 1, 1), date(2024, 12, 25), date(2025, 1, 1), date(2025, 12, 25)}
+
 
 def read(name):
     with open(CLEAN / name, encoding="utf-8", newline="") as f:
@@ -152,6 +173,58 @@ def nivel_categoria(categoria):
     return int(m.group(1)) if m else None
 
 
+def afluencia(f):
+    """Multiplicador de afluencia de un día: mes, crecimiento de 2025, fin de semana y festivos."""
+    d = date.fromisoformat(f[1])
+    w = MULT_MES[d.month - 1] * (1.06 if d.year == 2025 else 1.0)
+    w *= {6: 1.7, 7: 1.4}.get(d.isoweekday(), 1.0)  # sábado y domingo
+    return w * (1.5 if f[10] else 1.0)
+
+
+def build_visitas_oficinas(rng, dias, oficinas, municipios):
+    """Una fila por oficina y día abierto. Las oficinas de municipios pequeños cierran los lunes."""
+    rows = []
+    for oficina_key, ambito, cod_ine in oficinas:
+        mun_key, poblacion, n_monumentos = municipios[cod_ine]
+        # Más visitantes en municipios grandes y con patrimonio, con techo para las capitales
+        base = BASE_OFICINA.get(ambito, 15) * min(max(poblacion / 1000, 1) ** 0.25, 3) * (1 + min(n_monumentos, 40) / 80)
+        cierra_lunes = ambito == "Municipal" and poblacion < 20_000
+        for f in dias:
+            d = date.fromisoformat(f[1])
+            if d in DIA_CERRADO or (cierra_lunes and d.isoweekday() == 1):
+                continue
+            visitas = max(int(base * afluencia(f) * rng.uniform(0.7, 1.3)), 0)
+            grupos = sum(rng.random() < 0.04 for _ in range(visitas // 10))
+            en_grupo = min(sum(rng.randint(8, 25) for _ in range(grupos)), int(visitas * 0.6))
+            consultas = round(visitas * rng.uniform(0.85, 0.97))
+            rows.append([f[0], oficina_key, mun_key, visitas, grupos, consultas, visitas - en_grupo])
+    return rows
+
+
+def build_visitas_monumentos(rng, dias, monumentos, municipios):
+    """Una fila por monumento visitable y día abierto. Todos cierran los lunes salvo las catedrales.
+    Las visitas gratuitas (residentes, menores, días de entrada libre) no pagan entrada."""
+    rows = []
+    for monumento_key, tipo, cod_ine in monumentos:
+        mun_key, poblacion, _ = municipios[cod_ine]
+        base, precio = VISITABLES[tipo]
+        base *= 2.0 if poblacion >= 50_000 else 1.0 if poblacion >= 5_000 else 0.6
+        dia_gratis = 3 if monumento_key % 3 == 0 else None  # un tercio tiene los miércoles gratis
+        for f in dias:
+            d = date.fromisoformat(f[1])
+            if d in DIA_CERRADO or (tipo != "Catedrales" and d.isoweekday() == 1):
+                continue
+            visitas = max(int(base * afluencia(f) * rng.uniform(0.6, 1.4)), 0)
+            if d.isoweekday() == dia_gratis:
+                gratuitas = visitas
+            else:
+                gratuitas = round(visitas * rng.uniform(0.08, 0.2))
+            entradas = visitas - gratuitas
+            importe = round(entradas * precio * rng.uniform(0.8, 1.0), 2)  # parte son entradas reducidas
+            rows.append([f[0], monumento_key, mun_key, visitas, entradas, importe, gratuitas])
+    return rows
+
+
 def main():
     rng = random.Random(SEED)
     OUT.mkdir(parents=True, exist_ok=True)
@@ -163,9 +236,10 @@ def main():
 
     monumentos = Counter(r["cod_ine"] for r in read("monumentos.csv") if r["cod_ine"])
     oficinas = Counter(r["cod_ine"] for r in read("oficinas_turismo.csv") if r["cod_ine"])
-    municipio_key, mun_rows = {}, []
+    municipio_key, mun_rows, mun_info = {}, [], {}
     for key, r in enumerate(read("municipios.csv"), start=1):
         municipio_key[r["cod_ine"]] = key
+        mun_info[r["cod_ine"]] = (key, int(r["poblacion"]), monumentos[r["cod_ine"]])
         mun_rows.append([key, r["cod_ine"], r["municipio"], r["provincia"], r["cod_provincia"],
                          "Castilla y León", int(r["poblacion"]),
                          tramo_poblacion(int(r["poblacion"])), monumentos[r["cod_ine"]],
@@ -247,6 +321,40 @@ def main():
                                 "fecha_salida_key", "alojamiento_key", "municipio_key",
                                 "canal_key", "procedencia_key", "num_huespedes", "num_noches",
                                 "importe_total", "dias_antelacion"], hechos)
+
+    # --- Constelación: dimensiones y hechos de visitas ---
+    # Cada proceso usa su propio generador aleatorio: así las reservas no cambian.
+    mon_rows, visitables = [], []
+    for key, r in enumerate(read("monumentos.csv"), start=1):
+        tipo = r["tipo_monumento"]
+        es_visitable = tipo in VISITABLES
+        mon_rows.append([key, r["id_monumento"], r["nombre"], tipo, r["clasificacion"] or None,
+                         r["tipo_construccion"] or None, r["periodo_historico"] or None,
+                         r["id_bic"] or None, es_visitable,
+                         VISITABLES[tipo][1] if es_visitable else None])
+        if es_visitable and r["cod_ine"]:  # sin municipio no se puede registrar el hecho
+            visitables.append((key, tipo, r["cod_ine"]))
+    write("dim_monumento.csv", ["monumento_key", "id_monumento", "nombre", "tipo_monumento",
+                                "clasificacion", "tipo_construccion", "periodo_historico", "id_bic",
+                                "es_visitable", "precio_entrada"], mon_rows)
+
+    ofi_rows, con_municipio = [], []
+    for key, r in enumerate(read("oficinas_turismo.csv"), start=1):
+        ofi_rows.append([key, r["nombre"], r["tipo_establecimiento"] or None, r["ambito"] or None,
+                         r["localidad"], r["provincia"]])
+        if r["cod_ine"]:
+            con_municipio.append((key, r["ambito"], r["cod_ine"]))
+    write("dim_oficina_turismo.csv", ["oficina_key", "nombre", "tipo_establecimiento", "ambito",
+                                      "localidad", "provincia"], ofi_rows)
+
+    write("fact_visitas_oficinas.csv",
+          ["fecha_key", "oficina_key", "municipio_key", "num_visitas", "num_grupos",
+           "num_consultas", "num_visitas_individuales"],
+          build_visitas_oficinas(random.Random(SEED + 1), entradas, con_municipio, mun_info))
+    write("fact_visitas_monumentos.csv",
+          ["fecha_key", "monumento_key", "municipio_key", "num_visitas", "num_entradas",
+           "importe_entradas", "num_visitas_gratuitas"],
+          build_visitas_monumentos(random.Random(SEED + 2), entradas, visitables, mun_info))
 
 
 if __name__ == "__main__":

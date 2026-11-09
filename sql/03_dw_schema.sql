@@ -1,11 +1,15 @@
--- Data Warehouse de SmartTour: esquema en estrella de reservas (schema "dw").
--- Grano de la tabla de hechos: UNA fila por reserva.
+-- Data Warehouse de SmartTour (schema "dw"): constelación de hechos (fact constellation).
+-- Tres tablas de hechos que comparten dim_fecha y dim_municipio (dimensiones conformadas):
+--   fact_reservas            grano: UNA fila por reserva
+--   fact_visitas_oficinas    grano: UNA fila por oficina de turismo y día
+--   fact_visitas_monumentos  grano: UNA fila por monumento y día
 -- Se puede volver a ejecutar: borra y recrea las tablas (los datos se recargan con 04_dw_load.sql).
 
 CREATE SCHEMA IF NOT EXISTS dw;
 
-DROP TABLE IF EXISTS dw.fact_reservas, dw.dim_fecha, dw.dim_municipio, dw.dim_alojamiento,
-                     dw.dim_canal, dw.dim_procedencia CASCADE;
+DROP TABLE IF EXISTS dw.fact_reservas, dw.fact_visitas_oficinas, dw.fact_visitas_monumentos,
+                     dw.dim_fecha, dw.dim_municipio, dw.dim_alojamiento, dw.dim_canal,
+                     dw.dim_procedencia, dw.dim_monumento, dw.dim_oficina_turismo CASCADE;
 
 -- Clave "inteligente" AAAAMMDD: legible y ordenable.
 -- Calendario 2023-2026: las entradas son de 2024-2025, pero la fecha de reserva puede ser
@@ -99,3 +103,64 @@ CREATE INDEX ON dw.fact_reservas (alojamiento_key);
 CREATE INDEX ON dw.fact_reservas (municipio_key);
 CREATE INDEX ON dw.fact_reservas (canal_key);
 CREATE INDEX ON dw.fact_reservas (procedencia_key);
+
+-- ---------------------------------------------------------------------------
+-- Dimensiones y hechos de visitas
+-- Como dim_alojamiento, las dimensiones de monumento y oficina no tienen clave foránea hacia
+-- municipio: la tabla de hechos guarda las dos claves y la carga garantiza que coinciden.
+-- ---------------------------------------------------------------------------
+
+CREATE TABLE dw.dim_monumento (
+    monumento_key     INTEGER PRIMARY KEY,
+    id_monumento      INTEGER      NOT NULL UNIQUE,  -- clave natural
+    nombre            VARCHAR(200) NOT NULL,
+    tipo_monumento    VARCHAR(50)  NOT NULL,
+    clasificacion     VARCHAR(50),
+    tipo_construccion VARCHAR(100),
+    periodo_historico VARCHAR(200),
+    id_bic            VARCHAR(20),
+    es_visitable      BOOLEAN      NOT NULL,         -- tiene horario y taquilla: recibe hechos
+    precio_entrada    NUMERIC(5,2) CHECK (precio_entrada >= 0),
+    CHECK (es_visitable = (precio_entrada IS NOT NULL))
+);
+
+-- La fuente no trae identificador: solo clave sustituta
+CREATE TABLE dw.dim_oficina_turismo (
+    oficina_key          INTEGER PRIMARY KEY,
+    nombre               VARCHAR(200) NOT NULL,
+    tipo_establecimiento VARCHAR(50),
+    ambito               VARCHAR(20),
+    localidad            VARCHAR(150) NOT NULL,
+    provincia            VARCHAR(20)  NOT NULL
+);
+
+CREATE TABLE dw.fact_visitas_oficinas (
+    fecha_key                INTEGER NOT NULL REFERENCES dw.dim_fecha (fecha_key),
+    oficina_key              INTEGER NOT NULL REFERENCES dw.dim_oficina_turismo (oficina_key),
+    municipio_key            INTEGER NOT NULL REFERENCES dw.dim_municipio (municipio_key),
+    -- Medidas (todas aditivas)
+    num_visitas              INTEGER NOT NULL CHECK (num_visitas >= 0),
+    num_grupos               INTEGER NOT NULL CHECK (num_grupos >= 0),
+    num_consultas            INTEGER NOT NULL CHECK (num_consultas >= 0),
+    num_visitas_individuales INTEGER NOT NULL CHECK (num_visitas_individuales >= 0),
+    PRIMARY KEY (fecha_key, oficina_key),  -- el grano: una oficina, un día
+    CHECK (num_consultas <= num_visitas AND num_visitas_individuales <= num_visitas)
+);
+
+CREATE TABLE dw.fact_visitas_monumentos (
+    fecha_key             INTEGER NOT NULL REFERENCES dw.dim_fecha (fecha_key),
+    monumento_key         INTEGER NOT NULL REFERENCES dw.dim_monumento (monumento_key),
+    municipio_key         INTEGER NOT NULL REFERENCES dw.dim_municipio (municipio_key),
+    -- Medidas (todas aditivas)
+    num_visitas           INTEGER       NOT NULL CHECK (num_visitas >= 0),
+    num_entradas          INTEGER       NOT NULL CHECK (num_entradas >= 0),
+    importe_entradas      NUMERIC(12,2) NOT NULL CHECK (importe_entradas >= 0),
+    num_visitas_gratuitas INTEGER       NOT NULL CHECK (num_visitas_gratuitas >= 0),
+    PRIMARY KEY (fecha_key, monumento_key),  -- el grano: un monumento, un día
+    CHECK (num_visitas = num_entradas + num_visitas_gratuitas)
+);
+
+CREATE INDEX ON dw.fact_visitas_oficinas (oficina_key);
+CREATE INDEX ON dw.fact_visitas_oficinas (municipio_key);
+CREATE INDEX ON dw.fact_visitas_monumentos (monumento_key);
+CREATE INDEX ON dw.fact_visitas_monumentos (municipio_key);
